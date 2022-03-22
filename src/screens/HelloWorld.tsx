@@ -20,12 +20,15 @@ export const HelloWorld = observer(() => {
           Learn React
         </a>
         <p color="white">{`Count: ${count}`}</p>
-        <button className="side-by-side" type="button" onClick={increment}>
-          Increment
-        </button>
-        <button className="side-by-side" type="button" onClick={decrement}>
-          Decrement
-        </button>
+        <div>
+          <button className="side-by-side" type="button" onClick={increment}>
+            Increment
+          </button>
+          {" "}
+          <button className="side-by-side" type="button" onClick={decrement}>
+            Decrement
+          </button>
+        </div>
       </header>
     </div>
   );
