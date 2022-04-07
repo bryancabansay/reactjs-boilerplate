@@ -1,29 +1,19 @@
-import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { RootStore, RootStoreProvider, setupRootStore } from "./models";
-import { HelloWorld } from "./screens";
+import React, { useEffect } from 'react';
+import { SignIn } from "./pages/SignIn";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Registration } from './pages/Registration';
 
-export default function App() {
-  const [rootStore, setRootStore] = useState<RootStore | undefined>(undefined);
-  // Kick off initial async loading actions, like loading fonts and RootStore
-  useEffect(() => {
-    (async () => {
-      setupRootStore().then(setRootStore);
-    })();
-  }, []);
-
-  // Before we show the app, we have to wait for our state to be ready.
-  // In the meantime, don't render anything.
-  // Todo: We can show, another page that says it's still loading
-  if (!rootStore) return null;
-
+const App = () => {
   return (
-    <RootStoreProvider value={rootStore}>
+    <div>
       <BrowserRouter>
         <Routes>
-          <Route path="*" element={<HelloWorld />} />
+          <Route path='/' element={<SignIn />}/>
+          <Route path='/Registration' element={<Registration />}/>
         </Routes>
       </BrowserRouter>
-    </RootStoreProvider>
-  );
+    </div>
+  )
 }
+
+export default App;
