@@ -3,16 +3,17 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { bgcolor } from '@mui/system';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Registration } from './Registration';
+import {
+    BrowserRouter as Router,
+    Link,
+} from "react-router-dom";
+
 
 
 //For editing default colors
@@ -24,9 +25,10 @@ const theme = createTheme({
             light: '#fc636b',
             dark: '#990033',
         },
-
-    }
+    },
 });
+
+
 
 export const SignIn: React.FC = () => {
 
@@ -39,6 +41,7 @@ export const SignIn: React.FC = () => {
             password: data.get('password'),
         });
     };
+
 
     return (
         <ThemeProvider theme={theme}>
@@ -92,26 +95,32 @@ export const SignIn: React.FC = () => {
                         />
 
                         <Button
+                            component={Link}
+                            to='/Menu'
                             type="submit"
                             fullWidth
                             variant="contained"
-                            sx={{ mt: 3, mb: 2, bgcolor: '#A72A17' }}
+                            sx={{ mt: 3, mb: 2, bgcolor: '#A72A17', borderRadius: 20 }}
                         >
                             Login
                         </Button>
                         <Grid container>
                             <Grid item xs>
-                                <Link href="#" variant="body2">
-                                    Forgot password?
+                                <Link to={''}>
+                                    <Typography variant="body2">
+                                        Forgot password?
+                                    </Typography>
                                 </Link>
                             </Grid>
                             <Grid item>
                                 <nav>
-                                <Link href="./Registration" variant="body2" >
-                                    {"Sign Up"}
-                                </Link>
-                                </nav>                               
-                                
+                                    <Link to={"./Registration"}>
+                                        <Typography variant="body2">
+                                            {"Sign Up"}
+                                        </Typography>
+                                    </Link>
+                                </nav>
+
                             </Grid>
                         </Grid>
                     </Box>
