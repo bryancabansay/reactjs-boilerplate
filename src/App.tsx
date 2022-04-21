@@ -1,26 +1,28 @@
-import React, { useEffect } from 'react';
 import { SignIn } from "./pages/SignIn";
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
-import { Registration } from './pages/Registration';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Menu from './pages/Menu';
 import Table from './components/Table';
 import Extra from './components/Extra';
-import ApproveCashIn from './modals/ApproveCashIn';
-import DenyCashIn from './modals/DenyCashIn';
+import Profile from './pages/Profile';
+import ChangePassword from "./pages/ChangePassword";
+import { Registration } from "./pages/Registration";
+import Faq from "./pages/Faq";
+import ContactUs from "./pages/ContactUs";
 
-const App = () => {  
+const App = () => {
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<SignIn />}/>
-          <Route path='/Registration' element={<Registration />}/>
-          <Route path='/Menu' element={<Menu />}>
-            <Route path='table'  element={<Table />}/>
-            <Route path='extra'  element={<Extra />}>
-              <Route path='approve'  element={<ApproveCashIn />}/>
-              <Route path='deny'  element={<DenyCashIn />}/>
-            </Route>
+          <Route path='/Login' element={<SignIn />}>
+            <Route path='registration' element={<Registration />} />
+          </Route>
+          <Route path='/' element={<Menu />}>
+            <Route  path='profile' element={<Profile />}/>            
+            <Route path='table' element={<Table />} />
+            <Route path='extra' element={<Extra />}/>
+            <Route path='faq' element={<Faq />}/>
+            <Route path='contactUs' element={<ContactUs />}/>
           </Route>
         </Routes>
       </BrowserRouter>

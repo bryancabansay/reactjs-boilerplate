@@ -7,18 +7,13 @@ import Button from '@mui/material/Button';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import Checkbox from '@mui/material/Checkbox';
 import InputLabel from '@mui/material/InputLabel';
-import Container from '@mui/material/Container';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Divider, FormControl, MenuItem, Select, SelectChangeEvent } from '@mui/material';
-
-
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
 
 const theme = createTheme({

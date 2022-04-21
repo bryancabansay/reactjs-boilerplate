@@ -6,8 +6,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Title from './Title';
 
-import { Link, Outlet } from 'react-router-dom';
-import { Button } from '@mui/material';
+import ApproveCashIn from '../modals/ApproveCashIn';
+import DenyCashIn from '../modals/DenyCashIn';
 
 //TEST PAGE ONLY
 
@@ -89,7 +89,8 @@ export default function Orders() {
           ))}
         </TableBody>
       </Table>
-      <Outlet/>
+      <ApproveCashIn/>
+      <DenyCashIn/>
     </React.Fragment>
   );
 }

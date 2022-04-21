@@ -1,150 +1,259 @@
 import * as React from 'react';
-import { styled, createTheme, ThemeProvider, makeStyles, ThemeOptions } from '@mui/material/styles';
+import { styled, createTheme, ThemeProvider, } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import { mainListItems } from '../components/ListItems';
 import { Outlet, Link } from "react-router-dom";
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import LocalAtmIcon from '@mui/icons-material/LocalAtm';
+import RestorePageIcon from '@mui/icons-material/RestorePage';
+import StorefrontIcon from '@mui/icons-material/Storefront';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import AssessmentIcon from '@mui/icons-material/Assessment';
+import QuizIcon from '@mui/icons-material/Quiz';
+import ContactlessIcon from '@mui/icons-material/Contactless';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import { ListItemButton, ListItemIcon, ListItemText, Collapse, Drawer, AppBar } from '@mui/material';
 
 
-const drawerWidth: number = 240;
+const drawerWidth: number = 290;
 
-interface AppBarProps extends MuiAppBarProps {
-    open?: boolean;
-}
 
 const theme = createTheme({
     palette: {
         mode: "light",
         primary: {
             main: '#a72a17',
+            contrastText: 'white',
         },
+        secondary: {
+            main: '#FFFFFF',
+        }
 
+    },
+    components: {
+        MuiDrawer: {
+            styleOverrides: {
+                paper: {
+                    background: "#a72a17",
+                }
+            }
+        }
     }
 });
 
 
-const AppBar = styled(MuiAppBar, {
-    shouldForwardProp: (prop) => prop !== 'open',
-})<AppBarProps>(({ theme, open }) => ({
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['width', 'margin'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-    }),
-    ...(open && {
-        marginLeft: drawerWidth,
-        width: `calc(100% - ${drawerWidth}px)`,
-        transition: theme.transitions.create(['width', 'margin'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    }),
-}));
-
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-    ({ theme, open }) => ({
-        '& .MuiDrawer-paper': {
-            position: 'relative',
-            whiteSpace: 'nowrap',
-            width: drawerWidth,
-            transition: theme.transitions.create('width', {
-                easing: theme.transitions.easing.sharp,
-                duration: theme.transitions.duration.enteringScreen,
-            }),
-            boxSizing: 'border-box',
-            ...(!open && {
-                overflowX: 'hidden',
-                transition: theme.transitions.create('width', {
-                    easing: theme.transitions.easing.sharp,
-                    duration: theme.transitions.duration.leavingScreen,
-                }),
-                width: theme.spacing(7),
-                [theme.breakpoints.up('sm')]: {
-                    width: theme.spacing(9),
-                },
-            }),
-        },
-    }),
-);
-
-const mdTheme = createTheme();
-
 function DashboardContent() {
+    const [selectedIndex, setSelectedIndex] = React.useState(1);
     const [open, setOpen] = React.useState(true);
-    const toggleDrawer = () => {
-        setOpen(!open);
+    const [dropdown, setDropdown] = React.useState(false);
+
+    const handleListItemClick = (
+        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+        index: number,
+    ) => {
+        setSelectedIndex(index);
     };
+
+
 
     return (
         <ThemeProvider theme={theme}>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
-                <AppBar position="absolute" open={open} color='primary'>
-                    <Toolbar
-                        sx={{
-                            pr: '24px', // keep right padding when drawer closed
-                        }}
-                    >
-                        <IconButton
-                            edge="start"
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={toggleDrawer}
-                            sx={{
-                                marginRight: '36px',
-                                ...(open && { display: 'none' }),
-                            }}
-                        >
-                            <MenuIcon />
-                        </IconButton>
+                <AppBar position="fixed" color='primary' sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+                    <Toolbar>
                         <Typography
                             component="h1"
                             variant="h6"
-                            color="inherit"
+                            color="white"
                             noWrap
                             sx={{ flexGrow: 1 }}
                         >
                             Daltan
                         </Typography>
-                        <IconButton color="inherit">
-                            <Badge badgeContent={4} color="secondary">
-                                <NotificationsIcon />
-                            </Badge>
-                        </IconButton>
                     </Toolbar>
                 </AppBar>
-                <Drawer variant="permanent" open={open}>
-                    <Toolbar
-                        sx={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'flex-end',
-                            px: [1],
-                            bgcolor: '#A72A17',
-                        }}
-                    >
-                        <IconButton onClick={toggleDrawer}>
-                            <ChevronLeftIcon />
-                        </IconButton>
-                    </Toolbar>
-                    <Divider />
-                    <List component="nav" color='primary'>
-                        {mainListItems}
-                        <Divider sx={{ my: 1 }} />
+                <Drawer variant="permanent"
+                    sx={{
+                        width: drawerWidth,
+                        flexShrink: 0,
+                        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+                    }}>
+                    <Toolbar />
+
+                    {/* LIST for the MENU */}
+                    <List component="nav" sx={{ p: 1 }}>
+                        <ListItemButton component={Link} to='profile'>
+                            <ListItemIcon>
+                                <AccountCircleIcon style={{ fontSize: 40 }} color="secondary" />
+                            </ListItemIcon>
+                            <ListItemText secondary={
+                                <React.Fragment>
+                                    <Typography
+                                        variant="body2"
+                                        color="secondary"
+                                        fontWeight={'bold'}
+                                    >
+                                        Daltan Super Admin
+                                    </Typography>
+                                    
+                                </React.Fragment>
+                            }>
+                                <Typography color="secondary">
+                                    Profile
+                                </Typography>
+                            </ListItemText>
+                        </ListItemButton>
+                        <ListItemButton component={Link} to='table'>
+                            <ListItemIcon>
+                                <LocalAtmIcon color="secondary" />
+                            </ListItemIcon>
+                            <ListItemText>
+                                <Typography color="secondary">
+                                    Cash In Request
+                                </Typography>
+                            </ListItemText>
+                        </ListItemButton>
+                        <ListItemButton component={Link} to='extra'>
+                            <ListItemIcon>
+                                <ReceiptLongIcon color="secondary" />
+                            </ListItemIcon>
+                            <ListItemText >
+                                <Typography color="secondary">
+                                    Cash Out Reqeust
+                                </Typography>
+                            </ListItemText>
+                        </ListItemButton>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <RestorePageIcon color="secondary" />
+                            </ListItemIcon>
+                            <ListItemText>
+                                <Typography color="secondary">
+                                    Transaction History
+                                </Typography>
+                            </ListItemText>
+                        </ListItemButton>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <StorefrontIcon color="secondary" />
+                            </ListItemIcon>
+                            <ListItemText>
+                                <Typography color="secondary">
+                                    Merchants
+                                </Typography>
+                            </ListItemText>
+                        </ListItemButton>
+                        <ListItemButton onClick={() => setDropdown(!dropdown)}>
+                            <ListItemIcon>
+                                <PeopleAltIcon color="secondary" />
+                            </ListItemIcon>
+                            <ListItemText>
+                                <Typography color="secondary">
+                                    Members
+                                </Typography>
+                            </ListItemText>
+                            {dropdown ? <ExpandLess color="secondary" /> : <ExpandMore color="secondary" />}
+                        </ListItemButton>
+                        <Collapse in={dropdown} timeout="auto" unmountOnExit>
+                            <List component="div" disablePadding>
+                                <ListItemButton sx={{ pl: 4 }}>
+                                    <ListItemIcon>
+                                        <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
+                                    </ListItemIcon>
+                                    <ListItemText sx={{ ml: -2 }}>
+                                        <Typography variant="body2" color="secondary">
+                                            Merchant Members
+                                        </Typography>
+                                    </ListItemText>
+                                </ListItemButton>
+                                <ListItemButton sx={{ pl: 4 }}>
+                                    <ListItemIcon>
+                                        <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
+                                    </ListItemIcon>
+                                    <ListItemText sx={{ ml: -2 }}>
+                                        <Typography variant="body2" color="secondary">
+                                            User Registration
+                                        </Typography>
+                                    </ListItemText>
+                                </ListItemButton>
+                            </List>
+                        </Collapse>
+                        <ListItemButton onClick={() => setDropdown(!dropdown)}>
+                            <ListItemIcon>
+                                <AssessmentIcon color="secondary" />
+                            </ListItemIcon>
+                            <ListItemText>
+                                <Typography color="secondary">
+                                    Reports
+                                </Typography>
+                            </ListItemText>
+                            {dropdown ? <ExpandLess color="secondary" /> : <ExpandMore color="secondary" />}
+                        </ListItemButton>
+                        <Collapse in={dropdown} timeout="auto" unmountOnExit>
+                            <List component="div" disablePadding>
+                                <ListItemButton sx={{ pl: 4 }}>
+                                    <ListItemIcon>
+                                        <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
+                                    </ListItemIcon>
+                                    <ListItemText sx={{ ml: -2 }}>
+                                        <Typography variant="body2" color="secondary">
+                                            Cash In Request Report
+                                        </Typography>
+                                    </ListItemText>
+                                </ListItemButton>
+                                <ListItemButton sx={{ pl: 4 }}>
+                                    <ListItemIcon>
+                                        <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
+                                    </ListItemIcon>
+                                    <ListItemText sx={{ ml: -2 }}>
+                                        <Typography variant="body2" color="secondary">
+                                            Cash Out Request Report
+                                        </Typography>
+                                    </ListItemText>
+                                </ListItemButton>
+                                <ListItemButton sx={{ pl: 4 }} >
+                                    <ListItemIcon>
+                                        <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
+                                    </ListItemIcon>
+                                    <ListItemText sx={{ ml: -2 }}>
+                                        <Typography variant="body2" color="secondary">
+                                            Volume of Transactions Report
+                                        </Typography>
+                                    </ListItemText>
+                                </ListItemButton>
+                            </List>
+                        </Collapse>
+
+                        <Divider variant='middle' sx={{ my: 3 }} />
+
+                        <ListItemButton component={Link} to='faq'>
+                            <ListItemIcon>
+                                <QuizIcon color="secondary" />
+                            </ListItemIcon>
+                            <ListItemText>
+                                <Typography color="secondary">
+                                    FAQ
+                                </Typography>
+                            </ListItemText>
+                        </ListItemButton>
+                        <ListItemButton component={Link} to='contactUs'>
+                            <ListItemIcon>
+                                <ContactlessIcon color="secondary" />
+                            </ListItemIcon>
+                            <ListItemText>
+                                <Typography color="secondary">
+                                    Contact Us
+                                </Typography>
+                            </ListItemText>
+                        </ListItemButton>
                     </List>
                 </Drawer>
 
@@ -162,19 +271,10 @@ function DashboardContent() {
                     }}
                 >
                     <Toolbar />
-                    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-                        <Grid container spacing={3}>
-                            {/* Recent Orders */}
-                            <Grid item xs={12}>
-                                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                                    <Outlet/>
-                                </Paper>
-                            </Grid>
-                        </Grid>
-                    </Container>
+                    <Outlet />
                 </Box>
             </Box>
-        </ThemeProvider>
+        </ThemeProvider >
     );
 }
 

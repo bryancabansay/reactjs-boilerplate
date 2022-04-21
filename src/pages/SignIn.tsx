@@ -8,11 +8,12 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { bgcolor } from '@mui/system';
+import Toolbar from '@mui/material/Toolbar';
 import {
     BrowserRouter as Router,
     Link,
 } from "react-router-dom";
+import { AppBar } from '@mui/material';
 
 
 
@@ -47,9 +48,25 @@ export const SignIn: React.FC = () => {
         <ThemeProvider theme={theme}>
             <Grid container justifyContent="center">
                 <CssBaseline />
+                <AppBar
+                    position="absolute"
+
+                    elevation={0}
+                    sx={{
+                        position: 'relative',
+                        background: '#A72A17',
+                        borderBottom: (t) => `1px solid ${t.palette.divider}`,
+                    }}
+                >
+                    <Toolbar>
+                        <Typography variant="h6" color="inherit" noWrap>
+
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
                 <Box
                     sx={{
-                        marginTop: 8,
+                        marginTop: 5,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
@@ -79,8 +96,7 @@ export const SignIn: React.FC = () => {
                             label="Username"
                             name="username"
                             autoComplete="username"
-                            autoFocus
-                            helperText="Incorrect username."
+                            autoFocus                            
                         />
                         <TextField
                             margin="normal"
@@ -96,7 +112,7 @@ export const SignIn: React.FC = () => {
 
                         <Button
                             component={Link}
-                            to='/Menu'
+                            to='/'
                             type="submit"
                             fullWidth
                             variant="contained"
@@ -114,7 +130,7 @@ export const SignIn: React.FC = () => {
                             </Grid>
                             <Grid item>
                                 <nav>
-                                    <Link to={"./Registration"}>
+                                    <Link to={"registration"}>
                                         <Typography variant="body2">
                                             {"Sign Up"}
                                         </Typography>
