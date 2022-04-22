@@ -131,7 +131,7 @@ function DashboardContent() {
                                 </Typography>
                             </ListItemText>
                         </ListItemButton>
-                        <ListItemButton>
+                        <ListItemButton component={Link} to='transactionHistory'>
                             <ListItemIcon>
                                 <RestorePageIcon color="secondary" />
                             </ListItemIcon>

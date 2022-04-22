@@ -9,6 +9,7 @@ import ContactUs from "./pages/ContactUs";
 import CashIn from "./pages/Cash In Request/CashIn";
 import CashOut from "./pages/Cash Out Reqeust/CashOut";
 import Merchants from "./pages/Merchants/Merchants";
+import TransactionHistory from "./pages/Transaction History/TransactionHistory";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
             <Route path='profile' element={<Profile />}/>            
             <Route path='cashIn' element={<CashIn />} />
             <Route path='cashOut' element={<CashOut />} />
+            <Route path='transactionHistory' element={<TransactionHistory />} />
             <Route path='merchants' element={<Merchants />} />
             <Route path='extra' element={<Extra />}/>
             <Route path='faq' element={<Faq />}/>
