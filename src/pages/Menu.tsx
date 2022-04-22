@@ -111,7 +111,7 @@ function DashboardContent() {
                                 </Typography>
                             </ListItemText>
                         </ListItemButton>
-                        <ListItemButton component={Link} to='table'>
+                        <ListItemButton component={Link} to='cashIn'>
                             <ListItemIcon>
                                 <LocalAtmIcon color="secondary" />
                             </ListItemIcon>
@@ -121,7 +121,7 @@ function DashboardContent() {
                                 </Typography>
                             </ListItemText>
                         </ListItemButton>
-                        <ListItemButton component={Link} to='extra'>
+                        <ListItemButton component={Link} to='cashOut'>
                             <ListItemIcon>
                                 <ReceiptLongIcon color="secondary" />
                             </ListItemIcon>
