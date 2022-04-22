@@ -141,7 +141,7 @@ function DashboardContent() {
                                 </Typography>
                             </ListItemText>
                         </ListItemButton>
-                        <ListItemButton>
+                        <ListItemButton component={Link} to='merchants'>
                             <ListItemIcon>
                                 <StorefrontIcon color="secondary" />
                             </ListItemIcon>
