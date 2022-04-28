@@ -1,12 +1,13 @@
 import * as React from 'react';
-import { styled, createTheme, ThemeProvider, } from '@mui/material/styles';
+import { createTheme, ThemeProvider, } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
 import { Outlet, Link } from "react-router-dom";
+import { Drawer, AppBar, Collapse, Divider, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { ListItems } from './ListItems';
+
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import RestorePageIcon from '@mui/icons-material/RestorePage';
@@ -19,7 +20,6 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import { ListItemButton, ListItemIcon, ListItemText, Collapse, Drawer, AppBar } from '@mui/material';
 
 
 const drawerWidth: number = 290;
@@ -50,6 +50,7 @@ const theme = createTheme({
 
 
 function DashboardContent() {
+
     const [selectedIndex, setSelectedIndex] = React.useState(1);
     const [open, setOpen] = React.useState(true);
     const [dropdown, setDropdown] = React.useState(false);
@@ -60,8 +61,6 @@ function DashboardContent() {
     ) => {
         setSelectedIndex(index);
     };
-
-
 
     return (
         <ThemeProvider theme={theme}>
@@ -103,7 +102,7 @@ function DashboardContent() {
                                     >
                                         Daltan Super Admin
                                     </Typography>
-                                    
+
                                 </React.Fragment>
                             }>
                                 <Typography color="secondary">
@@ -164,7 +163,7 @@ function DashboardContent() {
                         </ListItemButton>
                         <Collapse in={dropdown} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                                <ListItemButton sx={{ pl: 4 }}>
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to='merchantMembers'>
                                     <ListItemIcon>
                                         <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
                                     </ListItemIcon>

@@ -109,7 +109,7 @@ export default function CashOut() {
                     </Grid>
                     <Grid item xs={1} />
                     <Grid item xs={2.5} style={{ display: "flex", gap: "1rem", marginRight: 5 }}>
-                        <Typography noWrap width={80}>
+                        <Typography noWrap width={80} paddingTop={1}>
                             Sort by:
                         </Typography>
                         <FormControl fullWidth>
@@ -122,7 +122,7 @@ export default function CashOut() {
                         </FormControl>
                     </Grid>
                     <Grid item xs={2.5} style={{ display: "flex", gap: "1rem", marginRight: 5 }}>
-                        <Typography>
+                        <Typography paddingTop={1}>
                             Merchant:
                         </Typography>
                         <FormControl fullWidth>
@@ -135,7 +135,7 @@ export default function CashOut() {
                         </FormControl>
                     </Grid>
                     <Grid item xs={2.5} style={{ display: "flex", gap: "1rem" }}>
-                        <Typography>
+                        <Typography paddingTop={1}>
                             Duration:
                         </Typography>
                         <FormControl fullWidth>
