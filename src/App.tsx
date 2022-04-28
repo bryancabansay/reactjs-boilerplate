@@ -15,6 +15,7 @@ import AddMerchant from "./pages/Merchants/AddMerchant";
 import MerchantDetails from "./pages/Merchants/MerchantDetails";
 import EditMerchant from "./pages/Merchants/EditMerchant";
 import MerchantMembers from "./pages/Members/MerchantMembers";
+import UserList from "./pages/Members/UserList";
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
               <Route path='editMerchant' element={<EditMerchant />} />
             </Route>
             <Route path='merchantMembers' element={<MerchantMembers />} />
+            <Route path='userList' element={<UserList/>} />
             <Route path='extra' element={<Extra />}/>
             <Route path='faq' element={<Faq />}/>
             <Route path='contactUs' element={<ContactUs />}/>
