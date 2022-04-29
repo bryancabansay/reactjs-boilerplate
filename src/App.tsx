@@ -16,15 +16,15 @@ import MerchantDetails from "./pages/Merchants/MerchantDetails";
 import EditMerchant from "./pages/Merchants/EditMerchant";
 import MerchantMembers from "./pages/Members/MerchantMembers";
 import UserList from "./pages/Members/UserList";
+import UserDetails from "./pages/Members/UserDetails";
 
 const App = () => {
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path='/Login' element={<SignIn />}>
-            <Route path='registration' element={<Registration />} />
-          </Route>
+          <Route path='/Login' element={<SignIn />}/>
+          <Route path='/Registration' element={<Registration />} />
           <Route path='/' element={<Menu />}>
             <Route path='profile' element={<Profile />}>
               <Route path='changePassword' element={<ChangePassword />} />
@@ -38,7 +38,10 @@ const App = () => {
               <Route path='editMerchant' element={<EditMerchant />} />
             </Route>
             <Route path='merchantMembers' element={<MerchantMembers />} />
-            <Route path='userList' element={<UserList/>} />
+            <Route path='userList' element={<UserList/>}>
+               
+            </Route>
+            <Route path='userDetails' element={<UserDetails/>}/> 
             <Route path='extra' element={<Extra />}/>
             <Route path='faq' element={<Faq />}/>
             <Route path='contactUs' element={<ContactUs />}/>

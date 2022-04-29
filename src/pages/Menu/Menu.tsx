@@ -6,8 +6,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Outlet, Link } from "react-router-dom";
 import { Drawer, AppBar, Collapse, Divider, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
-import { ListItems } from './ListItems';
 
+//Icons
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import RestorePageIcon from '@mui/icons-material/RestorePage';
@@ -53,7 +53,8 @@ function DashboardContent() {
 
     const [selectedIndex, setSelectedIndex] = React.useState(1);
     const [open, setOpen] = React.useState(true);
-    const [dropdown, setDropdown] = React.useState(false);
+    const [dropMembers, setdropMembers] = React.useState(false);
+    const [dropReport, setdropReport] = React.useState(false);
 
     const handleListItemClick = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -150,7 +151,7 @@ function DashboardContent() {
                                 </Typography>
                             </ListItemText>
                         </ListItemButton>
-                        <ListItemButton onClick={() => setDropdown(!dropdown)}>
+                        <ListItemButton onClick={() => setdropMembers(!dropMembers)}>
                             <ListItemIcon>
                                 <PeopleAltIcon color="secondary" />
                             </ListItemIcon>
@@ -159,9 +160,9 @@ function DashboardContent() {
                                     Members
                                 </Typography>
                             </ListItemText>
-                            {dropdown ? <ExpandLess color="secondary" /> : <ExpandMore color="secondary" />}
+                            {dropMembers ? <ExpandLess color="secondary" /> : <ExpandMore color="secondary" />}
                         </ListItemButton>
-                        <Collapse in={dropdown} timeout="auto" unmountOnExit>
+                        <Collapse in={dropMembers} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
                                 <ListItemButton sx={{ pl: 4 }} component={Link} to='merchantMembers'>
                                     <ListItemIcon>
@@ -185,7 +186,7 @@ function DashboardContent() {
                                 </ListItemButton>
                             </List>
                         </Collapse>
-                        <ListItemButton onClick={() => setDropdown(!dropdown)}>
+                        <ListItemButton onClick={() => setdropReport(!dropReport)}>
                             <ListItemIcon>
                                 <AssessmentIcon color="secondary" />
                             </ListItemIcon>
@@ -194,11 +195,11 @@ function DashboardContent() {
                                     Reports
                                 </Typography>
                             </ListItemText>
-                            {dropdown ? <ExpandLess color="secondary" /> : <ExpandMore color="secondary" />}
+                            {dropReport ? <ExpandLess color="secondary" /> : <ExpandMore color="secondary" />}
                         </ListItemButton>
-                        <Collapse in={dropdown} timeout="auto" unmountOnExit>
+                        <Collapse in={dropReport} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                                <ListItemButton sx={{ pl: 4 }}>
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to='userDetails'>
                                     <ListItemIcon>
                                         <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
                                     </ListItemIcon>
