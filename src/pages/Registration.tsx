@@ -131,7 +131,7 @@ export const Registration: React.FC = () => {
                 </Grid>
                 <Grid item xs={12}>
                   <FormControl fullWidth>
-                    <InputLabel>Gender</InputLabel>
+                    <InputLabel required>Gender</InputLabel>
                     <Select
                       required
                       name="gender"

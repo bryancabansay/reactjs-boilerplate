@@ -20,59 +20,38 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 function createData(
     dateAndTime: string,
     referenceNumber: number,
-    type: string,    
+    type: string,
     member: string,
     amount: string,
-    actions: any,
 ) {
-    return { dateAndTime, referenceNumber, type, member, amount, actions };
+    return { dateAndTime, referenceNumber, type, member, amount};
 }
 
 const rows = [
     createData(
         '2022-02-28 | 05:23:10 PM',
         938506936,
-        'Cash In',        
+        'Cash In',
         'Ada Lovelace',
-        '100.00',
-        (<React.Fragment>
-            <IconButton>
-                <VisibilityIcon />
-            </IconButton>
-        </React.Fragment>)),
-        createData(
-            '2022-12-23 | 05:33:20 PM',
-            306739458,
-            'Pay Bills',  
-            'Grace Hopper',
-            '1,000.00',
-            (<React.Fragment>
-                <IconButton>
-                    <VisibilityIcon />
-                </IconButton>
-            </React.Fragment>)),
-        createData(
-            '2022-08-21 | 09:34:80 PM',
-            194739794,
-            'Cash In',  
-            'Margaret Hamilton',
-            '2,000.00',
-            (<React.Fragment>
-                <IconButton>
-                    <VisibilityIcon />
-                </IconButton>
-            </React.Fragment>)),
-        createData(
-            '2022-03-13 | 11:56:30 PM',
-            672938572,
-            'Pay Bills',  
-            'Joan Clarke',
-            '500.00',
-            (<React.Fragment>
-                <IconButton>
-                    <VisibilityIcon />
-                </IconButton>
-            </React.Fragment>)),
+        '100.00'),
+    createData(
+        '2022-12-23 | 05:33:20 PM',
+        306739458,
+        'Pay Bills',
+        'Grace Hopper',
+        '1,000.00'),
+    createData(
+        '2022-08-21 | 09:34:80 PM',
+        194739794,
+        'Cash In',
+        'Margaret Hamilton',
+        '2,000.00'),
+    createData(
+        '2022-03-13 | 11:56:30 PM',
+        672938572,
+        'Pay Bills',
+        'Joan Clarke',
+        '500.00'),
 ];
 
 
@@ -158,7 +137,7 @@ export default function CashOut() {
                             4
                         </Typography>
                     </Grid>
-                   
+
                     <Grid item xs={12} sx={{ mb: 2 }}>
                         <TableContainer component={Paper}>
                             <Table>
@@ -185,7 +164,13 @@ export default function CashOut() {
                                             <TableCell align='center'>{row.type}</TableCell>
                                             <TableCell align='center'>{row.member}</TableCell>
                                             <TableCell align='center'>{`PHP ${row.amount}`}</TableCell>
-                                            <TableCell align='center'>{row.actions}</TableCell>
+                                            <TableCell align='center'>
+                                                <React.Fragment>
+                                                    <IconButton>
+                                                        <VisibilityIcon />
+                                                    </IconButton>
+                                                </React.Fragment>
+                                            </TableCell>
                                         </TableRow>
                                     ))}
                                 </TableBody>

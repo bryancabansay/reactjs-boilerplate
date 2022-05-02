@@ -24,9 +24,8 @@ function createData(
     member: string,
     amount: string,
     merchant: string,
-    actions: any,
 ) {
-    return { refNo, dateAndTime, mobileNumber, member, amount, merchant, actions };
+    return { refNo, dateAndTime, mobileNumber, member, amount, merchant};
 }
 
 const rows = [
@@ -36,72 +35,28 @@ const rows = [
         9274681249,
         'Ada Lovelace',
         '100.00',
-        'Core Pacific',
-        (<React.Fragment>
-            <IconButton>
-                <CheckBoxIcon color='success' />
-            </IconButton>
-            <IconButton>
-                <DoDisturbOnIcon color='error' />
-            </IconButton>
-            <IconButton>
-                <VisibilityIcon />
-            </IconButton>
-        </React.Fragment>)),
-        createData(
-            123984573,
-            '2022-12-23 | 05:33:20 PM',
-            9123652123,
-            'Grace Hopper',
-            '1,000.00',
-            'Regan',
-            (<React.Fragment>
-                <IconButton>
-                    <CheckBoxIcon color='success' />
-                </IconButton>
-                <IconButton>
-                    <DoDisturbOnIcon color='error' />
-                </IconButton>
-                <IconButton>
-                    <VisibilityIcon />
-                </IconButton>
-            </React.Fragment>)),
-        createData(
-            824567364,
-            '2022-08-21 | 09:34:80 PM',
-            9567834524,
-            'Margaret Hamilton',
-            '2,000.00',
-            'Core Pacific',
-            (<React.Fragment>
-                <IconButton>
-                    <CheckBoxIcon color='success' />
-                </IconButton>
-                <IconButton>
-                    <DoDisturbOnIcon color='error' />
-                </IconButton>
-                <IconButton>
-                    <VisibilityIcon />
-                </IconButton>
-            </React.Fragment>)),
-        createData(
-            897290684,
-            '2022-03-13 | 11:56:30 PM',
-            9572784523,
-            'Joan Clarke',
-            '500.00',
-            'Regan',
-            (<React.Fragment>
-                <IconButton>
-                    <CheckBoxIcon color='success' />
-                </IconButton>
-                <IconButton>
-                    <DoDisturbOnIcon color='error' />
-                </IconButton>
-                <IconButton>
-                    <VisibilityIcon />
-                </IconButton>
-            </React.Fragment>)),
+        'Core Pacific'),
+    createData(
+        123984573,
+        '2022-12-23 | 05:33:20 PM',
+        9123652123,
+        'Grace Hopper',
+        '1,000.00',
+        'Regan'),
+    createData(
+        824567364,
+        '2022-08-21 | 09:34:80 PM',
+        9567834524,
+        'Margaret Hamilton',
+        '2,000.00',
+        'Core Pacific'),
+    createData(
+        897290684,
+        '2022-03-13 | 11:56:30 PM',
+        9572784523,
+        'Joan Clarke',
+        '500.00',
+        'Regan'),
 ];
 
 
@@ -223,7 +178,19 @@ export default function CashIn() {
                                             <TableCell align='center'>{row.member}</TableCell>
                                             <TableCell align='center'>{`PHP ${row.amount}`}</TableCell>
                                             <TableCell align='center'>{row.merchant}</TableCell>
-                                            <TableCell align='center'>{row.actions}</TableCell>
+                                            <TableCell align='center'>
+                                                <React.Fragment>
+                                                    <IconButton>
+                                                        <CheckBoxIcon color='success' />
+                                                    </IconButton>
+                                                    <IconButton>
+                                                        <DoDisturbOnIcon color='error' />
+                                                    </IconButton>
+                                                    <IconButton>
+                                                        <VisibilityIcon />
+                                                    </IconButton>
+                                                </React.Fragment>
+                                            </TableCell>
                                         </TableRow>
                                     ))}
                                 </TableBody>

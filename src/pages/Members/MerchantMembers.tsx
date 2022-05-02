@@ -1,4 +1,4 @@
-import { Table, TableHead, TableRow, TableCell, TableBody, Box, Grid, Typography, Divider, FormLabel, TextField, Button, Collapse, List, ListItemButton, ListItemIcon, ListItemText, Accordion, AccordionDetails, AccordionSummary, Stack, AccordionActions, Paper, TableContainer, tableCellClasses, styled, FormControl, MenuItem, Select, IconButton } from '@mui/material';
+import { Table, TableHead, TableRow, TableCell, TableBody, Box, Grid, Typography, Divider, FormLabel, TextField, Button, Collapse, List, ListItemButton, ListItemIcon, ListItemText, Accordion, AccordionDetails, AccordionSummary, Stack, AccordionActions, Paper, TableContainer, tableCellClasses, styled, FormControl, MenuItem, Select, IconButton, Chip } from '@mui/material';
 import * as React from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
@@ -28,87 +28,51 @@ function createData(
     role: string,
     merchant: string,
     branchName: string,
-    actions: any,
+    status: string,
 ) {
-    return { idNumber, username, member, role, merchant, branchName, actions };
+    return { idNumber, username, member, role, merchant, branchName, status};
 }
 
 const rows = [
     createData(
-        59487, 
+        59487,
         'alovelace',
         'Ada Lovelace',
         'Merchant Staff',
         'Core Pacific',
         'Ayala Center Cebu',
-        (<React.Fragment>
-            <IconButton>
-                <VisibilityIcon />
-            </IconButton>
-            <IconButton color='info'>
-                <EditIcon />
-            </IconButton>
-            <IconButton color='error'>
-                <DoDisturbOnIcon />
-            </IconButton>
-        </React.Fragment>)),
+        'Active'),
     createData(
-        34175, 
+        34175,
         'ghopper',
         'Grace Hopper',
         'Merchant Admin',
         'Core Pacific',
         'Lapu-Lapu City',
-        (<React.Fragment>
-            <IconButton>
-                <VisibilityIcon />
-            </IconButton>
-            <IconButton color='info'>
-                <EditIcon />
-            </IconButton>
-            <IconButton color='error'>
-                <DoDisturbOnIcon />
-            </IconButton>
-        </React.Fragment>)),
-        createData(
-            62439, 
-            'mhamilton',
-            'Margaret Hamilton',
-            'Merchant Staff',
-            'Regan',
-            'Robinsons Galleria Cebu',
-            (<React.Fragment>
-                <IconButton>
-                    <VisibilityIcon />
-                </IconButton>
-                <IconButton color='info'>
-                    <EditIcon />
-                </IconButton>
-                <IconButton color='error'>
-                    <DoDisturbOnIcon />
-                </IconButton>
-            </React.Fragment>)),
-            createData(
-                27965, 
-                'jclarke',
-                'Joan Clarke',
-                'Merchant Admin',
-                'Regan',
-                'Minglanilla',
-                (<React.Fragment>
-                    <IconButton>
-                        <VisibilityIcon />
-                    </IconButton>
-                    <IconButton color='info'>
-                        <EditIcon />
-                    </IconButton>
-                    <IconButton color='error'>
-                        <DoDisturbOnIcon />
-                    </IconButton>
-                </React.Fragment>)),
+        'Active'),
+    createData(
+        62439,
+        'mhamilton',
+        'Margaret Hamilton',
+        'Merchant Staff',
+        'Regan',
+        'Robinsons Galleria Cebu',
+        'Inactive'),
+    createData(
+        27965,
+        'jclarke',
+        'Joan Clarke',
+        'Merchant Admin',
+        'Regan',
+        'Minglanilla',
+        'Active'),
 
 ];
 
+const getColor = (status: string) => {
+    if (status === "Active") return 'success';
+    else return 'error';
+};
 
 export default function MerchantMembers() {
 
@@ -161,8 +125,8 @@ export default function MerchantMembers() {
                             4
                         </Typography>
                     </Grid>
-                    <Grid item xs={5}/>
-                    <Grid item xs={2.5} style={{ display: "flex", gap: "1rem", marginRight: 5}}>
+                    <Grid item xs={5} />
+                    <Grid item xs={2.5} style={{ display: "flex", gap: "1rem", marginRight: 5 }}>
                         <Typography noWrap width={80} paddingTop={1}>
                             Sort by:
                         </Typography>
@@ -187,6 +151,7 @@ export default function MerchantMembers() {
                                         <StyledTableCell align='center'>Role</StyledTableCell>
                                         <StyledTableCell align='center'>Merchant</StyledTableCell>
                                         <StyledTableCell align='center'>Branch Name</StyledTableCell>
+                                        <StyledTableCell align='center'>Status</StyledTableCell>
                                         <StyledTableCell align='center'>Actions</StyledTableCell>
 
                                     </TableRow>
@@ -205,7 +170,26 @@ export default function MerchantMembers() {
                                             <TableCell align='center'>{row.role}</TableCell>
                                             <TableCell align='center'>{row.merchant}</TableCell>
                                             <TableCell align='center'>{row.branchName}</TableCell>
-                                            <TableCell align='center'>{row.actions}</TableCell>
+                                            <TableCell align='center'>
+                                                <Chip size='small' color={getColor(row.status)} label={
+                                                    <Typography fontSize={13}>
+                                                        {row.status}
+                                                    </Typography>
+                                                } />
+                                            </TableCell>
+                                            <TableCell align='center'>
+                                                <React.Fragment>
+                                                    <IconButton>
+                                                        <VisibilityIcon />
+                                                    </IconButton>
+                                                    <IconButton color='info'>
+                                                        <EditIcon />
+                                                    </IconButton>
+                                                    <IconButton color='error'>
+                                                        <DoDisturbOnIcon />
+                                                    </IconButton>
+                                                </React.Fragment>
+                                            </TableCell>
                                         </TableRow>
                                     ))}
                                 </TableBody>

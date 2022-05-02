@@ -52,7 +52,6 @@ const theme = createTheme({
 function DashboardContent() {
 
     const [selectedIndex, setSelectedIndex] = React.useState(1);
-    const [open, setOpen] = React.useState(true);
     const [dropMembers, setdropMembers] = React.useState(false);
     const [dropReport, setdropReport] = React.useState(false);
 
@@ -209,7 +208,7 @@ function DashboardContent() {
                                         </Typography>
                                     </ListItemText>
                                 </ListItemButton>
-                                <ListItemButton sx={{ pl: 4 }}>
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to='viewMemberDetails'>
                                     <ListItemIcon>
                                         <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
                                     </ListItemIcon>
@@ -219,7 +218,7 @@ function DashboardContent() {
                                         </Typography>
                                     </ListItemText>
                                 </ListItemButton>
-                                <ListItemButton sx={{ pl: 4 }} >
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to='addMember'>
                                     <ListItemIcon>
                                         <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
                                     </ListItemIcon>

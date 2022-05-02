@@ -53,7 +53,7 @@ export default function Profile() {
                             <Button
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2, width: 300, bgcolor: '#A72A17', borderRadius: 20 }}
-                                component={Link} to='changePassword'
+                                component={Link} to='/profile/changePassword'
                             >
                                 Change Password
                             </Button>

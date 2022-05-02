@@ -7,7 +7,7 @@ import { Link, Outlet } from 'react-router-dom';
 //Icons
 import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import DeleteMerchant from '../../modals/DeleteMerchant';
 
 //Custom Style
@@ -26,46 +26,26 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 function createData(
     companyId: number,
     companyName: string,
-    actions: any,
 ) {
-    return { companyId, companyName, actions };
+    return { companyId, companyName};
 }
 
 const rows = [
     createData(
         53715,
-        'Core Pacific',
-        (<React.Fragment>
-            <IconButton>
-                <VisibilityIcon />
-            </IconButton>
-            <IconButton color='info'>
-                <EditIcon />
-            </IconButton>
-            <IconButton color='error'>
-                <DoDisturbOnIcon />
-            </IconButton>
-        </React.Fragment>)),
+        'Core Pacific'),
     createData(
         91037,
-        'Regan',
-        (<React.Fragment>
-            <IconButton>
-                <VisibilityIcon />
-            </IconButton>
-            <IconButton color='info'>
-                <EditIcon />
-            </IconButton>
-            <IconButton color='error'>
-                <DoDisturbOnIcon />
-            </IconButton>
-        </React.Fragment>)),
+        'Regan'),
 
 ];
 
 
-export default function Merchants() {
-    
+const Merchants:FC<any> = () => {
+
+    const handleOpen = () => {
+        console.log("Button PRESSED in Merchant");
+    }
 
     return (
         <Box
@@ -99,7 +79,7 @@ export default function Merchants() {
                     </Grid>
                     <Grid item xs={7} />
                     <Grid item xs={'auto'}>
-                        <Button variant="contained" startIcon={<AddIcon />} sx={{borderRadius: 20}} color='success' component={Link} to='addMerchant'>
+                        <Button variant="contained" startIcon={<AddIcon />} sx={{ borderRadius: 20 }} color='success' component={Link} to='addMerchant'>
                             Add New Merchant
                         </Button>
                     </Grid>
@@ -137,17 +117,30 @@ export default function Merchants() {
                                                 {row.companyId}
                                             </TableCell>
                                             <TableCell align='center'>{row.companyName}</TableCell>
-                                            <TableCell align='center'>{row.actions}</TableCell>
+                                            <TableCell align='center'>
+                                                <React.Fragment>
+                                                    <IconButton>
+                                                        <VisibilityIcon />
+                                                    </IconButton>
+                                                    <IconButton color='info'>
+                                                        <EditIcon />
+                                                    </IconButton>
+                                                    <IconButton color='error' onClick={handleOpen} >
+                                                        <DoDisturbOnIcon />
+                                                    </IconButton>
+                                                </React.Fragment>
+                                            </TableCell>
                                         </TableRow>
                                     ))}
                                 </TableBody>
                             </Table>
                         </TableContainer>
                     </Grid>
-                    <DeleteMerchant />
                 </Grid>
             </React.Fragment>
             <Outlet />
         </Box>
     );
 }
+
+export default Merchants;

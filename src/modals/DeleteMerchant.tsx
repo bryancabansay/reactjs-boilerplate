@@ -6,6 +6,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Divider, Grid, styled } from '@mui/material';
+import { FC } from 'react';
+import Merchants from '../pages/Merchants/Merchants';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -25,14 +27,18 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 
 }));
 
+interface DeleteMerchantProps {
+    action: boolean;
+}
 
-export default function DeleteMerchant() {
+
+const DeleteMerchant:FC<DeleteMerchantProps> = (props) => {
     const [open, setOpen] = React.useState(false);
     
-    
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
+    if (props.action == true) {
+        setOpen(true);        
+        console.log("Action passed in DELETE MODAL Merchant");
+    }
     
     const handleClose = () => {
         setOpen(false);
@@ -40,11 +46,6 @@ export default function DeleteMerchant() {
 
     return (
         <div>
-            
-            <Button variant="outlined" onClick={handleClickOpen}>
-                Delete Modal
-            </Button> 
-
             <BootstrapDialog
                 open={open}
                 onClose={handleClose}
@@ -92,3 +93,5 @@ export default function DeleteMerchant() {
         </div >
     );
 }
+
+export default DeleteMerchant;

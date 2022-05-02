@@ -30,9 +30,8 @@ function createData(
     member: string,
     emailAddress: string,
     status: string,
-    actions: any,
 ) {
-    return { mobileNumber, member, emailAddress, status, actions };
+    return { mobileNumber, member, emailAddress, status };
 }
 
 const rows = [
@@ -40,42 +39,22 @@ const rows = [
         9274681249,
         'Ada Lovelace',
         'alovelace@gmail.com',
-        'Verified',
-        (<React.Fragment>
-            <IconButton>
-                <VisibilityIcon />
-            </IconButton>
-        </React.Fragment>)),
+        'Verified'),
     createData(
         9284671369,
         'Grace Hopper',
         'ghopper@gmail.com',
-        'Verified',
-        (<React.Fragment>
-            <IconButton>
-                <VisibilityIcon />
-            </IconButton>
-        </React.Fragment>)),
+        'Verified'),
     createData(
         9335197648,
         'Margaret Hamilton',
         'mhamilton@gmail.com',
-        'Unverified',
-        (<React.Fragment>
-            <IconButton>
-                <VisibilityIcon />
-            </IconButton>
-        </React.Fragment>)),
+        'Unverified'),
     createData(
         9768419573,
         'Joan Clarke',
         'jclarke@gmail.com',
-        'Verified',
-        (<React.Fragment>
-            <IconButton>
-                <VisibilityIcon />
-            </IconButton>
-        </React.Fragment>)),
+        'Verified'),
 ];
 
 
@@ -260,7 +239,13 @@ export default function UserList() {
                                             <TableCell align='center'>{row.member}</TableCell>
                                             <TableCell align='center'>{row.emailAddress}</TableCell>
                                             <TableCell align='center'>{row.status}</TableCell>
-                                            <TableCell align='center'>{row.actions}</TableCell>
+                                            <TableCell align='center'>
+                                                <React.Fragment>
+                                                    <IconButton>
+                                                        <VisibilityIcon />
+                                                    </IconButton>
+                                                </React.Fragment>
+                                            </TableCell>
                                         </TableRow>
                                     ))}
                                 </TableBody>

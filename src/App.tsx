@@ -17,6 +17,8 @@ import EditMerchant from "./pages/Merchants/EditMerchant";
 import MerchantMembers from "./pages/Members/MerchantMembers";
 import UserList from "./pages/Members/UserList";
 import UserDetails from "./pages/Members/UserDetails";
+import ViewMemberDetails from "./pages/Members/ViewMemberDetails";
+import AddMember from "./pages/Members/AddMember";
 
 const App = () => {
   return (
@@ -27,7 +29,7 @@ const App = () => {
           <Route path='/Registration' element={<Registration />} />
           <Route path='/' element={<Menu />}>
             <Route path='profile' element={<Profile />}>
-              <Route path='changePassword' element={<ChangePassword />} />
+              <Route path='/profile/changePassword' element={<ChangePassword />} />
             </Route>            
             <Route path='cashIn' element={<CashIn />} />
             <Route path='cashOut' element={<CashOut />} />
@@ -41,7 +43,9 @@ const App = () => {
             <Route path='userList' element={<UserList/>}>
                
             </Route>
-            <Route path='userDetails' element={<UserDetails/>}/> 
+            <Route path='userDetails' element={<UserDetails/>}/>
+            <Route path='viewMemberDetails' element={<ViewMemberDetails/>}/>
+            <Route path='addMember' element={<AddMember/>}/> 
             <Route path='extra' element={<Extra />}/>
             <Route path='faq' element={<Faq />}/>
             <Route path='contactUs' element={<ContactUs />}/>
