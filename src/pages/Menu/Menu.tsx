@@ -219,7 +219,7 @@ function DashboardContent() {
                         </ListItemButton>
                         <Collapse in={dropReport} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                                <ListItemButton sx={{ pl: 4 }} component={Link} to='userDetails'>
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to=''>
                                     <ListItemIcon>
                                         <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
                                     </ListItemIcon>
@@ -229,7 +229,7 @@ function DashboardContent() {
                                         </Typography>
                                     </ListItemText>
                                 </ListItemButton>
-                                <ListItemButton sx={{ pl: 4 }} component={Link} to='viewMemberDetails'>
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to=''>
                                     <ListItemIcon>
                                         <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
                                     </ListItemIcon>
@@ -239,7 +239,7 @@ function DashboardContent() {
                                         </Typography>
                                     </ListItemText>
                                 </ListItemButton>
-                                <ListItemButton sx={{ pl: 4 }} component={Link} to='addMember'>
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to=''>
                                     <ListItemIcon>
                                         <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
                                     </ListItemIcon>

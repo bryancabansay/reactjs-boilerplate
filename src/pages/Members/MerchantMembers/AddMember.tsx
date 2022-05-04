@@ -1,39 +1,60 @@
 import { Box, Grid, Typography, Divider, TextField, Button, Icon, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+
 
 //Icons
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
+//Combobox Data
+import { branches, genders, roles, merchants } from '../../../data/ComboBoxData';
 
 
 export default function AddMember() {
 
     {/*Combo box ROLES*/ }
-    const [role, setRole] = React.useState('');
-    const handleChangeRole = (event: SelectChangeEvent) => {
-        setRole(event.target.value as string);
+    const [role, setRole] = React.useState<string[]>([]);
+    const handleChangeRole = (event: SelectChangeEvent<typeof role>) => {
+        const {
+            target: { value },
+        } = event;
+        setRole(
+            typeof value === 'string' ? value.split(',') : value,
+        );
     };
 
     {/*Combo box GENDER*/ }
-    const [gender, setGender] = React.useState('');
-    const handleChangeGender = (event: SelectChangeEvent) => {
-        setGender(event.target.value as string);
+    const [gender, setGender] = React.useState<string[]>([]);
+    const handleChangeGender = (event: SelectChangeEvent<typeof gender>) => {
+        const {
+            target: { value },
+        } = event;
+        setGender(
+            typeof value === 'string' ? value.split(',') : value,
+        );
     };
 
-    function createGenderList(
-        gender: string,
-    ) {
-        return { gender };
-    }
+    {/*Combo box MERCHANT*/ }
+    const [merchant, setMerchant] = React.useState<string[]>([]);
+    const handleChangeMerchant = (event: SelectChangeEvent<typeof merchant>) => {
+        const {
+            target: { value },
+        } = event;
+        setGender(
+            typeof value === 'string' ? value.split(',') : value,
+        );
+    };
 
-    const genderList = [
-        createGenderList(
-            "Male"
-        ),
-        createGenderList(
-            "Female"
-        ),
-    ];
+    {/*Combo box BRANCH*/ }
+    const [branch, setBranch] = React.useState<string[]>([]);
+    const handleChangeBranch = (event: SelectChangeEvent<typeof branch>) => {
+        const {
+            target: { value },
+        } = event;
+        setBranch(
+            typeof value === 'string' ? value.split(',') : value,
+        );
+    };
+
 
     return (
         <Box>
@@ -68,64 +89,220 @@ export default function AddMember() {
                         </Grid>
 
 
-                        <Grid item xs={12} sm={6} mr={4} sx={{ mb: 2 }}>
+                        <Grid item xs={12} sm={5} mr={4} sx={{ mb: 2 }}>
+                            <Typography paddingTop={1} component={InputLabel} required>
+                                Role
+                            </Typography>
                             <FormControl fullWidth>
-                                <InputLabel required>Role</InputLabel>
                                 <Select
                                     required
                                     id="role"
-                                    label="Role"
                                     value={role}
                                     onChange={handleChangeRole}
+                                    displayEmpty
+                                    renderValue={(selected) => {
+                                        if (selected.length === 0) {
+                                            return <em>Select</em>;
+                                        }
+                                        return selected.join(', ');
+                                    }}
                                 >
-                                    <MenuItem value={20}>Merchant Admin</MenuItem>
-                                    <MenuItem value={20}>Merchant Staff</MenuItem>
-                                </Select>
-                            </FormControl>
-                        </Grid>
-                        <Grid item xs={12} mb={5} />
-                        <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
-                            <TextField label="First Name" variant="outlined" fullWidth required />
-                        </Grid>
-                        <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
-                            <TextField label="Middle Name" variant="outlined" fullWidth />
-
-                        </Grid>
-                        <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
-                            <TextField label="Last Name" variant="outlined" fullWidth required />
-                        </Grid>
-                        <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
-                            <FormControl fullWidth>
-                                <InputLabel required>Gender</InputLabel>
-                                <Select
-                                    required
-                                    id="gender"
-                                    label="Gender"
-                                    value={gender}
-                                    onChange={handleChangeGender}
-                                >
-                                     {genderList.map((genderList) => (
-                                    <MenuItem value={10}>genderList</MenuItem>
+                                    {roles.map(({ role }) => (
+                                        <MenuItem
+                                            value={role}
+                                        >{role}</MenuItem>
                                     ))}
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
-                            <TextField label="Contact Number" variant="outlined" fullWidth required />
+                        <Grid item xs={12} sm={3} mr={4} mb={3}>
+                            <Typography paddingTop={1} component={InputLabel} required>
+                                Merchant
+                            </Typography>
+                            <FormControl fullWidth>
+                                <Select
+                                    required
+                                    id="merchant"
+                                    value={merchant}
+                                    onChange={handleChangeMerchant}
+                                    displayEmpty
+                                    renderValue={(selected) => {
+                                        if (selected.length === 0) {
+                                            return <em>Select</em>;
+                                        }
+                                        return selected.join(', ');
+                                    }}
+                                >
+                                    {merchants.map(({ merchant }) => (
+                                        <MenuItem
+                                            value={merchant}
+                                        >{merchant}</MenuItem>
+                                    ))}
+                                </Select>
+                            </FormControl>
                         </Grid>
-                        <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
-                            <TextField label="Email Address" variant="outlined" fullWidth required />
+                        <Grid item xs={12} sm={3} mr={4} mb={3}>
+                            <Typography paddingTop={1} component={InputLabel} required>
+                                Branch
+                            </Typography>
+                            <FormControl fullWidth>
+                                <Select
+                                    required
+                                    id="branch"
+                                    value={branch}
+                                    onChange={handleChangeBranch}
+                                    displayEmpty
+                                    renderValue={(selected) => {
+                                        if (selected.length === 0) {
+                                            return <em>Select</em>;
+                                        }
+                                        return selected.join(', ');
+                                    }}
+                                >
+                                    {branches.map(({ branch }) => (
+                                        <MenuItem
+                                            value={branch}
+                                        >{branch}</MenuItem>
+                                    ))}
+                                </Select>
+                            </FormControl>
                         </Grid>
+                        <Grid item xs={12} mt={5} />
+                        <Grid item xs={12} sm={3.5} mr={5} sx={{ mb: 2 }}>
+                            <Typography component={InputLabel} required>
+                                First Name
+                            </Typography>
+                            <TextField variant="outlined" fullWidth required />
+                        </Grid>
+                        <Grid item xs={12} sm={3.5} mr={5} sx={{ mb: 2 }}>
+                            <Typography component={InputLabel}>
+                                Middle Name
+                            </Typography>
+                            <TextField  variant="outlined" fullWidth />
+                        </Grid>
+                        <Grid item xs={12} sm={3.5} mr={5} sx={{ mb: 2 }}>
+                            <Typography component={InputLabel} required>
+                                Last Name
+                            </Typography>
+                            <TextField variant="outlined" fullWidth required />
+                        </Grid>
+                        <Grid item xs={12} sm={3.5} mr={5} sx={{ mb: 2 }}>
+                            <Typography component={InputLabel} required>
+                                Gender
+                            </Typography>
+                            <FormControl fullWidth>
+                                <Select
+                                    required
+                                    id="gender"
+                                    value={gender}
+                                    onChange={handleChangeGender}
+                                    displayEmpty
+                                    renderValue={(selected) => {
+                                        if (selected.length === 0) {
+                                            return <em>Select</em>;
+                                        }
+                                        return selected.join(', ');
+                                    }}
+                                >
+                                    {genders.map(({ gender }) => (
+                                        <MenuItem
+                                            value={gender}
+                                        >{gender}</MenuItem>
+                                    ))}
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12} sm={3.5} mr={5} sx={{ mb: 2 }}>
+                            <Typography component={InputLabel} required>
+                                Contact Number
+                            </Typography>
+                            <TextField variant="outlined" fullWidth required />
+                        </Grid>
+                        <Grid item xs={12} sm={3.5} mr={5} sx={{ mb: 2 }}>
+                            <Typography component={InputLabel} required>
+                                Email Address
+                            </Typography>
+                            <TextField variant="outlined" fullWidth required />
+                        </Grid>
+                        <Grid item xs={12} sm={3.5} mr={3} sx={{ mb: 2 }}>
+                            <Typography component={InputLabel} required>
+                                House No./Lot No./Street name
+                            </Typography>
+                            <TextField variant="outlined" fullWidth required />
+                        </Grid>
+                        <Grid item xs={12} sm={2} mr={3} sx={{ mb: 2 }}>
+                            <Typography component={InputLabel} required>
+                                Country
+                            </Typography>
+                            <FormControl fullWidth>
+                                <Select
+                                    required
+                                    id="country"
+                                >
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12} sm={2} mr={3} sx={{ mb: 2 }}>
+                            <Typography component={InputLabel} required>
+                                State/Province
+                            </Typography>
+                            <FormControl fullWidth>
+                                <Select
+                                    required
+                                    id="stateProvince"
+                                >
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12} sm={2} mr={3} sx={{ mb: 2 }}>
+                            <Typography component={InputLabel} required>
+                                City
+                            </Typography>
+                            <FormControl fullWidth>
+                                <Select
+                                    required
+                                    id="city"
+                                >
+                                </Select>
+                            </FormControl>
+                        </Grid>  
+                        <Grid item xs={12} sm={1} sx={{ mb: 2 }}>
+                            <Typography component={InputLabel} required>
+                                Zip Code
+                            </Typography>
+                            <TextField variant="outlined" fullWidth required />
+                        </Grid>                        
+
+
+                        <Grid item xs={12} />
+                        <Grid item xs={12} />
                         <Grid item xs={12} sm={3} sx={{ mb: 2 }}>
-                            <TextField label="Username" variant="outlined" fullWidth required />
+                            <Typography component={InputLabel} required>
+                                Username
+                            </Typography>
+                            <TextField variant="outlined" fullWidth required />
                         </Grid>
                         <Grid item xs={12} />
                         <Grid item xs={12} sm={3} sx={{ mb: 2 }}>
-                            <TextField label="Password" variant="outlined" fullWidth required />
+                            <Typography component={InputLabel} required>
+                                Password
+                            </Typography>
+                            <TextField variant="outlined" fullWidth required />
                         </Grid>
                         <Grid item xs={12} />
                         <Grid item xs={12} sm={3} sx={{ mb: 2 }}>
-                            <TextField label="Confirm Password" variant="outlined" fullWidth required />
+                            <Typography component={InputLabel} required>
+                                Confirm Password
+                            </Typography>
+                            <TextField variant="outlined" fullWidth required />
+                        </Grid>
+
+                        <Grid item xs={12}/>
+                        <Grid item xs={12}/>
+                        <Grid item xs={12}>
+                            <Button variant="contained" size='large' sx={{ mt: 10, width: 350, bgcolor: '#A72A17', borderRadius: 20 }}>
+                                Submit
+                            </Button>
                         </Grid>
 
                     </Grid>

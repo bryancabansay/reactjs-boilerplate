@@ -1,12 +1,13 @@
 import { Table, TableHead, TableRow, TableCell, TableBody, Box, Grid, Typography, Divider, FormLabel, TextField, Button, Collapse, List, ListItemButton, ListItemIcon, ListItemText, Accordion, AccordionDetails, AccordionSummary, Stack, AccordionActions, Paper, TableContainer, tableCellClasses, styled, FormControl, MenuItem, Select, IconButton, Chip } from '@mui/material';
 import * as React from 'react';
-import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
 import { Link, Outlet } from 'react-router-dom';
 
 //Icons
+import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
 import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import AddMember from './AddMember';
 
 //Custom Style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -198,7 +199,8 @@ export default function MerchantMembers() {
                     </Grid>
                 </Grid>
             </React.Fragment>
-            <Outlet />
+            
+        <AddMember />
         </Box>
     );
 }

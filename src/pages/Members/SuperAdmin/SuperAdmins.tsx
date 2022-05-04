@@ -122,7 +122,10 @@ export default function SuperAdmins() {
                             <Select
                                 size='small'
                                 name="sortBy"
-                                placeholder="select"
+                                displayEmpty
+                                renderValue={(selected) => {
+                                      return <em>Select</em>;
+                                }}
                             >
                             </Select>
                         </FormControl>
