@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 //Icons
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import AttachFileIcon from '@mui/icons-material/AttachFile';
 import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
+import EditIcon from '@mui/icons-material/Edit';
 
-export default function ViewMemberDetails() {
+export default function ViewSuperAdmin() {
     return (
         <Box>
             <Box
@@ -27,10 +27,15 @@ export default function ViewMemberDetails() {
             >
                 <React.Fragment>
                     <Grid container spacing={2}>
-                        <Grid item xs={12} sm={9.5} sx={{ mt: 4, mb: 0 }}>
+                        <Grid item xs={12} sm={8.5} sx={{ mt: 4, mb: 0 }}>
                             <Typography component="h1" variant="h5" color={"#A72A17"} fontWeight='bold'>
-                                Member Details
+                                Super Admin Details
                             </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm={1}>
+                            <Button variant="contained" startIcon={<EditIcon />} fullWidth color='info' sx={{ mt: 3, borderRadius: 20 }}>
+                                Edit
+                            </Button>
                         </Grid>
                         <Grid item xs={12} sm={1.5}>
                             <Button variant="contained" startIcon={<DoDisturbOnIcon />} fullWidth sx={{ mt: 3, bgcolor: '#A72A17', borderRadius: 20 }}>
@@ -55,28 +60,9 @@ export default function ViewMemberDetails() {
                                         Role:
                                     </Typography>
                                     <Typography variant='body2'>
-                                        Merchant Staff
+                                        Super Admin
                                     </Typography>
                                 </Grid>
-
-                                <Grid item sm={12}>
-                                    <Typography variant='body1' fontWeight={"bold"}>
-                                        Merchant:
-                                    </Typography>
-                                    <Typography variant='body2'>
-                                        Core Pacific
-                                    </Typography>
-                                </Grid>
-
-                                <Grid item sm={12}>
-                                    <Typography variant='body1' fontWeight={"bold"}>
-                                        Branch:
-                                    </Typography>
-                                    <Typography variant='body2'>
-                                        Ayala Center Cebu
-                                    </Typography>
-                                </Grid>
-
                             </Grid>
                         </Grid>
 
@@ -129,13 +115,6 @@ export default function ViewMemberDetails() {
                             </Typography>
                             <TextField size='small' variant="standard" disabled fullWidth />
                         </Grid>                        
-                        <Grid item xs={12} sm={12} mr={4} sx={{ mb: 2 }}>
-                            <Typography variant='body1' fontWeight={"bold"}>
-                                Address
-                            </Typography>
-                            <TextField size='small' variant="standard" disabled fullWidth />
-
-                        </Grid>
                         <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
                             <Typography variant='body1' fontWeight={"bold"}>
                                 Username

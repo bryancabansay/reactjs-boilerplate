@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
-export default function AddMember() {
+export default function UpdateSuperAdmin() {
 
     {/*Combo box GENDER*/ }
     const [gender, setGender] = React.useState('');
@@ -34,7 +34,7 @@ export default function AddMember() {
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={11} sx={{ mt: 4, mb: 0 }}>
                             <Typography component="h1" variant="h5" color={"#A72A17"} fontWeight='bold'>
-                                Add New Super Admin
+                               Update Super Admin
                             </Typography>
                         </Grid>
                         <Grid item xs={12} sm={1}>
@@ -88,6 +88,13 @@ export default function AddMember() {
                         <Grid item xs={12} />
                         <Grid item xs={12} sm={3} sx={{ mb: 2 }}>
                             <TextField label="Confirm Password" variant="outlined" fullWidth required />
+                        </Grid>
+                        <Grid item xs={12}/>
+                        <Grid item xs={12}/>
+                        <Grid item xs={12}>
+                            <Button variant="contained" size='large' sx={{ mt: 10, width: 350, bgcolor: '#A72A17', borderRadius: 20 }}>
+                                Update
+                            </Button>
                         </Grid>
 
                     </Grid>

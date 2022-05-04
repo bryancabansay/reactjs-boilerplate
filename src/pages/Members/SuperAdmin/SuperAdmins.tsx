@@ -7,6 +7,9 @@ import { Link, Outlet } from 'react-router-dom';
 //Icons
 import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import ViewSuperAdmin from './ViewSuperAdmin';
+import AddSuperAdmin from './AddSuperAdmin';
+import UpdateSuperAdmin from './UpdateSuperAdmin';
 
 //Custom Style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -175,6 +178,13 @@ export default function SuperAdmins() {
                             </Table>
                         </TableContainer>
                     </Grid>
+
+                    
+                    <ViewSuperAdmin />
+                    <AddSuperAdmin />
+                    <UpdateSuperAdmin />                                
+
+
                 </Grid>
             </React.Fragment>
             <Outlet />
