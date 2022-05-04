@@ -14,11 +14,12 @@ import ChangePassword from "./pages/Profile/ChangePassword";
 import AddMerchant from "./pages/Merchants/AddMerchant";
 import MerchantDetails from "./pages/Merchants/MerchantDetails";
 import EditMerchant from "./pages/Merchants/EditMerchant";
-import MerchantMembers from "./pages/Members/MerchantMembers";
-import UserList from "./pages/Members/UserList";
-import UserDetails from "./pages/Members/UserDetails";
-import ViewMemberDetails from "./pages/Members/ViewMemberDetails";
-import AddMember from "./pages/Members/AddMember";
+import MerchantMembers from "./pages/Members/MerchantMembers/MerchantMembers";
+import UserList from "./pages/Members/UserRegistration/UserList";
+import UserDetails from "./pages/Members/UserRegistration/UserDetails";
+import ViewMemberDetails from "./pages/Members/MerchantMembers/ViewMemberDetails";
+import AddMember from "./pages/Members/MerchantMembers/AddMember";
+import SuperAdmins from "./pages/Members/SuperAdmin/SuperAdmins";
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
               <Route path='viewMerchant' element={<MerchantDetails />} />
               <Route path='editMerchant' element={<EditMerchant />} />
             </Route>
+            <Route path='superAdmins' element={<SuperAdmins />} />
             <Route path='merchantMembers' element={<MerchantMembers />} />
             <Route path='userList' element={<UserList/>}>
                
