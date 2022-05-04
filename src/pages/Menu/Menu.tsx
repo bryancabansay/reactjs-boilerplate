@@ -126,7 +126,7 @@ function DashboardContent() {
                             </ListItemIcon>
                             <ListItemText >
                                 <Typography color="secondary">
-                                    Cash Out Reqeust
+                                    Cash Out Payments
                                 </Typography>
                             </ListItemText>
                         </ListItemButton>

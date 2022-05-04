@@ -1,4 +1,4 @@
-import { Table, TableHead, TableRow, TableCell, TableBody, Box, Grid, Typography, Divider, FormLabel, TextField, Button, Collapse, List, ListItemButton, ListItemIcon, ListItemText, Accordion, AccordionDetails, AccordionSummary, Stack, AccordionActions, Paper, TableContainer, tableCellClasses, styled, FormControl, MenuItem, Select, IconButton } from '@mui/material';
+import { Table, TableHead, TableRow, TableCell, TableBody, Box, Grid, Typography, Divider, FormLabel, TextField, Button, Collapse, List, ListItemButton, ListItemIcon, ListItemText, Accordion, AccordionDetails, AccordionSummary, Stack, AccordionActions, Paper, TableContainer, tableCellClasses, styled, FormControl, MenuItem, Select, IconButton, InputLabel } from '@mui/material';
 import { action } from 'mobx';
 import * as React from 'react';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
@@ -24,8 +24,9 @@ function createData(
     member: string,
     amount: string,
     merchant: string,
+    branch: string,
 ) {
-    return { refNo, dateAndTime, mobileNumber, member, amount, merchant};
+    return { refNo, dateAndTime, mobileNumber, member, amount, merchant, branch};
 }
 
 const rows = [
@@ -35,32 +36,35 @@ const rows = [
         9274681249,
         'Ada Lovelace',
         '100.00',
-        'Core Pacific'),
+        'Core Pacific',
+        'Ayala Center Cebu'),
     createData(
         123984573,
         '2022-12-23 | 05:33:20 PM',
         9123652123,
         'Grace Hopper',
         '1,000.00',
-        'Regan'),
+        'Regan',
+        'Lapu-Lapu City'),
     createData(
         824567364,
         '2022-08-21 | 09:34:80 PM',
         9567834524,
         'Margaret Hamilton',
         '2,000.00',
-        'Core Pacific'),
+        'Core Pacific',
+        'Robinsons Galleria Cebu'),
     createData(
         897290684,
         '2022-03-13 | 11:56:30 PM',
         9572784523,
         'Joan Clarke',
         '500.00',
-        'Regan'),
+        'Regan', 'Minglanilla'),
 ];
 
 
-export default function CashIn() {
+export default function CashOut() {
     return (
         <Box
             sx={{
@@ -79,7 +83,7 @@ export default function CashIn() {
                 <Grid container spacing={2}>
                     <Grid item xs={12} sx={{ mt: 4, mb: 0 }}>
                         <Typography component="h1" variant="h5" color={"#A72A17"} fontWeight='bold'>
-                            Cash In Requests
+                            Cash Out Payments
                         </Typography>
                     </Grid>
                     <Grid item xs={3}>
@@ -100,7 +104,10 @@ export default function CashIn() {
                             <Select
                                 size='small'
                                 name="sortBy"
-                                placeholder="select"
+                                displayEmpty
+                                renderValue={(selected) => {
+                                      return <em>Select</em>;
+                                }}
                             >
                             </Select>
                         </FormControl>
@@ -113,7 +120,10 @@ export default function CashIn() {
                             <Select
                                 size='small'
                                 name="merchant"
-                                placeholder="select"
+                                displayEmpty
+                                renderValue={(selected) => {
+                                      return <em>Select</em>;
+                                }}
                             >
                             </Select>
                         </FormControl>
@@ -126,7 +136,10 @@ export default function CashIn() {
                             <Select
                                 size='small'
                                 name="duration"
-                                placeholder="select"
+                                displayEmpty
+                                renderValue={(selected) => {
+                                      return <em>Select</em>;
+                                }}
                             >
                             </Select>
                         </FormControl>
@@ -136,18 +149,27 @@ export default function CashIn() {
                     </Grid>
                     <Grid item xs={4} style={{ display: "flex", gap: "1rem" }}>
                         <Typography>
-                            Total Cash In Request:
+                            Total Cash Out Payments:
                         </Typography>
                         <Typography fontWeight={'bold'}>
                             4
                         </Typography>
                     </Grid>
-                    <Grid item xs={4} style={{ display: "flex", gap: "1rem" }}>
+                    <Grid item xs={12} sm={3} style={{ display: "flex", gap: "1rem" }}>
                         <Typography>
-                            Cash In Total:
+                            Cash Out Total:
                         </Typography>
                         <Typography fontWeight={'bold'}>
-                            PHP 3,600.00
+                            PHP 2,000.00
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12} sm={2.5}/>
+                    <Grid item xs={12} sm={2.5} style={{ display: "flex", gap: "1rem" }}>
+                        <Typography>
+                            Available Credits:
+                        </Typography>
+                        <Typography fontWeight={'bold'}>
+                            PHP 85,000.00
                         </Typography>
                     </Grid>
                     <Grid item xs={12} sx={{ mb: 2 }}>
@@ -161,6 +183,7 @@ export default function CashIn() {
                                         <StyledTableCell align='center'>Member</StyledTableCell>
                                         <StyledTableCell align='center'>Amount</StyledTableCell>
                                         <StyledTableCell align='center'>Merchant</StyledTableCell>
+                                        <StyledTableCell align='center'>Branch</StyledTableCell>
                                         <StyledTableCell align='center'>Actions</StyledTableCell>
                                     </TableRow>
                                 </TableHead>
@@ -178,14 +201,9 @@ export default function CashIn() {
                                             <TableCell align='center'>{row.member}</TableCell>
                                             <TableCell align='center'>{`PHP ${row.amount}`}</TableCell>
                                             <TableCell align='center'>{row.merchant}</TableCell>
+                                            <TableCell align='center'>{row.branch}</TableCell>
                                             <TableCell align='center'>
                                                 <React.Fragment>
-                                                    <IconButton>
-                                                        <CheckBoxIcon color='success' />
-                                                    </IconButton>
-                                                    <IconButton>
-                                                        <DoDisturbOnIcon color='error' />
-                                                    </IconButton>
                                                     <IconButton>
                                                         <VisibilityIcon />
                                                     </IconButton>

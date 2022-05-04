@@ -95,7 +95,10 @@ export default function CashOut() {
                             <Select
                                 size='small'
                                 name="sortBy"
-                                placeholder="select"
+                                displayEmpty
+                                renderValue={(selected) => {
+                                      return <em>Select</em>;
+                                }}
                             >
                             </Select>
                         </FormControl>
@@ -108,7 +111,10 @@ export default function CashOut() {
                             <Select
                                 size='small'
                                 name="merchant"
-                                placeholder="select"
+                                displayEmpty
+                                renderValue={(selected) => {
+                                      return <em>Select</em>;
+                                }}
                             >
                             </Select>
                         </FormControl>
@@ -121,7 +127,10 @@ export default function CashOut() {
                             <Select
                                 size='small'
                                 name="duration"
-                                placeholder="select"
+                                displayEmpty
+                                renderValue={(selected) => {
+                                      return <em>Select</em>;
+                                }}
                             >
                             </Select>
                         </FormControl>
