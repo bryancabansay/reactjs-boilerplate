@@ -20,6 +20,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import FactCheckIcon from '@mui/icons-material/FactCheck';
 
 
 const drawerWidth: number = 290;
@@ -127,6 +128,16 @@ function DashboardContent() {
                             <ListItemText >
                                 <Typography color="secondary">
                                     Cash Out Payments
+                                </Typography>
+                            </ListItemText>
+                        </ListItemButton>
+                        <ListItemButton component={Link} to='payBills'>
+                            <ListItemIcon>
+                                <FactCheckIcon color="secondary" />
+                            </ListItemIcon>
+                            <ListItemText>
+                                <Typography color="secondary">
+                                    Pay Bills
                                 </Typography>
                             </ListItemText>
                         </ListItemButton>

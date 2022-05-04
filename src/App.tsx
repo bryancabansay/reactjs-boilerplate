@@ -20,6 +20,7 @@ import UserDetails from "./pages/Members/UserRegistration/UserDetails";
 import ViewMemberDetails from "./pages/Members/MerchantMembers/ViewMemberDetails";
 import AddMember from "./pages/Members/MerchantMembers/AddMember";
 import SuperAdmins from "./pages/Members/SuperAdmin/SuperAdmins";
+import PayBills from "./pages/PayBills/PayBills";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
             </Route>            
             <Route path='cashIn' element={<CashIn />} />
             <Route path='cashOut' element={<CashOut />} />
+            <Route path='payBills' element={<PayBills/>} />
             <Route path='transactionHistory' element={<TransactionHistory />} />
             <Route path='merchants' element={<Merchants />}> 
               <Route path='addMerchant' element={<AddMerchant />}/>
