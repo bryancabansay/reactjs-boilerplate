@@ -1,5 +1,6 @@
 import { Box, Grid, Typography, Divider, TextField, Button, Icon, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 //Icons
@@ -9,7 +10,8 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { branches, genders, roles, merchants } from '../../../data/ComboBoxData';
 
 
-export default function AddMember() {
+export default function UpdateMerchantMember() {
+    const navigate = useNavigate();
 
     {/*Combo box ROLES*/ }
     const [role, setRole] = React.useState<string[]>([]);
@@ -76,11 +78,15 @@ export default function AddMember() {
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={11} sx={{ mt: 4, mb: 0 }}>
                             <Typography component="h1" variant="h5" color={"#A72A17"} fontWeight='bold'>
-                                Add New Member
+                                Update Merchant Member
                             </Typography>
                         </Grid>
                         <Grid item xs={12} sm={1}>
-                            <Button variant="contained" startIcon={<ArrowBackIcon />} sx={{ mt: 3, width: 120, bgcolor: '#A72A17', borderRadius: 20 }}>
+                            <Button 
+                            variant="contained" 
+                            startIcon={<ArrowBackIcon />} 
+                            sx={{ mt: 3, width: 120, bgcolor: '#A72A17', borderRadius: 20 }}
+                            onClick={() => navigate(-1)}>
                                 Back
                             </Button>
                         </Grid>
@@ -89,7 +95,7 @@ export default function AddMember() {
                         </Grid>
 
 
-                        <Grid item xs={12} sm={5} mr={4} sx={{ mb: 2 }}>
+                        <Grid item xs={12} sm={5} mr={2} sx={{ mb: 2 }}>
                             <Typography paddingTop={1} component={InputLabel} required>
                                 Role
                             </Typography>
@@ -115,7 +121,7 @@ export default function AddMember() {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item xs={12} sm={3} mr={4} mb={3}>
+                        <Grid item xs={12} sm={3} mr={2} mb={3}>
                             <Typography paddingTop={1} component={InputLabel} required>
                                 Merchant
                             </Typography>
@@ -141,7 +147,7 @@ export default function AddMember() {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item xs={12} sm={3} mr={4} mb={3}>
+                        <Grid item xs={12} sm={3} mb={3}>
                             <Typography paddingTop={1} component={InputLabel} required>
                                 Branch
                             </Typography>
@@ -168,25 +174,25 @@ export default function AddMember() {
                             </FormControl>
                         </Grid>
                         <Grid item xs={12} mt={5} />
-                        <Grid item xs={12} sm={3.5} mr={5} sx={{ mb: 2 }}>
+                        <Grid item xs={12} sm={3.5} mr={4} sx={{ mb: 2 }}>
                             <Typography component={InputLabel} required>
                                 First Name
                             </Typography>
                             <TextField variant="outlined" fullWidth required />
                         </Grid>
-                        <Grid item xs={12} sm={3.5} mr={5} sx={{ mb: 2 }}>
+                        <Grid item xs={12} sm={3.5} mr={4} sx={{ mb: 2 }}>
                             <Typography component={InputLabel}>
                                 Middle Name
                             </Typography>
                             <TextField  variant="outlined" fullWidth />
                         </Grid>
-                        <Grid item xs={12} sm={3.5} mr={5} sx={{ mb: 2 }}>
+                        <Grid item xs={12} sm={3.5} mr={4} sx={{ mb: 2 }}>
                             <Typography component={InputLabel} required>
                                 Last Name
                             </Typography>
                             <TextField variant="outlined" fullWidth required />
                         </Grid>
-                        <Grid item xs={12} sm={3.5} mr={5} sx={{ mb: 2 }}>
+                        <Grid item xs={12} sm={3.5} mr={4} sx={{ mb: 2 }}>
                             <Typography component={InputLabel} required>
                                 Gender
                             </Typography>
@@ -212,25 +218,25 @@ export default function AddMember() {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item xs={12} sm={3.5} mr={5} sx={{ mb: 2 }}>
+                        <Grid item xs={12} sm={3.5} mr={4} sx={{ mb: 2 }}>
                             <Typography component={InputLabel} required>
                                 Contact Number
                             </Typography>
                             <TextField variant="outlined" fullWidth required />
                         </Grid>
-                        <Grid item xs={12} sm={3.5} mr={5} sx={{ mb: 2 }}>
+                        <Grid item xs={12} sm={3.5} mr={4} sx={{ mb: 2 }}>
                             <Typography component={InputLabel} required>
                                 Email Address
                             </Typography>
                             <TextField variant="outlined" fullWidth required />
                         </Grid>
-                        <Grid item xs={12} sm={3.5} mr={3} sx={{ mb: 2 }}>
+                        <Grid item xs={12} sm={3} mr={2} sx={{ mb: 2 }}>
                             <Typography component={InputLabel} required>
                                 House No./Lot No./Street name
                             </Typography>
                             <TextField variant="outlined" fullWidth required />
                         </Grid>
-                        <Grid item xs={12} sm={2} mr={3} sx={{ mb: 2 }}>
+                        <Grid item xs={12} sm={2} mr={2} sx={{ mb: 2 }}>
                             <Typography component={InputLabel} required>
                                 Country
                             </Typography>
@@ -242,7 +248,7 @@ export default function AddMember() {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item xs={12} sm={2} mr={3} sx={{ mb: 2 }}>
+                        <Grid item xs={12} sm={2} mr={2} sx={{ mb: 2 }}>
                             <Typography component={InputLabel} required>
                                 State/Province
                             </Typography>
@@ -254,7 +260,7 @@ export default function AddMember() {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item xs={12} sm={2} mr={3} sx={{ mb: 2 }}>
+                        <Grid item xs={12} sm={2} mr={2} sx={{ mb: 2 }}>
                             <Typography component={InputLabel} required>
                                 City
                             </Typography>
@@ -266,7 +272,7 @@ export default function AddMember() {
                                 </Select>
                             </FormControl>
                         </Grid>  
-                        <Grid item xs={12} sm={1} sx={{ mb: 2 }}>
+                        <Grid item xs={12} sm={2} sx={{ mb: 2 }}>
                             <Typography component={InputLabel} required>
                                 Zip Code
                             </Typography>

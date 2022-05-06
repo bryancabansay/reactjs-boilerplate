@@ -1,13 +1,13 @@
 import { Table, TableHead, TableRow, TableCell, TableBody, Box, Grid, Typography, Divider, FormLabel, TextField, Button, Collapse, List, ListItemButton, ListItemIcon, ListItemText, Accordion, AccordionDetails, AccordionSummary, Stack, AccordionActions, Paper, TableContainer, tableCellClasses, styled, FormControl, MenuItem, Select, IconButton, Chip } from '@mui/material';
 import * as React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 //Icons
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import AddMember from './AddMember';
+import AddMember from './AddMerchantMember';
 
 //Custom Style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -76,8 +76,7 @@ const getColor = (status: string) => {
 };
 
 export default function MerchantMembers() {
-
-
+    const navigate = useNavigate();
     return (
         <Box
             sx={{
@@ -110,7 +109,11 @@ export default function MerchantMembers() {
                     </Grid>
                     <Grid item xs={7} />
                     <Grid item xs={'auto'}>
-                        <Button variant="contained" startIcon={<AddIcon />} sx={{ borderRadius: 20, width: 200 }} color='success' component={Link} to='addMerchant'>
+                        <Button variant="contained" 
+                        startIcon={<AddIcon />} 
+                        sx={{ borderRadius: 20, width: 200 }} 
+                        color='success' 
+                        onClick={() => navigate('addMerchantMember')}>
                             Add New Member
                         </Button>
                     </Grid>
@@ -126,7 +129,7 @@ export default function MerchantMembers() {
                             4
                         </Typography>
                     </Grid>
-                    <Grid item xs={5} />
+                    <Grid item xs={5.4} />
                     <Grid item xs={2.5} style={{ display: "flex", gap: "1rem", marginRight: 5 }}>
                         <Typography noWrap width={80} paddingTop={1}>
                             Sort by:
@@ -135,7 +138,10 @@ export default function MerchantMembers() {
                             <Select
                                 size='small'
                                 name="sortBy"
-                                placeholder="select"
+                                displayEmpty
+                                renderValue={(selected) => {
+                                      return <em>Select</em>;
+                                }}
                             >
                             </Select>
                         </FormControl>
@@ -180,10 +186,10 @@ export default function MerchantMembers() {
                                             </TableCell>
                                             <TableCell align='center'>
                                                 <React.Fragment>
-                                                    <IconButton>
+                                                    <IconButton onClick={() => navigate('viewMerchantMember')}>
                                                         <VisibilityIcon />
                                                     </IconButton>
-                                                    <IconButton color='info'>
+                                                    <IconButton color='info' onClick={() => navigate('updateMerchantMember')}>
                                                         <EditIcon />
                                                     </IconButton>
                                                     <IconButton color='error'>
@@ -199,8 +205,6 @@ export default function MerchantMembers() {
                     </Grid>
                 </Grid>
             </React.Fragment>
-            
-        <AddMember />
         </Box>
     );
 }

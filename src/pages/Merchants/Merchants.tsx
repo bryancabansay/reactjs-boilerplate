@@ -2,13 +2,12 @@ import { Table, TableHead, TableRow, TableCell, TableBody, Box, Grid, Typography
 import * as React from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 
 //Icons
 import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { FC, useState } from 'react';
-import DeleteMerchant from '../../modals/DeleteMerchant';
 
 //Custom Style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -42,10 +41,7 @@ const rows = [
 
 
 const Merchants:FC<any> = () => {
-
-    const handleOpen = () => {
-        console.log("Button PRESSED in Merchant");
-    }
+    const navigate = useNavigate();
 
     return (
         <Box
@@ -79,7 +75,12 @@ const Merchants:FC<any> = () => {
                     </Grid>
                     <Grid item xs={7} />
                     <Grid item xs={'auto'}>
-                        <Button variant="contained" startIcon={<AddIcon />} sx={{ borderRadius: 20 }} color='success' component={Link} to='addMerchant'>
+                        <Button 
+                        variant="contained" 
+                        startIcon={<AddIcon />} 
+                        sx={{ borderRadius: 20 }} 
+                        color='success'
+                        onClick={() => navigate('addMerchant')}>
                             Add New Merchant
                         </Button>
                     </Grid>
@@ -119,13 +120,13 @@ const Merchants:FC<any> = () => {
                                             <TableCell align='center'>{row.companyName}</TableCell>
                                             <TableCell align='center'>
                                                 <React.Fragment>
-                                                    <IconButton>
+                                                    <IconButton onClick={() => navigate('viewMerchant')}>
                                                         <VisibilityIcon />
                                                     </IconButton>
-                                                    <IconButton color='info'>
+                                                    <IconButton color='info' onClick={() => navigate('editMerchant')}>
                                                         <EditIcon />
                                                     </IconButton>
-                                                    <IconButton color='error' onClick={handleOpen} >
+                                                    <IconButton color='error'>
                                                         <DoDisturbOnIcon />
                                                     </IconButton>
                                                 </React.Fragment>
@@ -138,7 +139,6 @@ const Merchants:FC<any> = () => {
                     </Grid>
                 </Grid>
             </React.Fragment>
-            <Outlet />
         </Box>
     );
 }

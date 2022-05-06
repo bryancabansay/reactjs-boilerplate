@@ -1,5 +1,7 @@
 import { SignIn } from "./pages/SignIn";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+//PAGES
 import Menu from './pages/Menu/Menu';
 import Extra from './components/Extra';
 import Profile from './pages/Profile/Profile';
@@ -17,46 +19,74 @@ import EditMerchant from "./pages/Merchants/EditMerchant";
 import MerchantMembers from "./pages/Members/MerchantMembers/MerchantMembers";
 import UserList from "./pages/Members/UserRegistration/UserList";
 import UserDetails from "./pages/Members/UserRegistration/UserDetails";
-import ViewMemberDetails from "./pages/Members/MerchantMembers/ViewMemberDetails";
-import AddMember from "./pages/Members/MerchantMembers/AddMember";
+import ViewMemberDetails from "./pages/Members/MerchantMembers/ViewMerchantMember";
+import AddMember from "./pages/Members/MerchantMembers/AddMerchantMember";
 import SuperAdmins from "./pages/Members/SuperAdmin/SuperAdmins";
 import PayBills from "./pages/PayBills/PayBills";
+import EditAccountDetails from "./pages/Profile/EditAccountDetails";
+import AddSuperAdmin from "./pages/Members/SuperAdmin/AddSuperAdmin";
+import UpdateSuperAdmin from "./pages/Members/SuperAdmin/UpdateSuperAdmin";
+import ViewSuperAdmin from "./pages/Members/SuperAdmin/ViewSuperAdmin";
+
+//INDEX Pages
+import IndexMerchants from "./pages/Merchants/IndexMerchants";
+import IndexProfile from "./pages/Profile/IndexProfile";
+import IndexSuperAdmin from "./pages/Members/SuperAdmin/IndexSuperAdmin";
+import IndexMerchantMember from "./pages/Members/MerchantMembers/IndexMerchantMember";
+import AddMerchantMember from "./pages/Members/MerchantMembers/AddMerchantMember";
+import UpdateMerchantMember from "./pages/Members/MerchantMembers/UpdateMerchantMember";
+import ViewMerchantMember from "./pages/Members/MerchantMembers/ViewMerchantMember";
+import IndexUser from "./pages/Members/UserRegistration/IndexUser";
 
 const App = () => {
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/Login' element={<SignIn />}/>
-          <Route path='/Registration' element={<Registration />} />
-          <Route path='/' element={<Menu />}>
-            <Route path='profile' element={<Profile />}>
-              <Route path='/profile/changePassword' element={<ChangePassword />} />
-            </Route>            
-            <Route path='cashIn' element={<CashIn />} />
-            <Route path='cashOut' element={<CashOut />} />
-            <Route path='payBills' element={<PayBills/>} />
-            <Route path='transactionHistory' element={<TransactionHistory />} />
-            <Route path='merchants' element={<Merchants />}> 
-              <Route path='addMerchant' element={<AddMerchant />}/>
-              <Route path='viewMerchant' element={<MerchantDetails />} />
-              <Route path='editMerchant' element={<EditMerchant />} />
-            </Route>
-            <Route path='superAdmins' element={<SuperAdmins />} />
-            <Route path='merchantMembers' element={<MerchantMembers />} />
-            <Route path='userList' element={<UserList/>}>
-               
-            </Route>
-            <Route path='userDetails' element={<UserDetails/>}/>
-            <Route path='viewMemberDetails' element={<ViewMemberDetails/>}/>
-            <Route path='addMember' element={<AddMember/>}/> 
-            <Route path='extra' element={<Extra />}/>
-            <Route path='faq' element={<Faq />}/>
-            <Route path='contactUs' element={<ContactUs />}/>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/Login' element={<SignIn />} />
+        <Route path='/Registration' element={<Registration />} />
+        <Route path='/' element={<Menu />}>
+          <Route path='indexProfile' element={<IndexProfile />}>
+            <Route index element={<Profile />} />
+            <Route path='changePassword' element={<ChangePassword />} />
+            <Route path='editDetails' element={<EditAccountDetails />} />
           </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+          <Route path='cashIn' element={<CashIn />} />
+          <Route path='cashOut' element={<CashOut />} />
+          <Route path='payBills' element={<PayBills />} />
+          <Route path='transactionHistory' element={<TransactionHistory />} />
+          <Route path='merchants' element={<IndexMerchants />}>
+            <Route index element={<Merchants />}/>
+            <Route path='addMerchant' element={<AddMerchant />} />
+            <Route path='viewMerchant' element={<MerchantDetails />} />
+            <Route path='editMerchant' element={<EditMerchant />} />
+          </Route>
+          <Route path='superAdmins' element={<IndexSuperAdmin />}>
+            <Route index element={<SuperAdmins />}/>
+            <Route path='addSuperAdmin' element={<AddSuperAdmin />}/>
+            <Route path='updateSuperAdmin' element={<UpdateSuperAdmin />}/>
+            <Route path='viewSuperAdmin' element={<ViewSuperAdmin />}/>
+          </Route>
+          <Route path='merchantMembers' element={<IndexMerchantMember />}>
+            <Route index element={<MerchantMembers />} />
+            <Route path='addMerchantMember' element={<AddMerchantMember/>} />
+            <Route path='updateMerchantMember' element={<UpdateMerchantMember />} />
+            <Route path='viewMerchantMember' element={<ViewMerchantMember />} />
+          </Route>
+          <Route path='users' element={<IndexUser />}>
+            <Route index element={<UserList />}/>
+            <Route path='viewUserDetails' element={<UserDetails />}/>
+          </Route>
+
+          
+          <Route path='userDetails' element={<UserDetails />} />
+          <Route path='viewMemberDetails' element={<ViewMemberDetails />} />
+          <Route path='addMember' element={<AddMember />} />
+          <Route path='extra' element={<Extra />} />
+          <Route path='faq' element={<Faq />} />
+          <Route path='contactUs' element={<ContactUs />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

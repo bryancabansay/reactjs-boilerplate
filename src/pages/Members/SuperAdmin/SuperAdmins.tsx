@@ -2,14 +2,11 @@ import { Table, TableHead, TableRow, TableCell, TableBody, Box, Grid, Typography
 import * as React from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 //Icons
 import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import ViewSuperAdmin from './ViewSuperAdmin';
-import AddSuperAdmin from './AddSuperAdmin';
-import UpdateSuperAdmin from './UpdateSuperAdmin';
 
 //Custom Style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -63,8 +60,7 @@ const getColor = (status: string) => {
 };
 
 export default function SuperAdmins() {
-
-
+    const navigate = useNavigate();
     return (
         <Box
             sx={{
@@ -97,7 +93,12 @@ export default function SuperAdmins() {
                     </Grid>
                     <Grid item xs={7} />
                     <Grid item xs={2}>
-                        <Button variant="contained" startIcon={<AddIcon />} sx={{ borderRadius: 20, width: 250 }} color='success' component={Link} to='addMerchant'>
+                        <Button 
+                        variant="contained" 
+                        startIcon={<AddIcon />} 
+                        sx={{ borderRadius: 20, width: 250 }} 
+                        color='success' 
+                        onClick={() => navigate('addSuperAdmin')}>
                             Add New Super Admin
                         </Button>
                     </Grid>
@@ -113,8 +114,8 @@ export default function SuperAdmins() {
                             4
                         </Typography>
                     </Grid>
-                    <Grid item xs={5} />
-                    <Grid item xs={2.5} style={{ display: "flex", gap: "1rem", marginRight: 5 }}>
+                    <Grid item xs={5.4} />
+                    <Grid item sm={2.5} style={{ display: "flex", gap: "1rem", marginRight: 5 }}>
                         <Typography noWrap width={80} paddingTop={1}>
                             Sort by:
                         </Typography>
@@ -164,10 +165,10 @@ export default function SuperAdmins() {
                                             </TableCell>
                                             <TableCell align='center'>
                                                 <React.Fragment>
-                                                    <IconButton>
+                                                    <IconButton onClick={() => navigate('viewSuperAdmin')}>
                                                         <VisibilityIcon />
                                                     </IconButton>
-                                                    <IconButton color='info'>
+                                                    <IconButton color='info' onClick={() => navigate('updateSuperAdmin')}>
                                                         <EditIcon />
                                                     </IconButton>
                                                     <IconButton color='error'>
@@ -181,16 +182,8 @@ export default function SuperAdmins() {
                             </Table>
                         </TableContainer>
                     </Grid>
-
-                    
-                    <ViewSuperAdmin />
-                    <AddSuperAdmin />
-                    <UpdateSuperAdmin />                                
-
-
                 </Grid>
             </React.Fragment>
-            <Outlet />
         </Box>
     );
 }

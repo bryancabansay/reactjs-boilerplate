@@ -1,17 +1,24 @@
 import { Box, Grid, Typography, Divider, TextField, Button, Icon, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 //Icons
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { genders } from '../../data/ComboBoxData';
 
+//ComboBox Data
 
 export default function EditAccountDetails() {
+    const navigate = useNavigate();
 
-    {/*Combo box GENDER*/ }
-    const [gender, setGender] = React.useState('');
-    const handleChangeGender = (event: SelectChangeEvent) => {
-        setGender(event.target.value as string);
+    const [gender, setGender] = React.useState<string[]>([]);
+    const handleChangeGender = (event: SelectChangeEvent<typeof gender>) => {
+        const {
+            target: { value },
+        } = event;
+        setGender(
+            typeof value === 'string' ? value.split(',') : value,
+        );
     };
 
     return (
@@ -34,11 +41,15 @@ export default function EditAccountDetails() {
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={11} sx={{ mt: 4, mb: 0 }}>
                             <Typography component="h1" variant="h5" color={"#A72A17"} fontWeight='bold'>
-                               Edit Account Details
+                                Edit Account Details
                             </Typography>
                         </Grid>
                         <Grid item xs={12} sm={1}>
-                            <Button variant="contained" startIcon={<ArrowBackIcon />} sx={{ mt: 3, width: 120, bgcolor: '#A72A17', borderRadius: 20 }}>
+                            <Button
+                                variant="contained"
+                                startIcon={<ArrowBackIcon />}
+                                sx={{ mt: 3, width: 120, bgcolor: '#A72A17', borderRadius: 20 }}
+                                onClick={() => navigate(-1)}>
                                 Back
                             </Button>
                         </Grid>
@@ -46,40 +57,64 @@ export default function EditAccountDetails() {
                             <Divider variant="fullWidth" />
                         </Grid>
 
-                        <Grid item xs={12} mb={5} />
                         <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
-                            <TextField label="First Name" variant="outlined" fullWidth required />
+                        <Typography component={InputLabel} required>
+                                First Name
+                            </Typography>
+                            <TextField variant="outlined" fullWidth />
                         </Grid>
                         <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
-                            <TextField label="Middle Name" variant="outlined" fullWidth />
+                        <Typography component={InputLabel}>
+                                Middle Name
+                            </Typography>
+                            <TextField variant="outlined" fullWidth />
 
                         </Grid>
                         <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
-                            <TextField label="Last Name" variant="outlined" fullWidth required />
+                        <Typography component={InputLabel} required>
+                                Last Name
+                            </Typography>
+                            <TextField variant="outlined" fullWidth/>
                         </Grid>
                         <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
+                            <Typography component={InputLabel} required>
+                                Gender
+                            </Typography>
                             <FormControl fullWidth>
-                                <InputLabel required>Gender</InputLabel>
                                 <Select
-                                    required
                                     id="gender"
-                                    label="Gender"
                                     value={gender}
                                     onChange={handleChangeGender}
+                                    displayEmpty
+                                    renderValue={(selected) => {
+                                        if (selected.length === 0) {
+                                            return <em>Select</em>;
+                                        }
+                                        return selected.join(', ');
+                                    }}
                                 >
-                                    <MenuItem value={10}>Male</MenuItem>
-                                    <MenuItem value={20}>Female</MenuItem>
+                                    {genders.map(({ gender }) => (
+                                        <MenuItem
+                                            value={gender}
+                                        >{gender}</MenuItem>
+                                    ))}
                                 </Select>
                             </FormControl>
                         </Grid>
                         <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
-                            <TextField label="Contact Number" variant="outlined" fullWidth required />
+                        <Typography component={InputLabel} required>
+                                Contact Number
+                            </Typography>
+                            <TextField variant="outlined" fullWidth required />
                         </Grid>
                         <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
-                            <TextField label="Email Address" variant="outlined" fullWidth />
+                        <Typography component={InputLabel} required>
+                                Email Address
+                            </Typography>
+                            <TextField variant="outlined" fullWidth />
                         </Grid>
-                        <Grid item xs={12}/>
-                        <Grid item xs={12}/>
+                        <Grid item xs={12} />
+                        <Grid item xs={12} />
                         <Grid item xs={12}>
                             <Button variant="contained" size='large' sx={{ mt: 10, width: 350, bgcolor: '#A72A17', borderRadius: 20 }}>
                                 Update

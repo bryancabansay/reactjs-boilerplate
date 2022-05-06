@@ -1,6 +1,6 @@
 import { Box, Grid, Typography, Divider, TextField, Button, Icon } from '@mui/material';
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 //Icons
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -9,6 +9,7 @@ import AttachFileIcon from '@mui/icons-material/AttachFile';
 import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
 
 export default function ViewMemberDetails() {
+    const navigate = useNavigate();
     return (
         <Box>
             <Box
@@ -38,7 +39,11 @@ export default function ViewMemberDetails() {
                             </Button>
                         </Grid>
                         <Grid item xs={12} sm={1}>
-                            <Button variant="outlined" startIcon={<ArrowBackIcon />} sx={{ mt: 3, width: 120, borderRadius: 20 }}>
+                            <Button 
+                            variant="outlined" 
+                            startIcon={<ArrowBackIcon />} 
+                            sx={{ mt: 3, width: 120, borderRadius: 20 }}
+                            onClick={() => navigate(-1)}>
                                 Back
                             </Button>
                         </Grid>

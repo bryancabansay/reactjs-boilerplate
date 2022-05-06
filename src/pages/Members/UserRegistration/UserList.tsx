@@ -1,8 +1,6 @@
 import { Table, TableHead, TableRow, TableCell, TableBody, Box, Grid, Typography, Divider, FormLabel, TextField, Button, Collapse, List, ListItemButton, ListItemIcon, ListItemText, Accordion, AccordionDetails, AccordionSummary, Stack, AccordionActions, Paper, TableContainer, tableCellClasses, styled, FormControl, MenuItem, Select, IconButton, useTheme, TableFooter, TablePagination } from '@mui/material';
 import * as React from 'react';
-import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 
 //Icons
 import LastPageIcon from '@mui/icons-material/LastPage';
@@ -126,6 +124,7 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
 
 
 export default function UserList() {
+    const navigate = useNavigate();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -175,7 +174,7 @@ export default function UserList() {
                             size='small'
                             placeholder="Search"
                             type="search"
-                            id="cashInSearch"
+                            id="userSearch"
                         />
                     </Grid>
                     <Grid item xs={7} />
@@ -196,8 +195,8 @@ export default function UserList() {
                             25
                         </Typography>
                     </Grid>
-                    <Grid item xs={5.9} />
-                    <Grid item xs={2} style={{ display: "flex", gap: "1rem", marginRight: 5 }}>
+                    <Grid item xs={5.4} />
+                    <Grid item xs={2.5} style={{ display: "flex", gap: "1rem", marginRight: 5 }}>
                         <Typography noWrap width={80} paddingTop={1}>
                             Sort by:
                         </Typography>
@@ -206,10 +205,10 @@ export default function UserList() {
                                 size='small'
                                 name="sortBy"
                                 displayEmpty
+                                renderValue={(selected) => {
+                                      return <em>Select</em>;
+                                }}
                             >
-                                <MenuItem disabled value="">
-                                    <em>select</em>
-                                </MenuItem>
                             </Select>
                         </FormControl>
                     </Grid>
@@ -241,7 +240,7 @@ export default function UserList() {
                                             <TableCell align='center'>{row.status}</TableCell>
                                             <TableCell align='center'>
                                                 <React.Fragment>
-                                                    <IconButton>
+                                                    <IconButton onClick={() => navigate('viewUserDetails')}>
                                                         <VisibilityIcon />
                                                     </IconButton>
                                                 </React.Fragment>

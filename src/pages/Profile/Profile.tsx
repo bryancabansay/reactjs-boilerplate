@@ -1,9 +1,10 @@
 import { Box, Grid, Typography, Divider, TextField, Button } from '@mui/material';
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 export default function Profile() {
+    const navigate = useNavigate();
     return (
         <Box>
             <Box
@@ -53,7 +54,7 @@ export default function Profile() {
                             <Button
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2, width: 300, bgcolor: '#A72A17', borderRadius: 20 }}
-                                component={Link} to='/profile/changePassword'
+                                onClick={() => navigate('changePassword')}
                             >
                                 Change Password
                             </Button>
@@ -111,6 +112,7 @@ export default function Profile() {
                             <Button
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2, width: 300, bgcolor: '#A72A17', borderRadius: 20 }}
+                                onClick={() => navigate('editDetails')}
                             >
                                 Edit Details
                             </Button>

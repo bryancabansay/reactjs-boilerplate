@@ -1,6 +1,6 @@
-import { Box, Grid, Typography, Divider, FormLabel, Button, FormControl, Input, TextField, Stack, Link, Icon } from '@mui/material';
-import { action } from 'mobx';
+import { Box, Grid, Typography, Divider, Button, FormControl, TextField, Stack, Link, Icon } from '@mui/material';
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 //Icons
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -8,9 +8,21 @@ import AttachFileIcon from '@mui/icons-material/AttachFile';
 
 
 export default function MerchantDetails() {
-
+    const navigate = useNavigate();
     return (
-
+        <Box
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                bgcolor: 'transparent',
+                my: 1,
+                mx: 3,
+                px: 2,
+                pt: 0,
+                pb: 2,
+            }}
+        >
         <React.Fragment>
             <Grid container spacing={2} sx={{style: 'flex'}}>
                 <Grid item xs={12} sm={11} sx={{ mt: 4, mb: 0 }}>
@@ -19,7 +31,11 @@ export default function MerchantDetails() {
                     </Typography>
                 </Grid>
                 <Grid item xs={12} sm={1}>
-                    <Button variant="contained" startIcon={<ArrowBackIcon />} sx={{ mt: 3, width: 120, bgcolor: '#A72A17', borderRadius: 20 }}>
+                    <Button 
+                    variant="contained" 
+                    startIcon={<ArrowBackIcon />} 
+                    sx={{ mt: 3, width: 120, bgcolor: '#A72A17', borderRadius: 20 }}
+                    onClick={() => navigate(-1)}>
                         Back
                     </Button>
                 </Grid>
@@ -79,5 +95,6 @@ export default function MerchantDetails() {
                 </Grid>
             </Grid>
         </React.Fragment>
+        </Box>
     );
 }

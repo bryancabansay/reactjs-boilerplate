@@ -1,10 +1,11 @@
-import { Table, TableHead, TableRow, TableCell, TableBody, Box, Grid, Typography, Divider, FormLabel, TextField, Button } from '@mui/material';
+import { Box, Grid, Typography, Divider, TextField, Button } from '@mui/material';
 import * as React from 'react';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function ChangePassword() {
+    const navigate = useNavigate();
     return (
         <Box
             sx={{
@@ -29,14 +30,18 @@ export default function ChangePassword() {
                         </Typography>
                     </Grid>
                     <Grid item xs={12} sm={1}>
-                        <Button variant="contained" startIcon={<ArrowBackIcon />} sx={{mt: 3, width: 120, bgcolor: '#A72A17', borderRadius: 20}} component={Link} to='/profile'>
+                        <Button 
+                        variant="contained" 
+                        startIcon={<ArrowBackIcon />} 
+                        sx={{ mt: 3, width: 120, bgcolor: '#A72A17', borderRadius: 20 }} 
+                        onClick={() => navigate(-1)}>
                             Back
                         </Button>
                     </Grid>
                     <Grid item xs={12} sx={{ mb: 2 }}>
                         <Divider variant="fullWidth" />
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={4}>
                         <TextField
                             margin="normal"
                             required
@@ -49,8 +54,8 @@ export default function ChangePassword() {
                         />
 
                     </Grid>
-                    <Grid item xs={9}/>
-                    <Grid item xs={3}>
+                    <Grid item xs={8} />
+                    <Grid item xs={4}>
                         <TextField
                             margin="normal"
                             required
@@ -60,11 +65,24 @@ export default function ChangePassword() {
                             type="password"
                             id="newPassword"
                             color='primary'
+                            helperText={
+                                <React.Fragment>
+                                    <Typography color='primary'>
+                                        <b>Note:</b> Password should be in the following format
+                                        <ul>
+                                        <li>Alphanumeric</li>
+                                        <li>At least one (1) capital letter</li>
+                                        <li>At least one (1) number</li>
+                                        <li>At least one (1) special character</li>
+                                        </ul>
+                                    </Typography>
+                                </React.Fragment>
+                            }
                         />
 
                     </Grid>
-                    <Grid item xs={9}/>
-                    <Grid item xs={3}>
+                    <Grid item xs={8} />
+                    <Grid item xs={4}>
                         <TextField
                             margin="normal"
                             required

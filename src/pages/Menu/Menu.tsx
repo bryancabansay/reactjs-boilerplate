@@ -76,7 +76,7 @@ function DashboardContent() {
                             noWrap
                             sx={{ flexGrow: 1 }}
                         >
-                            Daltan
+                            DCash
                         </Typography>
                     </Toolbar>
                 </AppBar>
@@ -90,7 +90,7 @@ function DashboardContent() {
 
                     {/* LIST for the MENU */}
                     <List component="nav" sx={{ p: 1 }}>
-                        <ListItemButton component={Link} to='profile'>
+                        <ListItemButton component={Link} to='indexProfile'>
                             <ListItemIcon>
                                 <AccountCircleIcon style={{ fontSize: 40 }} color="secondary" />
                             </ListItemIcon>
@@ -194,7 +194,7 @@ function DashboardContent() {
                                         </Typography>
                                     </ListItemText>
                                 </ListItemButton>
-                                <ListItemButton sx={{ pl: 4 }} component={Link} to='userList'>
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to='users'>
                                     <ListItemIcon>
                                         <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
                                     </ListItemIcon>
@@ -298,6 +298,6 @@ function DashboardContent() {
     );
 }
 
-export default function Dashboard() {
+export default function Menu() {
     return <DashboardContent />;
 }
