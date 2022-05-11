@@ -5,7 +5,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,7 +12,9 @@ import {
     BrowserRouter as Router,
     Link,
 } from "react-router-dom";
-import { AppBar } from '@mui/material';
+import { AppBar, FormLabel } from '@mui/material';
+
+import SendIcon from '@mui/icons-material/Send';
 
 
 
@@ -31,7 +32,7 @@ const theme = createTheme({
 
 
 
-export const SignIn: React.FC = () => {
+export const ForgotPassword: React.FC = () => {
 
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -78,36 +79,25 @@ export const SignIn: React.FC = () => {
                         width: 500,
                     }}
                 >
-                    <Avatar sx={{ m: 1, bgcolor: '#A72A17' }}>
-                        <LockOutlinedIcon />
-                    </Avatar>
                     <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold' }}>
-                        Welcome
+                        Forgot Password?
                     </Typography>
-                    <Typography component="div">
-                        Please login to
+                    <Typography component="div" sx={{mt: 2}} textAlign='center'>
+                        Enter your email address and we'll send you a link to reset your password.
                     </Typography>
-                    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+                    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 5 }}>
+                        <Typography component={FormLabel}>
+                            Email address
+                        </Typography>
                         <TextField
                             margin="normal"
                             required
                             fullWidth
-                            id="username"
-                            label="Username"
-                            name="username"
-                            autoComplete="username"
-                            autoFocus                            
-                        />
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                            autoComplete="current-password"
-                            color='primary'
+                            id="emailAddress"
+                            name="emailAddress"
+                            autoComplete="emailAddress"
+                            autoFocus
+                            placeholder='Your email address'
                         />
 
                         <Button
@@ -115,30 +105,12 @@ export const SignIn: React.FC = () => {
                             to='/'
                             type="submit"
                             fullWidth
+                            startIcon={<SendIcon/>}
                             variant="contained"
                             sx={{ mt: 3, mb: 2, bgcolor: '#A72A17', borderRadius: 20 }}
                         >
-                            Login
-                        </Button>
-                        <Grid container>
-                            <Grid item xs>
-                                <Link to={''}>
-                                    <Typography variant="body2">
-                                        Forgot password?
-                                    </Typography>
-                                </Link>
-                            </Grid>
-                            <Grid item>
-                                <nav>
-                                    <Link to={"registration"}>
-                                        <Typography variant="body2">
-                                            {"Sign Up"}
-                                        </Typography>
-                                    </Link>
-                                </nav>
-
-                            </Grid>
-                        </Grid>
+                            Send
+                        </Button>                        
                     </Box>
                 </Box>
             </Grid>

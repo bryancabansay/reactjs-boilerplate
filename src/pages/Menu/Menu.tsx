@@ -57,7 +57,7 @@ function DashboardContent() {
     const [dropReport, setdropReport] = React.useState(false);
 
     const handleListItemClick = (
-        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+        event: React.MouseEvent<Element, MouseEvent>,
         index: number,
     ) => {
         setSelectedIndex(index);
@@ -90,7 +90,11 @@ function DashboardContent() {
 
                     {/* LIST for the MENU */}
                     <List component="nav" sx={{ p: 1 }}>
-                        <ListItemButton component={Link} to='indexProfile'>
+                        <ListItemButton 
+                        component={Link} 
+                        to='indexProfile'
+                        selected={selectedIndex === 0}
+                        onClick={(event: React.MouseEvent<Element, MouseEvent>) => handleListItemClick(event, 0)}>
                             <ListItemIcon>
                                 <AccountCircleIcon style={{ fontSize: 40 }} color="secondary" />
                             </ListItemIcon>

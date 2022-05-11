@@ -1,4 +1,4 @@
-import { SignIn } from "./pages/SignIn";
+import { Login } from "./pages/Login/Login";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 //PAGES
@@ -37,12 +37,14 @@ import AddMerchantMember from "./pages/Members/MerchantMembers/AddMerchantMember
 import UpdateMerchantMember from "./pages/Members/MerchantMembers/UpdateMerchantMember";
 import ViewMerchantMember from "./pages/Members/MerchantMembers/ViewMerchantMember";
 import IndexUser from "./pages/Members/UserRegistration/IndexUser";
+import { ForgotPassword } from "./pages/Login/ForgotPassword";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/Login' element={<SignIn />} />
+        <Route path='/Login' element={<Login />} />
+        <Route path='/ForgotPassword' element={<ForgotPassword />} />
         <Route path='/Registration' element={<Registration />} />
         <Route path='/' element={<Menu />}>
           <Route path='indexProfile' element={<IndexProfile />}>
