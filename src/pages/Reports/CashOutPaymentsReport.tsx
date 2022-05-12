@@ -39,7 +39,7 @@ const rows = [
         '100.00',
         'Core Pacific',
         'Ayala Center Cebu',
-        'Approved'),
+        'Fulfilled'),
     createData(
         123984573,
         '2022-12-23 | 05:33:20 PM',
@@ -48,7 +48,7 @@ const rows = [
         '1,000.00',
         'Regan',
         'Lapu-Lapu City',
-        'Denied'),
+        'Cancelled'),
     createData(
         824567364,
         '2022-08-21 | 09:34:80 PM',
@@ -57,7 +57,7 @@ const rows = [
         '2,000.00',
         'Core Pacific',
         'Robinsons Galleria Cebu',
-        'Approved'),
+        'Fulfilled'),
     createData(
         897290684,
         '2022-03-13 | 11:56:30 PM',
@@ -65,15 +65,15 @@ const rows = [
         'Joan Clarke',
         '500.00',
         'Regan', 'Minglanilla',
-        'Denied'),
+        'Cancelled'),
 ];
 
 const getColor = (status: string) => {
-    if (status === "Approved") return 'success';
+    if (status === "Fulfilled") return 'success';
     else return 'error';
 };
 
-export default function CashInRequests() {
+export default function CashOutPaymentsReport() {
     const navigate = useNavigate();
     return (
         <Box
@@ -93,7 +93,7 @@ export default function CashInRequests() {
                 <Grid container spacing={2} sx={{ style: 'flex' }}>
                     <Grid item xs={12} sm={11} sx={{ mt: 4, mb: 0 }}>
                         <Typography component="h1" variant="h5" color={"#A72A17"} fontWeight='bold'>
-                            Cash In Requests Report
+                            Cash Out Payments Report
                         </Typography>
                     </Grid>
                     <Grid item xs={12} sx={{ mb: 2 }}>

@@ -223,7 +223,7 @@ function DashboardContent() {
                         </ListItemButton>
                         <Collapse in={dropReport} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                                <ListItemButton sx={{ pl: 4 }} component={Link} to='cashInRequests'>
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to='cashInRequestsReport'>
                                     <ListItemIcon>
                                         <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
                                     </ListItemIcon>
@@ -233,7 +233,7 @@ function DashboardContent() {
                                         </Typography>
                                     </ListItemText>
                                 </ListItemButton>
-                                <ListItemButton sx={{ pl: 4 }} component={Link} to=''>
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to='cashOutPaymentsReport'>
                                     <ListItemIcon>
                                         <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
                                     </ListItemIcon>
