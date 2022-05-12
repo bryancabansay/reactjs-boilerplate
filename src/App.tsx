@@ -41,6 +41,7 @@ import { ForgotPassword } from "./pages/Login/ForgotPassword";
 import CashInRequests from "./pages/Reports/CashInRequestsReport";
 import CashInRequestsReport from "./pages/Reports/CashInRequestsReport";
 import CashOutPaymentsReport from "./pages/Reports/CashOutPaymentsReport";
+import VolumeOfTransactionsReport from "./pages/Reports/VolumeOfTransactionsReport";
 
 const App = () => {
   return (
@@ -83,6 +84,7 @@ const App = () => {
           </Route>
           <Route path='cashInRequestsReport' element={<CashInRequestsReport/>} />
           <Route path='cashOutPaymentsReport' element={<CashOutPaymentsReport/>} />
+          <Route path='volumeOfTransactionsReport' element={<VolumeOfTransactionsReport/>} />
           
           <Route path='userDetails' element={<UserDetails />} />
           <Route path='viewMemberDetails' element={<ViewMemberDetails />} />

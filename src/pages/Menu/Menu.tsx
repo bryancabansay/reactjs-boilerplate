@@ -243,7 +243,7 @@ function DashboardContent() {
                                         </Typography>
                                     </ListItemText>
                                 </ListItemButton>
-                                <ListItemButton sx={{ pl: 4 }} component={Link} to=''>
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to='volumeOfTransactionsReport'>
                                     <ListItemIcon>
                                         <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
                                     </ListItemIcon>
