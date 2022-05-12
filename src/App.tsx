@@ -38,6 +38,7 @@ import UpdateMerchantMember from "./pages/Members/MerchantMembers/UpdateMerchant
 import ViewMerchantMember from "./pages/Members/MerchantMembers/ViewMerchantMember";
 import IndexUser from "./pages/Members/UserRegistration/IndexUser";
 import { ForgotPassword } from "./pages/Login/ForgotPassword";
+import CashInRequests from "./pages/Reports/CashInRequests";
 
 const App = () => {
   return (
@@ -78,7 +79,7 @@ const App = () => {
             <Route index element={<UserList />}/>
             <Route path='viewUserDetails' element={<UserDetails />}/>
           </Route>
-
+          <Route path='cashInRequests' element={<CashInRequests/>} />
           
           <Route path='userDetails' element={<UserDetails />} />
           <Route path='viewMemberDetails' element={<ViewMemberDetails />} />

@@ -223,13 +223,13 @@ function DashboardContent() {
                         </ListItemButton>
                         <Collapse in={dropReport} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                                <ListItemButton sx={{ pl: 4 }} component={Link} to=''>
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to='cashInRequests'>
                                     <ListItemIcon>
                                         <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
                                     </ListItemIcon>
                                     <ListItemText sx={{ ml: -2 }}>
                                         <Typography variant="body2" color="secondary">
-                                            Cash In Request Report
+                                            Cash In Requests
                                         </Typography>
                                     </ListItemText>
                                 </ListItemButton>
@@ -239,7 +239,7 @@ function DashboardContent() {
                                     </ListItemIcon>
                                     <ListItemText sx={{ ml: -2 }}>
                                         <Typography variant="body2" color="secondary">
-                                            Cash Out Request Report
+                                            Cash Out Payments
                                         </Typography>
                                     </ListItemText>
                                 </ListItemButton>
@@ -249,7 +249,27 @@ function DashboardContent() {
                                     </ListItemIcon>
                                     <ListItemText sx={{ ml: -2 }}>
                                         <Typography variant="body2" color="secondary">
-                                            Volume of Transactions Report
+                                            Volume of Transactions
+                                        </Typography>
+                                    </ListItemText>
+                                </ListItemButton>
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to=''>
+                                    <ListItemIcon>
+                                        <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
+                                    </ListItemIcon>
+                                    <ListItemText sx={{ ml: -2 }}>
+                                        <Typography variant="body2" color="secondary">
+                                            PHP 100k+ Transactions
+                                        </Typography>
+                                    </ListItemText>
+                                </ListItemButton>
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to=''>
+                                    <ListItemIcon>
+                                        <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
+                                    </ListItemIcon>
+                                    <ListItemText sx={{ ml: -2 }}>
+                                        <Typography variant="body2" color="secondary">
+                                            5+ Transactions
                                         </Typography>
                                     </ListItemText>
                                 </ListItemButton>
