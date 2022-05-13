@@ -200,13 +200,33 @@ function DashboardContent() {
                         </ListItemButton>
                         <Collapse in={dropMembers} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                                <ListItemButton sx={{ pl: 4 }} component={Link} to='superAdmins'>
+                                <ListItemButton sx={{ pl: 4 }}>
+                                    <ListItemIcon>
+                                        <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
+                                    </ListItemIcon>
+                                    <ListItemText sx={{ ml: -2 }}>
+                                        <Typography variant="body2" color="secondary">
+                                            Daltan Users
+                                        </Typography>
+                                    </ListItemText>
+                                </ListItemButton>
+                                <ListItemButton sx={{ pl: 8 }} component={Link} to='superAdmins'>
                                     <ListItemIcon>
                                         <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
                                     </ListItemIcon>
                                     <ListItemText sx={{ ml: -2 }}>
                                         <Typography variant="body2" color="secondary">
                                             Super Admins
+                                        </Typography>
+                                    </ListItemText>
+                                </ListItemButton>
+                                <ListItemButton sx={{ pl: 8 }} component={Link} to=''>
+                                    <ListItemIcon>
+                                        <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
+                                    </ListItemIcon>
+                                    <ListItemText sx={{ ml: -2 }}>
+                                        <Typography variant="body2" color="secondary">
+                                            Compliance Officers
                                         </Typography>
                                     </ListItemText>
                                 </ListItemButton>
