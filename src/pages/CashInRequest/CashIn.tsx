@@ -1,8 +1,9 @@
-import { Table, TableHead, TableRow, TableCell, TableBody, Box, Grid, Typography, Divider, TextField, Paper, TableContainer, tableCellClasses, styled, FormControl, Select, IconButton } from '@mui/material';
+import { Table, TableHead, TableRow, TableCell, TableBody, Box, Grid, Typography, Divider, TextField, Paper, TableContainer, tableCellClasses, styled, FormControl, Select, IconButton, Icon } from '@mui/material';
 import * as React from 'react';
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
-import VisibilityIcon from '@mui/icons-material/Visibility';
+
+//ICONS
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 //Custom Style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -24,8 +25,9 @@ function createData(
     amount: string,
     merchant: string,
     branch: string,
+    status: string,
 ) {
-    return { refNo, dateAndTime, mobileNumber, member, amount, merchant, branch};
+    return { refNo, dateAndTime, mobileNumber, member, amount, merchant, branch, status};
 }
 
 const rows = [
@@ -36,7 +38,8 @@ const rows = [
         'Ada Lovelace',
         '100.00',
         'Core Pacific',
-        'Ayala Center Cebu'),
+        'Ayala Center Cebu',
+        'Approved'),
     createData(
         123984573,
         '2022-12-23 | 05:33:20 PM',
@@ -44,7 +47,8 @@ const rows = [
         'Grace Hopper',
         '1,000.00',
         'Regan',
-        'Lapu-Lapu City'),
+        'Lapu-Lapu City',
+        'Approved'),
     createData(
         824567364,
         '2022-08-21 | 09:34:80 PM',
@@ -52,16 +56,26 @@ const rows = [
         'Margaret Hamilton',
         '2,000.00',
         'Core Pacific',
-        'Robinsons Galleria Cebu'),
+        'Robinsons Galleria Cebu',
+        'Declined'),
     createData(
         897290684,
         '2022-03-13 | 11:56:30 PM',
         9572784523,
         'Joan Clarke',
         '500.00',
-        'Regan', 'Minglanilla'),
+        'Regan', 'Minglanilla',
+        'Approved'),
 ];
 
+const getStatus = (status: string) => {
+    if (status === "Approved") {
+        return <CheckCircleIcon color='success'/>
+    }
+    else {
+        return <CancelIcon color='error'/>
+    }
+};
 
 export default function CashIn() {
     return (
@@ -163,14 +177,14 @@ export default function CashIn() {
                         </Typography>
                     </Grid>
                     <Grid item xs={12} sm={3.5}/>
-                    <Grid item xs={12} sm={2.5} style={{ display: "flex", gap: "1rem" }}>
+                    {/*<Grid item xs={12} sm={2.5} style={{ display: "flex", gap: "1rem" }}>
                         <Typography>
                             Available Credits:
                         </Typography>
                         <Typography fontWeight={'bold'}>
-                            PHP 85,600.00
+                            PHP 85,000.00
                         </Typography>
-                    </Grid>
+                            </Grid>*/}
                     <Grid item xs={12} sx={{ mb: 2 }}>
                         <TableContainer component={Paper}>
                             <Table>
@@ -183,7 +197,7 @@ export default function CashIn() {
                                         <StyledTableCell align='center'>Amount</StyledTableCell>
                                         <StyledTableCell align='center'>Merchant</StyledTableCell>
                                         <StyledTableCell align='center'>Branch</StyledTableCell>
-                                        <StyledTableCell align='center'>Actions</StyledTableCell>
+                                        <StyledTableCell align='center'>Status</StyledTableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -202,17 +216,7 @@ export default function CashIn() {
                                             <TableCell align='center'>{row.merchant}</TableCell>
                                             <TableCell align='center'>{row.branch}</TableCell>
                                             <TableCell align='center'>
-                                                <React.Fragment>
-                                                    <IconButton>
-                                                        <CheckBoxIcon color='success' />
-                                                    </IconButton>
-                                                    <IconButton>
-                                                        <DoDisturbOnIcon color='error' />
-                                                    </IconButton>
-                                                    <IconButton>
-                                                        <VisibilityIcon />
-                                                    </IconButton>
-                                                </React.Fragment>
+                                                {getStatus(row.status)}
                                             </TableCell>
                                         </TableRow>
                                     ))}

@@ -1,9 +1,10 @@
 import { Table, TableHead, TableRow, TableCell, TableBody, Box, Grid, Typography, Divider, FormLabel, TextField, Button, Collapse, List, ListItemButton, ListItemIcon, ListItemText, Accordion, AccordionDetails, AccordionSummary, Stack, AccordionActions, Paper, TableContainer, tableCellClasses, styled, FormControl, MenuItem, Select, IconButton, InputLabel } from '@mui/material';
 import { action } from 'mobx';
 import * as React from 'react';
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
-import VisibilityIcon from '@mui/icons-material/Visibility';
+
+//ICONS
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 //Custom Style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -25,8 +26,9 @@ function createData(
     amount: string,
     merchant: string,
     branch: string,
+    status: string,
 ) {
-    return { refNo, dateAndTime, mobileNumber, member, amount, merchant, branch};
+    return { refNo, dateAndTime, mobileNumber, member, amount, merchant, branch, status};
 }
 
 const rows = [
@@ -37,7 +39,8 @@ const rows = [
         'Ada Lovelace',
         '100.00',
         'Core Pacific',
-        'Ayala Center Cebu'),
+        'Ayala Center Cebu',
+        'Approved'),
     createData(
         123984573,
         '2022-12-23 | 05:33:20 PM',
@@ -45,7 +48,8 @@ const rows = [
         'Grace Hopper',
         '1,000.00',
         'Regan',
-        'Lapu-Lapu City'),
+        'Lapu-Lapu City',
+        'Approved'),
     createData(
         824567364,
         '2022-08-21 | 09:34:80 PM',
@@ -53,16 +57,26 @@ const rows = [
         'Margaret Hamilton',
         '2,000.00',
         'Core Pacific',
-        'Robinsons Galleria Cebu'),
+        'Robinsons Galleria Cebu',
+        'Declined'),
     createData(
         897290684,
         '2022-03-13 | 11:56:30 PM',
         9572784523,
         'Joan Clarke',
         '500.00',
-        'Regan', 'Minglanilla'),
+        'Regan', 'Minglanilla',
+        'Approved'),
 ];
 
+const getStatus = (status: string) => {
+    if (status === "Approved") {
+        return <CheckCircleIcon color='success'/>
+    }
+    else {
+        return <CancelIcon color='error'/>
+    }
+};
 
 export default function CashOut() {
     return (
@@ -184,7 +198,7 @@ export default function CashOut() {
                                         <StyledTableCell align='center'>Amount</StyledTableCell>
                                         <StyledTableCell align='center'>Merchant</StyledTableCell>
                                         <StyledTableCell align='center'>Branch</StyledTableCell>
-                                        <StyledTableCell align='center'>Actions</StyledTableCell>
+                                        <StyledTableCell align='center'>Status</StyledTableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -203,11 +217,7 @@ export default function CashOut() {
                                             <TableCell align='center'>{row.merchant}</TableCell>
                                             <TableCell align='center'>{row.branch}</TableCell>
                                             <TableCell align='center'>
-                                                <React.Fragment>
-                                                    <IconButton>
-                                                        <VisibilityIcon />
-                                                    </IconButton>
-                                                </React.Fragment>
+                                                {getStatus(row.status)}
                                             </TableCell>
                                         </TableRow>
                                     ))}

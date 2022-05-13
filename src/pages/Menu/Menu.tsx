@@ -21,6 +21,8 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
+import GroupsIcon from '@mui/icons-material/Groups';
+import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 
 
 const drawerWidth: number = 290;
@@ -90,11 +92,11 @@ function DashboardContent() {
 
                     {/* LIST for the MENU */}
                     <List component="nav" sx={{ p: 1 }}>
-                        <ListItemButton 
-                        component={Link} 
-                        to='indexProfile'
-                        selected={selectedIndex === 0}
-                        onClick={(event: React.MouseEvent<Element, MouseEvent>) => handleListItemClick(event, 0)}>
+                        <ListItemButton
+                            component={Link}
+                            to='indexProfile'
+                            selected={selectedIndex === 0}
+                            onClick={(event: React.MouseEvent<Element, MouseEvent>) => handleListItemClick(event, 0)}>
                             <ListItemIcon>
                                 <AccountCircleIcon style={{ fontSize: 40 }} color="secondary" />
                             </ListItemIcon>
@@ -165,6 +167,26 @@ function DashboardContent() {
                                 </Typography>
                             </ListItemText>
                         </ListItemButton>
+                        <ListItemButton component={Link} to='merchants'>
+                            <ListItemIcon>
+                                <PermContactCalendarIcon color="secondary" />
+                            </ListItemIcon>
+                            <ListItemText>
+                                <Typography color="secondary">
+                                    Merchant Details
+                                </Typography>
+                            </ListItemText>
+                        </ListItemButton>
+                        <ListItemButton component={Link} to='merchantMembers'>
+                            <ListItemIcon>
+                                <GroupsIcon color="secondary" />
+                            </ListItemIcon>
+                            <ListItemText>
+                                <Typography color="secondary">
+                                    Merchant Members
+                                </Typography>
+                            </ListItemText>
+                        </ListItemButton>
                         <ListItemButton onClick={() => setdropMembers(!dropMembers)}>
                             <ListItemIcon>
                                 <PeopleAltIcon color="secondary" />
@@ -185,16 +207,6 @@ function DashboardContent() {
                                     <ListItemText sx={{ ml: -2 }}>
                                         <Typography variant="body2" color="secondary">
                                             Super Admins
-                                        </Typography>
-                                    </ListItemText>
-                                </ListItemButton>
-                                <ListItemButton sx={{ pl: 4 }} component={Link} to='merchantMembers'>
-                                    <ListItemIcon>
-                                        <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
-                                    </ListItemIcon>
-                                    <ListItemText sx={{ ml: -2 }}>
-                                        <Typography variant="body2" color="secondary">
-                                            Merchant Members
                                         </Typography>
                                     </ListItemText>
                                 </ListItemButton>
