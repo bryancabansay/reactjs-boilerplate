@@ -178,14 +178,14 @@ export default function CashOut() {
                         </Typography>
                     </Grid>
                     <Grid item xs={12} sm={2.5}/>
-                    <Grid item xs={12} sm={2.5} style={{ display: "flex", gap: "1rem" }}>
+                    {/*<Grid item xs={12} sm={2.5} style={{ display: "flex", gap: "1rem" }}>
                         <Typography>
                             Available Credits:
                         </Typography>
                         <Typography fontWeight={'bold'}>
                             PHP 85,000.00
                         </Typography>
-                    </Grid>
+                            </Grid>*/}
                     <Grid item xs={12} sx={{ mb: 2 }}>
                         <TableContainer component={Paper}>
                             <Table>

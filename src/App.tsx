@@ -38,10 +38,11 @@ import UpdateMerchantMember from "./pages/Members/MerchantMembers/UpdateMerchant
 import ViewMerchantMember from "./pages/Members/MerchantMembers/ViewMerchantMember";
 import IndexUser from "./pages/Members/UserRegistration/IndexUser";
 import { ForgotPassword } from "./pages/Login/ForgotPassword";
-import CashInRequests from "./pages/Reports/CashInRequestsReport";
 import CashInRequestsReport from "./pages/Reports/CashInRequestsReport";
 import CashOutPaymentsReport from "./pages/Reports/CashOutPaymentsReport";
 import VolumeOfTransactionsReport from "./pages/Reports/VolumeOfTransactionsReport";
+import IndexComplianceOfficer from "./pages/Members/ComplianceOfficer/IndexComplianceOfficer";
+import ComplianceOfficers from "./pages/Members/ComplianceOfficer/ComplianceOfficers";
 
 const App = () => {
   return (
@@ -71,6 +72,9 @@ const App = () => {
             <Route path='addSuperAdmin' element={<AddSuperAdmin />}/>
             <Route path='updateSuperAdmin' element={<UpdateSuperAdmin />}/>
             <Route path='viewSuperAdmin' element={<ViewSuperAdmin />}/>
+          </Route>
+          <Route path='complianceOfficers' element={<IndexComplianceOfficer/>}>
+            <Route index element={<ComplianceOfficers/>}/>
           </Route>
           <Route path='merchantMembers' element={<IndexMerchantMember />}>
             <Route index element={<MerchantMembers />} />

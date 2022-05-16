@@ -65,7 +65,7 @@ const getColor = (status: string) => {
     else return 'error';
 };
 
-export default function SuperAdmins() {
+export default function ComplianceOfficers() {
     const navigate = useNavigate();
     return (
         <Box
@@ -85,7 +85,7 @@ export default function SuperAdmins() {
                 <Grid container spacing={2}>
                     <Grid item xs={12} sx={{ mt: 4, mb: 0 }}>
                         <Typography component="h1" variant="h5" color={"#A72A17"} fontWeight='bold'>
-                            Super Admins
+                            Compliance Officers
                         </Typography>
                     </Grid>
                     <Grid item xs={3}>
@@ -105,7 +105,7 @@ export default function SuperAdmins() {
                         sx={{ borderRadius: 20, width: 250 }} 
                         color='success' 
                         onClick={() => navigate('addSuperAdmin')}>
-                            Add New Super Admin
+                            Add New Compliance Officer
                         </Button>
                     </Grid>
 
@@ -114,7 +114,7 @@ export default function SuperAdmins() {
                     </Grid>
                     <Grid item xs={4} style={{ display: "flex", gap: "1rem" }}>
                         <Typography>
-                            Total Super Admins:
+                            Total Compliance Officers:
                         </Typography>
                         <Typography fontWeight={'bold'}>
                             4
