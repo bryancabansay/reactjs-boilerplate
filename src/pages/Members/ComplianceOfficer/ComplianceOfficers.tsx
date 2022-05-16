@@ -179,10 +179,10 @@ export default function ComplianceOfficers() {
                                             </TableCell>
                                             <TableCell align='center'>
                                                 <React.Fragment>
-                                                    <IconButton onClick={() => navigate('viewSuperAdmin')}>
+                                                    <IconButton onClick={() => navigate('viewComplianceOfficer')}>
                                                         <VisibilityIcon />
                                                     </IconButton>
-                                                    <IconButton color='info' onClick={() => navigate('updateSuperAdmin')}>
+                                                    <IconButton color='info' onClick={() => navigate('updateComplianceOfficer')}>
                                                         <EditIcon />
                                                     </IconButton>
                                                     <IconButton color='error'>

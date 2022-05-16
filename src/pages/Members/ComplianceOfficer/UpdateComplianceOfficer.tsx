@@ -7,8 +7,7 @@ import { genders } from '../../../data/ComboBoxData';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
-
-export default function AddComplianceOfficer() {
+export default function UpdateComplianceOfficer() {
     const navigate = useNavigate();
 
     {/*Combo box GENDER*/ }
@@ -42,7 +41,7 @@ export default function AddComplianceOfficer() {
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={11} sx={{ mt: 4, mb: 0 }}>
                             <Typography component="h1" variant="h5" color={"#A72A17"} fontWeight='bold'>
-                                Add New Compliance Officer
+                               Update Compliance Officer
                             </Typography>
                         </Grid>
                         <Grid item xs={12} sm={1}>
@@ -139,7 +138,7 @@ export default function AddComplianceOfficer() {
                         <Grid item xs={12}/>
                         <Grid item xs={12}>
                             <Button variant="contained" size='large' sx={{ mt: 10, width: 350, bgcolor: '#A72A17', borderRadius: 20 }}>
-                                Submit
+                                Update
                             </Button>
                         </Grid>
 

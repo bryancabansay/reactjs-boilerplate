@@ -43,6 +43,7 @@ import CashOutPaymentsReport from "./pages/Reports/CashOutPaymentsReport";
 import VolumeOfTransactionsReport from "./pages/Reports/VolumeOfTransactionsReport";
 import IndexComplianceOfficer from "./pages/Members/ComplianceOfficer/IndexComplianceOfficer";
 import ComplianceOfficers from "./pages/Members/ComplianceOfficer/ComplianceOfficers";
+import UpdateComplianceOfficer from "./pages/Members/ComplianceOfficer/UpdateComplianceOfficer";
 
 const App = () => {
   return (
@@ -75,6 +76,7 @@ const App = () => {
           </Route>
           <Route path='complianceOfficers' element={<IndexComplianceOfficer/>}>
             <Route index element={<ComplianceOfficers/>}/>
+            <Route path='updateComplianceOfficer' element={<UpdateComplianceOfficer/>}/>
           </Route>
           <Route path='merchantMembers' element={<IndexMerchantMember />}>
             <Route index element={<MerchantMembers />} />
