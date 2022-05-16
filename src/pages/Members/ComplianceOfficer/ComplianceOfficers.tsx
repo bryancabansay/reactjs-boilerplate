@@ -97,12 +97,12 @@ export default function ComplianceOfficers() {
                             id="cashInSearch"
                         />
                     </Grid>
-                    <Grid item xs={7} />
-                    <Grid item xs={2}>
+                    <Grid item xs={6} />
+                    <Grid item xs={3}>
                         <Button 
                         variant="contained" 
                         startIcon={<AddIcon />} 
-                        sx={{ borderRadius: 20, width: 250 }} 
+                        sx={{ borderRadius: 20, width: 280 }} 
                         color='success' 
                         onClick={() => navigate('addSuperAdmin')}>
                             Add New Compliance Officer

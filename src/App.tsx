@@ -44,6 +44,7 @@ import VolumeOfTransactionsReport from "./pages/Reports/VolumeOfTransactionsRepo
 import IndexComplianceOfficer from "./pages/Members/ComplianceOfficer/IndexComplianceOfficer";
 import ComplianceOfficers from "./pages/Members/ComplianceOfficer/ComplianceOfficers";
 import UpdateComplianceOfficer from "./pages/Members/ComplianceOfficer/UpdateComplianceOfficer";
+import ViewComplianceOfficer from "./pages/Members/ComplianceOfficer/ViewComplianceOfficer";
 
 const App = () => {
   return (
@@ -77,6 +78,7 @@ const App = () => {
           <Route path='complianceOfficers' element={<IndexComplianceOfficer/>}>
             <Route index element={<ComplianceOfficers/>}/>
             <Route path='updateComplianceOfficer' element={<UpdateComplianceOfficer/>}/>
+            <Route path='viewComplianceOfficer' element={<ViewComplianceOfficer/>}/>
           </Route>
           <Route path='merchantMembers' element={<IndexMerchantMember />}>
             <Route index element={<MerchantMembers />} />
