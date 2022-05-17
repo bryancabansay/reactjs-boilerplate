@@ -230,13 +230,43 @@ function DashboardContent() {
                                         </Typography>
                                     </ListItemText>
                                 </ListItemButton>
-                                <ListItemButton sx={{ pl: 4 }} component={Link} to='users'>
+                                <ListItemButton sx={{ pl: 4 }}>
                                     <ListItemIcon>
                                         <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
                                     </ListItemIcon>
                                     <ListItemText sx={{ ml: -2 }}>
                                         <Typography variant="body2" color="secondary">
                                             User Registration
+                                        </Typography>
+                                    </ListItemText>
+                                </ListItemButton>
+                                <ListItemButton sx={{ pl: 8 }} component={Link} to='users'>
+                                    <ListItemIcon>
+                                        <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
+                                    </ListItemIcon>
+                                    <ListItemText sx={{ ml: -2 }}>
+                                        <Typography variant="body2" color="secondary">
+                                            Verified
+                                        </Typography>
+                                    </ListItemText>
+                                </ListItemButton>
+                                <ListItemButton sx={{ pl: 8 }} component={Link} to=''>
+                                    <ListItemIcon>
+                                        <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
+                                    </ListItemIcon>
+                                    <ListItemText sx={{ ml: -2 }}>
+                                        <Typography variant="body2" color="secondary">
+                                            Pending Verification
+                                        </Typography>
+                                    </ListItemText>
+                                </ListItemButton>
+                                <ListItemButton sx={{ pl: 8 }} component={Link} to=''>
+                                    <ListItemIcon>
+                                        <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
+                                    </ListItemIcon>
+                                    <ListItemText sx={{ ml: -2 }}>
+                                        <Typography variant="body2" color="secondary">
+                                            Declined
                                         </Typography>
                                     </ListItemText>
                                 </ListItemButton>
