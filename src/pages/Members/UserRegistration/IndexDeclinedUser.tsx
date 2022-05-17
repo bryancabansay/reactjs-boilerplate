@@ -2,10 +2,10 @@ import React from 'react'
 import { Outlet } from 'react-router-dom';
 
 
-const IndexUser = () => {
+const IndexDeclinedUser = () => {
      return (
         <Outlet />
     )
 }
 
-export default IndexUser;
+export default IndexDeclinedUser;

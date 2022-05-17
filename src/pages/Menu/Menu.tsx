@@ -240,7 +240,7 @@ function DashboardContent() {
                                         </Typography>
                                     </ListItemText>
                                 </ListItemButton>
-                                <ListItemButton sx={{ pl: 8 }} component={Link} to='users'>
+                                <ListItemButton sx={{ pl: 8 }} component={Link} to='verifiedUsers'>
                                     <ListItemIcon>
                                         <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
                                     </ListItemIcon>
@@ -250,7 +250,7 @@ function DashboardContent() {
                                         </Typography>
                                     </ListItemText>
                                 </ListItemButton>
-                                <ListItemButton sx={{ pl: 8 }} component={Link} to=''>
+                                <ListItemButton sx={{ pl: 8 }} component={Link} to='pendingVerificationUsers'>
                                     <ListItemIcon>
                                         <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
                                     </ListItemIcon>
@@ -260,7 +260,7 @@ function DashboardContent() {
                                         </Typography>
                                     </ListItemText>
                                 </ListItemButton>
-                                <ListItemButton sx={{ pl: 8 }} component={Link} to=''>
+                                <ListItemButton sx={{ pl: 8 }} component={Link} to='declinedUsers'>
                                     <ListItemIcon>
                                         <ArrowRightIcon style={{ fontSize: 30 }} color="secondary" />
                                     </ListItemIcon>

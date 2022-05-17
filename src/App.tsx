@@ -36,7 +36,7 @@ import IndexMerchantMember from "./pages/Members/MerchantMembers/IndexMerchantMe
 import AddMerchantMember from "./pages/Members/MerchantMembers/AddMerchantMember";
 import UpdateMerchantMember from "./pages/Members/MerchantMembers/UpdateMerchantMember";
 import ViewMerchantMember from "./pages/Members/MerchantMembers/ViewMerchantMember";
-import IndexUser from "./pages/Members/UserRegistration/IndexUser";
+import IndexUser from "./pages/Members/UserRegistration/IndexVerifiedUser";
 import { ForgotPassword } from "./pages/Login/ForgotPassword";
 import CashInRequestsReport from "./pages/Reports/CashInRequestsReport";
 import CashOutPaymentsReport from "./pages/Reports/CashOutPaymentsReport";
@@ -45,6 +45,12 @@ import IndexComplianceOfficer from "./pages/Members/ComplianceOfficer/IndexCompl
 import ComplianceOfficers from "./pages/Members/ComplianceOfficer/ComplianceOfficers";
 import UpdateComplianceOfficer from "./pages/Members/ComplianceOfficer/UpdateComplianceOfficer";
 import ViewComplianceOfficer from "./pages/Members/ComplianceOfficer/ViewComplianceOfficer";
+import IndexVerifiedUser from "./pages/Members/UserRegistration/IndexVerifiedUser";
+import IndexPendingVerificationUser from "./pages/Members/UserRegistration/IndexPendingVerificationUser";
+import IndexDeclinedUser from "./pages/Members/UserRegistration/IndexDeclinedUser";
+import VerifiedUser from "./pages/Members/UserRegistration/VerifiedUser";
+import PendingVerificationUser from "./pages/Members/UserRegistration/PendingVerificationUser";
+import DeclinedUser from "./pages/Members/UserRegistration/DeclinedUser";
 
 const App = () => {
   return (
@@ -86,8 +92,16 @@ const App = () => {
             <Route path='updateMerchantMember' element={<UpdateMerchantMember />} />
             <Route path='viewMerchantMember' element={<ViewMerchantMember />} />
           </Route>
-          <Route path='users' element={<IndexUser />}>
-            <Route index element={<UserList />}/>
+          <Route path='verifiedUsers' element={<IndexVerifiedUser />}>
+            <Route index element={<VerifiedUser />}/>
+            <Route path='viewUserDetails' element={<UserDetails />}/>
+          </Route>
+          <Route path='pendingVerificationUsers' element={<IndexPendingVerificationUser />}>
+            <Route index element={<PendingVerificationUser />}/>
+            <Route path='viewUserDetails' element={<UserDetails />}/>
+          </Route>
+          <Route path='declinedUsers' element={<IndexDeclinedUser />}>
+            <Route index element={<DeclinedUser />}/>
             <Route path='viewUserDetails' element={<UserDetails />}/>
           </Route>
           <Route path='cashInRequestsReport' element={<CashInRequestsReport/>} />
