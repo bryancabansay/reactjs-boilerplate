@@ -2,8 +2,8 @@ import { Table, TableHead, TableRow, TableCell, TableBody, Box, Grid, Typography
 import * as React from 'react';
 
 //ICONS
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import CancelIcon from '@mui/icons-material/Cancel';
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
 
@@ -68,10 +68,10 @@ const rows = [
 
 const getStatus = (status: string) => {
     if (status === "Approved") {
-        return <CheckCircleIcon color='success' />
+        return <CheckIcon color='success' />
     }
     else if (status === "Declined") {
-        return <CancelIcon color='error' />
+        return <CloseIcon color='error' />
     }
     else if (status === '') {
         return (
