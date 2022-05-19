@@ -6,6 +6,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
+import DoNotDisturbOnIcon from '@mui/icons-material/DoNotDisturbOn';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 export default function UserDetails() {
     const navigate = useNavigate();
@@ -27,16 +29,26 @@ export default function UserDetails() {
             >
                 <React.Fragment>
                     <Grid container spacing={2}>
-                        <Grid item xs={12} sm={11} sx={{ mt: 4, mb: 0 }}>
+                        <Grid item xs={12} sm={8.5} sx={{ mt: 4, mb: 0 }}>
                             <Typography component="h1" variant="h5" color={"#A72A17"} fontWeight='bold'>
                                 User Details
                             </Typography>
                         </Grid>
+                        <Grid item xs={12} sm={1.2}>
+                            <Button variant="contained" startIcon={<CheckCircleIcon />} fullWidth color='success' sx={{ mt: 3, borderRadius: 20 }}>
+                                Verify
+                            </Button>
+                        </Grid>
+                        <Grid item xs={12} sm={1.2}>
+                            <Button variant="contained" startIcon={<DoNotDisturbOnIcon />} fullWidth sx={{ mt: 3, bgcolor: '#A72A17', borderRadius: 20 }}>
+                                Decline
+                            </Button>
+                        </Grid>
                         <Grid item xs={12} sm={1}>
                             <Button 
-                            variant="contained" 
+                            variant="outlined" 
                             startIcon={<ArrowBackIcon />} 
-                            sx={{ mt: 3, width: 120, bgcolor: '#A72A17', borderRadius: 20 }}
+                            sx={{ mt: 3, width: 120, borderRadius: 20 }}
                             onClick={() => navigate(-1)}>
                                 Back
                             </Button>
@@ -127,17 +139,28 @@ export default function UserDetails() {
                                 Nationality
                             </Typography>
                             <TextField size='small' variant="standard" disabled fullWidth />
-
                         </Grid>
                         <Grid item xs={12} sm={2.5} mr={4} sx={{ mb: 2 }}>
                             <Typography variant='body1' fontWeight={"bold"}>
-                                Nature of Work/Business
+                                Employment Type
                             </Typography>
                             <TextField size='small' variant="standard" disabled fullWidth />
                         </Grid>
                         <Grid item xs={12} sm={2.5} mr={4} sx={{ mb: 2 }}>
                             <Typography variant='body1' fontWeight={"bold"}>
-                                Name of Employer
+                                Role
+                            </Typography>
+                            <TextField size='small' variant="standard" disabled fullWidth />
+                        </Grid>
+                        <Grid item xs={12} sm={2.5} mr={4} sx={{ mb: 2 }}>
+                            <Typography variant='body1' fontWeight={"bold"}>
+                                Employer / Business
+                            </Typography>
+                            <TextField size='small' variant="standard" disabled fullWidth />
+                        </Grid>
+                        <Grid item xs={12} sm={2.5} mr={4} sx={{ mb: 2 }}>
+                            <Typography variant='body1' fontWeight={"bold"}>
+                                Nature of Work
                             </Typography>
                             <TextField size='small' variant="standard" disabled fullWidth />
                         </Grid>
@@ -157,6 +180,18 @@ export default function UserDetails() {
                         <Grid item xs={12} sm={2.5} mr={4} sx={{ mb: 2 }}>
                             <Typography variant='body1' fontWeight={"bold"}>
                                 Contact Number
+                            </Typography>
+                            <TextField size='small' variant="standard" disabled fullWidth />
+                        </Grid>
+                        <Grid item xs={12} sm={2.5} mr={4} sx={{ mb: 2 }}>
+                            <Typography variant='body1' fontWeight={"bold"}>
+                                Are you politically exposed person or a relative/close friend associate of a PEP?
+                            </Typography>
+                            <TextField size='small' variant="standard" disabled fullWidth />
+                        </Grid>
+                        <Grid item xs={12} sm={2.5} mr={4} sx={{ mb: 2 }}>
+                            <Typography variant='body1' fontWeight={"bold"}>
+                                To establish the beneficial ownership, are you the actual owner of the account?
                             </Typography>
                             <TextField size='small' variant="standard" disabled fullWidth />
                         </Grid>
