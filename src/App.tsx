@@ -49,6 +49,7 @@ import IndexComplianceOfficer from "./pages/Members/ComplianceOfficer/IndexCompl
 import IndexVerifiedUser from "./pages/Members/UserRegistration/IndexVerifiedUser";
 import IndexPendingVerificationUser from "./pages/Members/UserRegistration/IndexPendingVerificationUser";
 import IndexDeclinedUser from "./pages/Members/UserRegistration/IndexDeclinedUser";
+import MerchantAdminProfile from "./pages/Profile/MerchantAdminProfile";
 
 
 const App = () => {
@@ -61,6 +62,7 @@ const App = () => {
         <Route path='/' element={<Menu />}>
           <Route path='indexProfile' element={<IndexProfile />}>
             <Route index element={<Profile />} />
+            <Route path='MerchantAdminProfile' element={<MerchantAdminProfile/>}/>
             <Route path='changePassword' element={<ChangePassword />} />
             <Route path='editDetails' element={<EditAccountDetails />} />
           </Route>

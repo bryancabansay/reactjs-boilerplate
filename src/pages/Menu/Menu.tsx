@@ -5,7 +5,7 @@ import MerchantAdminMenu from './MerchantAdminMenu';
 import MerchantStaffMenu from './MerchantStaffMenu';
 
 //Set the Role Checker here (database)
-var role = 'MerchantStaff';
+var role = 'MerchantAdmin';
 
 const Menu = () => {
     if (role === 'SuperAdmin') { 

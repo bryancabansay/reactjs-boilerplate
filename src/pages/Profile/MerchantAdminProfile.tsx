@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-export default function Profile() {
+export default function MerchantAdminProfile() {
     const navigate = useNavigate();
     return (
         <Box>
@@ -43,10 +43,16 @@ export default function Profile() {
                             <TextField size='small' variant="standard" disabled fullWidth />
 
                         </Grid>
-                        <Grid item xs={12}/>
-                        <Grid item xs={12} sm={2}>
+                        <Grid item xs={12} />
+                        <Grid item xs={12} sm={2} marginRight={5}>
                             <Typography variant='body1' fontWeight={"bold"}>
                                 Password
+                            </Typography>
+                            <TextField size='small' variant="standard" disabled fullWidth />
+                        </Grid>
+                        <Grid item xs={12} sm={2} marginRight={5}>
+                            <Typography variant='body1' fontWeight={"bold"}>
+                                Can manage Transactions?
                             </Typography>
                             <TextField size='small' variant="standard" disabled fullWidth />
                         </Grid>
@@ -98,10 +104,15 @@ export default function Profile() {
                         </Grid>
                         <Grid item xs={12} sm={2} mr={3}>
                             <Typography variant='body1' fontWeight={"bold"}>
+                                Branch
+                            </Typography>
+                            <TextField size='small' variant="standard" disabled fullWidth />
+                        </Grid>
+                        <Grid item xs={12} sm={2} mr={3}>
+                            <Typography variant='body1' fontWeight={"bold"}>
                                 Contact Number
                             </Typography>
                             <TextField size='small' variant="standard" disabled fullWidth />
-
                         </Grid>
                         <Grid item xs={12} sm={2} mr={3}>
                             <Typography variant='body1' fontWeight={"bold"}>

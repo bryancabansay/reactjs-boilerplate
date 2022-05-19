@@ -46,8 +46,6 @@ const theme = createTheme({
 });
 
 const MerchantAdminMenu = () => {
-    const [dropMembers, setdropMembers] = React.useState(false);
-    const [dropReport, setdropReport] = React.useState(false);
 
     return (
         <ThemeProvider theme={theme}>
@@ -78,7 +76,7 @@ const MerchantAdminMenu = () => {
                     <List component="nav" sx={{ p: 1 }}>
                         <ListItemButton
                             component={Link}
-                            to='indexProfile'>
+                            to='indexProfile/merchantAdminProfile'>
                             <ListItemIcon>
                                 <AccountCircleIcon style={{ fontSize: 60 }} color="secondary" />
                             </ListItemIcon>
