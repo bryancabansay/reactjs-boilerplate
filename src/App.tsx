@@ -50,6 +50,7 @@ import IndexVerifiedUser from "./pages/Members/UserRegistration/IndexVerifiedUse
 import IndexPendingVerificationUser from "./pages/Members/UserRegistration/IndexPendingVerificationUser";
 import IndexDeclinedUser from "./pages/Members/UserRegistration/IndexDeclinedUser";
 import MerchantAdminProfile from "./pages/Profile/MerchantAdminProfile";
+import CashInRequestMerchantAdmin from "./pages/CashInRequest/CashInRequestMerchantAdmin";
 
 
 const App = () => {
@@ -62,11 +63,12 @@ const App = () => {
         <Route path='/' element={<Menu />}>
           <Route path='indexProfile' element={<IndexProfile />}>
             <Route index element={<Profile />} />
-            <Route path='MerchantAdminProfile' element={<MerchantAdminProfile/>}/>
+            <Route path='merchantAdminProfile' element={<MerchantAdminProfile/>}/>
             <Route path='changePassword' element={<ChangePassword />} />
             <Route path='editDetails' element={<EditAccountDetails />} />
           </Route>
           <Route path='cashIn' element={<CashIn />} />
+          <Route path='cashInMerchantAdmin' element={<CashInRequestMerchantAdmin />}/>
           <Route path='cashOut' element={<CashOut />} />
           <Route path='payBills' element={<PayBills />} />
           <Route path='transactionHistory' element={<TransactionHistory />} />

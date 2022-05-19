@@ -4,6 +4,8 @@ import * as React from 'react';
 //ICONS
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
 
 //Custom Style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -23,11 +25,10 @@ function createData(
     mobileNumber: number,
     member: string,
     amount: string,
-    merchant: string,
     branch: string,
     status: string,
 ) {
-    return { refNo, dateAndTime, mobileNumber, member, amount, merchant, branch, status};
+    return { refNo, dateAndTime, mobileNumber, member, amount, branch, status };
 }
 
 const rows = [
@@ -37,7 +38,6 @@ const rows = [
         9274681249,
         'Ada Lovelace',
         '100.00',
-        'Core Pacific',
         'Ayala Center Cebu',
         ''),
     createData(
@@ -46,7 +46,6 @@ const rows = [
         9123652123,
         'Grace Hopper',
         '1,000.00',
-        'Regan',
         'Lapu-Lapu City',
         ''),
     createData(
@@ -55,7 +54,6 @@ const rows = [
         9567834524,
         'Margaret Hamilton',
         '2,000.00',
-        'Core Pacific',
         'Robinsons Galleria Cebu',
         'Declined'),
     createData(
@@ -64,23 +62,32 @@ const rows = [
         9572784523,
         'Joan Clarke',
         '500.00',
-        'Regan', 'Minglanilla',
+        'Minglanilla',
         'Approved'),
 ];
 
 const getStatus = (status: string) => {
     if (status === "Approved") {
-        return <CheckCircleIcon color='success'/>
+        return <CheckCircleIcon color='success' />
     }
     else if (status === "Declined") {
-        return <CancelIcon color='error'/>
+        return <CancelIcon color='error' />
     }
-    else if (status === " ") {
-        return <div></div>
+    else if (status === '') {
+    return (
+        <React.Fragment>
+            <IconButton>
+                <CheckBoxIcon color='success' />
+            </IconButton>
+            <IconButton>
+                <IndeterminateCheckBoxIcon color='error' />
+            </IconButton>
+        </React.Fragment>
+    )
     }
 };
 
-export default function CashIn() {
+export default function CashInRequestMerchantAdmin() {
     return (
         <Box
             sx={{
@@ -111,7 +118,7 @@ export default function CashIn() {
                             id="cashInSearch"
                         />
                     </Grid>
-                    <Grid item xs={1} />
+                    <Grid item xs={3.5} />
                     <Grid item xs={2.5} style={{ display: "flex", gap: "1rem", marginRight: 5 }}>
                         <Typography noWrap width={80} paddingTop={1}>
                             Sort by:
@@ -122,23 +129,7 @@ export default function CashIn() {
                                 name="sortBy"
                                 displayEmpty
                                 renderValue={(selected) => {
-                                      return <em>Select</em>;
-                                }}
-                            >
-                            </Select>
-                        </FormControl>
-                    </Grid>
-                    <Grid item xs={2.5} style={{ display: "flex", gap: "1rem", marginRight: 5 }}>
-                        <Typography paddingTop={1}>
-                            Merchant:
-                        </Typography>
-                        <FormControl fullWidth>
-                            <Select
-                                size='small'
-                                name="merchant"
-                                displayEmpty
-                                renderValue={(selected) => {
-                                      return <em>Select</em>;
+                                    return <em>Select</em>;
                                 }}
                             >
                             </Select>
@@ -154,7 +145,7 @@ export default function CashIn() {
                                 name="duration"
                                 displayEmpty
                                 renderValue={(selected) => {
-                                      return <em>Select</em>;
+                                    return <em>Select</em>;
                                 }}
                             >
                             </Select>
@@ -179,7 +170,7 @@ export default function CashIn() {
                             PHP 3,600.00
                         </Typography>
                     </Grid>
-                    <Grid item xs={12} sm={3.5}/>
+                    <Grid item xs={12} sm={3.5} />
                     {/*<Grid item xs={12} sm={2.5} style={{ display: "flex", gap: "1rem" }}>
                         <Typography>
                             Available Credits:
@@ -198,7 +189,6 @@ export default function CashIn() {
                                         <StyledTableCell align='center'>Mobile Number</StyledTableCell>
                                         <StyledTableCell align='center'>Member</StyledTableCell>
                                         <StyledTableCell align='center'>Amount</StyledTableCell>
-                                        <StyledTableCell align='center'>Merchant</StyledTableCell>
                                         <StyledTableCell align='center'>Branch</StyledTableCell>
                                         <StyledTableCell align='center'>Status</StyledTableCell>
                                     </TableRow>
@@ -216,7 +206,6 @@ export default function CashIn() {
                                             <TableCell align='center'>{row.mobileNumber}</TableCell>
                                             <TableCell align='center'>{row.member}</TableCell>
                                             <TableCell align='center'>{`PHP ${row.amount}`}</TableCell>
-                                            <TableCell align='center'>{row.merchant}</TableCell>
                                             <TableCell align='center'>{row.branch}</TableCell>
                                             <TableCell align='center'>
                                                 {getStatus(row.status)}

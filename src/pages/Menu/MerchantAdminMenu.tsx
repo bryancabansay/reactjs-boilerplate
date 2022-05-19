@@ -105,7 +105,7 @@ const MerchantAdminMenu = () => {
                                 </Typography>
                             </ListItemText>
                         </ListItemButton>
-                        <ListItemButton component={Link} to='cashIn'>
+                        <ListItemButton component={Link} to='cashInMerchantAdmin'>
                             <ListItemIcon>
                                 <LocalAtmIcon color="secondary" />
                             </ListItemIcon>
