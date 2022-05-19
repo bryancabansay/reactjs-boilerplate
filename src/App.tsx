@@ -17,7 +17,6 @@ import AddMerchant from "./pages/Merchants/AddMerchant";
 import MerchantDetails from "./pages/Merchants/MerchantDetails";
 import EditMerchant from "./pages/Merchants/EditMerchant";
 import MerchantMembers from "./pages/Members/MerchantMembers/MerchantMembers";
-import UserList from "./pages/Members/UserRegistration/UserList";
 import UserDetails from "./pages/Members/UserRegistration/UserDetails";
 import ViewMemberDetails from "./pages/Members/MerchantMembers/ViewMerchantMember";
 import AddMember from "./pages/Members/MerchantMembers/AddMerchantMember";
@@ -27,30 +26,30 @@ import EditAccountDetails from "./pages/Profile/EditAccountDetails";
 import AddSuperAdmin from "./pages/Members/SuperAdmin/AddSuperAdmin";
 import UpdateSuperAdmin from "./pages/Members/SuperAdmin/UpdateSuperAdmin";
 import ViewSuperAdmin from "./pages/Members/SuperAdmin/ViewSuperAdmin";
+import VerifiedUser from "./pages/Members/UserRegistration/VerifiedUser";
+import PendingVerificationUser from "./pages/Members/UserRegistration/PendingVerificationUser";
+import DeclinedUser from "./pages/Members/UserRegistration/DeclinedUser";
+import ComplianceOfficers from "./pages/Members/ComplianceOfficer/ComplianceOfficers";
+import UpdateComplianceOfficer from "./pages/Members/ComplianceOfficer/UpdateComplianceOfficer";
+import ViewComplianceOfficer from "./pages/Members/ComplianceOfficer/ViewComplianceOfficer";
+import { ForgotPassword } from "./pages/Login/ForgotPassword";
+import CashInRequestsReport from "./pages/Reports/CashInRequestsReport";
+import CashOutPaymentsReport from "./pages/Reports/CashOutPaymentsReport";
+import VolumeOfTransactionsReport from "./pages/Reports/VolumeOfTransactionsReport";
+import AddMerchantMember from "./pages/Members/MerchantMembers/AddMerchantMember";
+import UpdateMerchantMember from "./pages/Members/MerchantMembers/UpdateMerchantMember";
+import ViewMerchantMember from "./pages/Members/MerchantMembers/ViewMerchantMember";
 
 //INDEX Pages
 import IndexMerchants from "./pages/Merchants/IndexMerchants";
 import IndexProfile from "./pages/Profile/IndexProfile";
 import IndexSuperAdmin from "./pages/Members/SuperAdmin/IndexSuperAdmin";
 import IndexMerchantMember from "./pages/Members/MerchantMembers/IndexMerchantMember";
-import AddMerchantMember from "./pages/Members/MerchantMembers/AddMerchantMember";
-import UpdateMerchantMember from "./pages/Members/MerchantMembers/UpdateMerchantMember";
-import ViewMerchantMember from "./pages/Members/MerchantMembers/ViewMerchantMember";
-import IndexUser from "./pages/Members/UserRegistration/IndexVerifiedUser";
-import { ForgotPassword } from "./pages/Login/ForgotPassword";
-import CashInRequestsReport from "./pages/Reports/CashInRequestsReport";
-import CashOutPaymentsReport from "./pages/Reports/CashOutPaymentsReport";
-import VolumeOfTransactionsReport from "./pages/Reports/VolumeOfTransactionsReport";
 import IndexComplianceOfficer from "./pages/Members/ComplianceOfficer/IndexComplianceOfficer";
-import ComplianceOfficers from "./pages/Members/ComplianceOfficer/ComplianceOfficers";
-import UpdateComplianceOfficer from "./pages/Members/ComplianceOfficer/UpdateComplianceOfficer";
-import ViewComplianceOfficer from "./pages/Members/ComplianceOfficer/ViewComplianceOfficer";
 import IndexVerifiedUser from "./pages/Members/UserRegistration/IndexVerifiedUser";
 import IndexPendingVerificationUser from "./pages/Members/UserRegistration/IndexPendingVerificationUser";
 import IndexDeclinedUser from "./pages/Members/UserRegistration/IndexDeclinedUser";
-import VerifiedUser from "./pages/Members/UserRegistration/VerifiedUser";
-import PendingVerificationUser from "./pages/Members/UserRegistration/PendingVerificationUser";
-import DeclinedUser from "./pages/Members/UserRegistration/DeclinedUser";
+
 
 const App = () => {
   return (
