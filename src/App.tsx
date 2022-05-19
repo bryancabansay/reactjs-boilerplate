@@ -51,6 +51,7 @@ import IndexPendingVerificationUser from "./pages/Members/UserRegistration/Index
 import IndexDeclinedUser from "./pages/Members/UserRegistration/IndexDeclinedUser";
 import MerchantAdminProfile from "./pages/Profile/MerchantAdminProfile";
 import CashInRequestMerchantAdmin from "./pages/CashInRequest/CashInRequestMerchantAdmin";
+import CashInRequestMerchantStaff from "./pages/CashInRequest/CashInRequestMerchantStaff";
 
 
 const App = () => {
@@ -67,8 +68,11 @@ const App = () => {
             <Route path='changePassword' element={<ChangePassword />} />
             <Route path='editDetails' element={<EditAccountDetails />} />
           </Route>
+
           <Route path='cashIn' element={<CashIn />} />
           <Route path='cashInMerchantAdmin' element={<CashInRequestMerchantAdmin />}/>
+          <Route path='cashInMerchantStaff' element={<CashInRequestMerchantStaff />}/>
+
           <Route path='cashOut' element={<CashOut />} />
           <Route path='payBills' element={<PayBills />} />
           <Route path='transactionHistory' element={<TransactionHistory />} />
