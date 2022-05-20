@@ -8,6 +8,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import { FC, useState } from 'react';
+import DeleteMerchant from '../../modals/DeleteMerchant';
 
 //Custom Style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({

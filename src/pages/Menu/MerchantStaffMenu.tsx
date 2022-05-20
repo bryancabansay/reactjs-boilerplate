@@ -117,7 +117,7 @@ const MerchantStaffMenu = () => {
                                 </Typography>
                             </ListItemText>
                         </ListItemButton>
-                        <ListItemButton component={Link} to='cashOut'>
+                        <ListItemButton component={Link} to='cashOutMerchantStaff'>
                             <ListItemIcon>
                                 <ReceiptLongIcon color="secondary" />
                             </ListItemIcon>

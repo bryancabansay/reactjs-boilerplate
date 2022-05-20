@@ -26,7 +26,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 
-export default function DeleteMerchant() {
+export default function DeactivateMemberAccount() {
     const [open, setOpen] = React.useState(false);
     
     
