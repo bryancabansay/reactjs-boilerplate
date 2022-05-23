@@ -150,26 +150,7 @@ const SuperAdminMenu = () => {
                                 </Typography>
                             </ListItemText>
                         </ListItemButton>
-                        <ListItemButton component={Link} to='merchants'>
-                            <ListItemIcon>
-                                <PermContactCalendarIcon color="secondary" />
-                            </ListItemIcon>
-                            <ListItemText>
-                                <Typography color="secondary">
-                                    Merchant Details
-                                </Typography>
-                            </ListItemText>
-                        </ListItemButton>
-                        <ListItemButton component={Link} to='merchantMembers'>
-                            <ListItemIcon>
-                                <GroupsIcon color="secondary" />
-                            </ListItemIcon>
-                            <ListItemText>
-                                <Typography color="secondary">
-                                    Merchant Members
-                                </Typography>
-                            </ListItemText>
-                        </ListItemButton>
+                        
                         <ListItemButton onClick={() => setdropMembers(!dropMembers)}>
                             <ListItemIcon>
                                 <PeopleAltIcon color="secondary" />
@@ -330,16 +311,6 @@ const SuperAdminMenu = () => {
                             <ListItemText>
                                 <Typography color="secondary">
                                     FAQ
-                                </Typography>
-                            </ListItemText>
-                        </ListItemButton>
-                        <ListItemButton component={Link} to='contactUs'>
-                            <ListItemIcon>
-                                <ContactlessIcon color="secondary" />
-                            </ListItemIcon>
-                            <ListItemText>
-                                <Typography color="secondary">
-                                    Contact Us
                                 </Typography>
                             </ListItemText>
                         </ListItemButton>

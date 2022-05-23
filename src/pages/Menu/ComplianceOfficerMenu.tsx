@@ -4,21 +4,12 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
 //Icons
-import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
-import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import RestorePageIcon from '@mui/icons-material/RestorePage';
-import StorefrontIcon from '@mui/icons-material/Storefront';
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import AssessmentIcon from '@mui/icons-material/Assessment';
-import QuizIcon from '@mui/icons-material/Quiz';
-import ContactlessIcon from '@mui/icons-material/Contactless';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import FactCheckIcon from '@mui/icons-material/FactCheck';
-import GroupsIcon from '@mui/icons-material/Groups';
-import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 
 
 const drawerWidth: number = 290;
@@ -99,7 +90,7 @@ const ComplianceOfficerMenu = () => {
                                 </Typography>
                             </ListItemText>
                         </ListItemButton>
-                        <ListItemButton component={Link} to='transactionHistory'>
+                        <ListItemButton component={Link} to='COtransactionHistory'>
                             <ListItemIcon>
                                 <RestorePageIcon color="secondary" />
                             </ListItemIcon>

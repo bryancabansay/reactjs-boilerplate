@@ -126,10 +126,7 @@ const Merchants:FC<any> = () => {
                                                     </IconButton>
                                                     <IconButton color='info' onClick={() => navigate('editMerchant')}>
                                                         <EditIcon />
-                                                    </IconButton>
-                                                    <IconButton color='error'>
-                                                        <DoDisturbOnIcon />
-                                                    </IconButton>
+                                                    </IconButton>                                                   
                                                 </React.Fragment>
                                             </TableCell>
                                         </TableRow>

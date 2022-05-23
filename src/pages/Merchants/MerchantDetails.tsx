@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 //Icons
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
 
 //Custom Style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -27,6 +29,28 @@ function createData(
 ) {
     return { branch, province, city, availableCredits };
 }
+
+function createFiles(
+    name: string,
+    type: string,
+) {
+    return { name, type };
+}
+
+const files = [
+    createFiles(
+        'MSB',
+        'xls',
+    ),
+    createFiles(
+        'For_MSB_Customer_Tie-up',
+        'doc',
+    ),
+    createFiles(
+        'For_Regular_Individual_customer',
+        'doc',
+    )
+]
 
 const rows = [
     createData(
@@ -69,10 +93,15 @@ export default function MerchantDetails() {
         >
             <React.Fragment>
                 <Grid container spacing={2} sx={{ style: 'flex' }}>
-                    <Grid item xs={12} sm={11} sx={{ mt: 4, mb: 0 }}>
+                    <Grid item xs={12} sm={10} sx={{ mt: 4, mb: 0 }}>
                         <Typography component="h1" variant="h5" color={"#A72A17"} fontWeight='bold'>
                             Merchant Details
                         </Typography>
+                    </Grid>
+                    <Grid item xs={12} sm={1}>
+                        <Button variant="contained" startIcon={<EditIcon />} fullWidth color='info' sx={{ mt: 3, borderRadius: 20 }}>
+                            Edit
+                        </Button>
                     </Grid>
                     <Grid item xs={12} sm={1}>
                         <Button
@@ -98,18 +127,18 @@ export default function MerchantDetails() {
                             </FormControl>
                         </Grid>
                     </Grid>
-                    <Grid container sm={8} sx={{ p: 5 }}>
+                    <Grid container sm={8} sx={{ p: 1 }}>
                         <Grid container sm={6} sx={{ p: 5 }}>
                             <Grid item sm={12}>
                                 <Stack spacing={5}>
                                     <Grid item sm={6}>
-                                        <Typography component={FormLabel}>
+                                        <Typography>
                                             Company Name
                                         </Typography>
                                         <TextField fullWidth size='small' />
                                     </Grid>
                                     <Grid item>
-                                        <Typography component={FormLabel}>
+                                        <Typography>
                                             Company Description
                                         </Typography>
                                         <TextField
@@ -123,13 +152,13 @@ export default function MerchantDetails() {
                                 </Stack>
                             </Grid>
                             <Grid item xs={12} sm={6} sx={{ mt: 4, mr: 5 }}>
-                                <Typography component={FormLabel}>
+                                <Typography>
                                     Industry Type
                                 </Typography>
                                 <TextField fullWidth size='small' />
                             </Grid>
                             <Grid item xs={12} sx={{ mt: 4 }}>
-                                <Typography component={FormLabel}>
+                                <Typography>
                                     Remarks/Comments
                                 </Typography>
                                 <TextField
@@ -142,7 +171,7 @@ export default function MerchantDetails() {
                             </Grid>
                             <Grid item xs={12} />
                             <Grid item xs={12} sm={10} sx={{ mt: 4, mr: 5 }}>
-                                <Typography component={FormLabel}>
+                                <Typography>
                                     Available Credits
                                 </Typography>
                                 <Grid item style={{ display: "flex", gap: "1rem" }}>
@@ -159,24 +188,38 @@ export default function MerchantDetails() {
                         </Grid>
                         <Grid item sm={6} sx={{ p: 5 }}>
                             <Grid item>
-                                <Typography component={FormLabel}>
+                                <Typography>
                                     Primary Contact Number
                                 </Typography>
                                 <TextField fullWidth size='small' />
                             </Grid>
                             <Grid item sx={{ mt: 4 }}>
-                                <Typography component={FormLabel}>
+                                <Typography>
                                     Primary Email Address
                                 </Typography>
                                 <TextField fullWidth size='small' />
                             </Grid>
                             <Grid item sx={{ mt: 4 }}>
-                                <Typography component={FormLabel}>
+                                <Typography>
                                     Official Documents
                                 </Typography>
+                                {files.map((file) => (
+                                    <ul>
+                                        <React.Fragment>
+                                            <AttachFileIcon style={{ fontSize: 15 }} />
+                                            <Link>
+                                                {file.name}.{file.type}
+                                            </Link>
+                                        </React.Fragment>
+                                    </ul>
+                                ))}
+
                             </Grid>
                         </Grid>
-                        <Grid item sm={12} sx={{ mt: 2, p: 5 }}>
+                        <Grid item sm={12} sx={{ p: 5 }}>
+                            <Typography sx={{ mb: 2, fontWeight: 'bold' }}>
+                                Branches
+                            </Typography>
                             <TableContainer component={Paper}>
                                 <Table>
                                     <TableHead>

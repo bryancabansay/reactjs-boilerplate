@@ -54,6 +54,7 @@ import CashInRequestMerchantAdmin from "./pages/CashInRequest/CashInRequestMerch
 import CashInRequestMerchantStaff from "./pages/CashInRequest/CashInRequestMerchantStaff";
 import CashOutPaymentMerchantAdmin from "./pages/CashOutPayments/CashOutPaymentMerchantAdmin";
 import CashOutPaymentMerchantStaff from "./pages/CashOutPayments/CashOutPaymentMerchantStaff";
+import COTransactionHistory from "./pages/Transaction History/COTransactionHistory";
 
 
 const App = () => {
@@ -80,7 +81,11 @@ const App = () => {
           <Route path='cashOutMerchantStaff' element={<CashOutPaymentMerchantStaff />}/>
 
           <Route path='payBills' element={<PayBills />} />
+          
           <Route path='transactionHistory' element={<TransactionHistory />} />
+          <Route path='COtransactionHistory' element={<COTransactionHistory />} />
+
+
           <Route path='merchants' element={<IndexMerchants />}>
             <Route index element={<Merchants />}/>
             <Route path='addMerchant' element={<AddMerchant />} />

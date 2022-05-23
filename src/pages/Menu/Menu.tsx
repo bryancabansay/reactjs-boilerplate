@@ -5,8 +5,8 @@ import MerchantAdminMenu from './MerchantAdminMenu';
 import MerchantStaffMenu from './MerchantStaffMenu';
 
 //Set the Role Checker here (database)
-var role = 'SuperAdmin';
-//var role = 'ComplianceOfficer';
+//var role = 'SuperAdmin';
+var role = 'ComplianceOfficer';
 //var role = 'MerchantAdmin';
 //var role = 'MerchantStaff';
 
