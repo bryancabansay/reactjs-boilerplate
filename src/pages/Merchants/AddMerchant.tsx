@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 //Icons
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import genders from '../../data/ComboBoxData';
 
 
 export default function AddMerchant() {

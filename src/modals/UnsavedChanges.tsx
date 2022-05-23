@@ -5,10 +5,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Divider, Grid, styled, TextField, Typography } from '@mui/material';
-
-//ICONS
-import AddIcon from '@mui/icons-material/Add';
+import { Divider, Grid, styled } from '@mui/material';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -29,28 +26,22 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 
-export default function AddCredits() {
+export default function UnsavedChanges() {
     const [open, setOpen] = React.useState(false);
-
-
+        
     const handleClickOpen = () => {
         setOpen(true);
     };
-
+    
     const handleClose = () => {
         setOpen(false);
     };
 
     return (
         <div>
-            <Button
-                variant="contained"
-                startIcon={<AddIcon />}
-                color='success'
-                onClick={handleClickOpen}
-                sx={{ width: 200, borderRadius: 20 }}>
-                Add Credits
-            </Button>
+            <Button variant="outlined" onClick={handleClickOpen}>
+                Unsaved Changes
+            </Button> 
 
             <BootstrapDialog
                 open={open}
@@ -60,16 +51,13 @@ export default function AddCredits() {
                 }}
             >
                 <DialogTitle id="modal-title">
-                    Add Credits
+                    You have unsaved changes
                 </DialogTitle>
                 <Divider variant="middle" />
                 <DialogContent>
-                    <Grid item style={{ display: "flex", gap: "1rem", alignItems: 'center', paddingRight: 35, paddingLeft: 35, paddingBottom: 20, paddingTop: 20 }}>
-                        <Typography>
-                            Amount:
-                        </Typography>
-                        <TextField fullWidth size='small' />
-                    </Grid>
+                    <DialogContentText id="modal-description" >
+                        Are you sure you wish to proceed?
+                    </DialogContentText>
                 </DialogContent>
                 <DialogActions>
                     <Grid container spacing={1}>
@@ -79,11 +67,11 @@ export default function AddCredits() {
                                 type="submit"
                                 fullWidth
                                 variant="contained"
-                                color='success'
+                                color='primary'
                                 onClick={handleClose}
                                 sx={{ borderRadius: 20 }}
                             >
-                                Add
+                                Confirm
                             </Button>
                         </Grid>
                         <Grid item xs={12}>

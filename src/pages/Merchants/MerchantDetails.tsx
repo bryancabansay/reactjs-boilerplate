@@ -7,6 +7,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
+import AddCredits from '../../modals/AddCredits';
 
 //Custom Style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -170,19 +171,15 @@ export default function MerchantDetails() {
                                 />
                             </Grid>
                             <Grid item xs={12} />
-                            <Grid item xs={12} sm={10} sx={{ mt: 4, mr: 5 }}>
+                            <Grid item xs={12} sm={12} sx={{ mt: 4}}>
                                 <Typography>
                                     Available Credits
                                 </Typography>
                                 <Grid item style={{ display: "flex", gap: "1rem" }}>
                                     <OutlinedInput fullWidth size='small' startAdornment={<InputAdornment position="start">₱</InputAdornment>} />
-                                    <Button
-                                        variant="contained"
-                                        startIcon={<AddIcon />}
-                                        color='success'
-                                        sx={{ width: 300, borderRadius: 20 }}>
-                                        Add Credits
-                                    </Button>
+
+                                    {/*Add Credit Modal */}
+                                    <AddCredits/>
                                 </Grid>
                             </Grid>
                         </Grid>
