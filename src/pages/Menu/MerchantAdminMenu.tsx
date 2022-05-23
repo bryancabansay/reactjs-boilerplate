@@ -145,7 +145,7 @@ const MerchantAdminMenu = () => {
                                 </Typography>
                             </ListItemText>
                         </ListItemButton>
-                        <ListItemButton component={Link} to=''>
+                        <ListItemButton component={Link} to='merchantDetailsMerchantAdmin'>
                             <ListItemIcon>
                                 <PermContactCalendarIcon color="secondary" />
                             </ListItemIcon>
