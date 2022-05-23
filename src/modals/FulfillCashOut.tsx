@@ -7,6 +7,9 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Divider, Grid, styled } from '@mui/material';
 
+//ICONS
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
         padding: theme.spacing(2),
@@ -40,9 +43,7 @@ export default function FulfillCashOut() {
 
     return (
         <div>
-            <Button variant="outlined" onClick={handleClickOpen}>
-                Approve Modal
-            </Button> 
+            <CheckBoxIcon color='success' onClick={handleClickOpen}/>
 
             <BootstrapDialog
                 open={open}

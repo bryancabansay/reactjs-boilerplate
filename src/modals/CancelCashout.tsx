@@ -7,6 +7,9 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Divider, Grid, styled } from '@mui/material';
 
+//ICONS
+import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
+
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
         padding: theme.spacing(2),
@@ -26,7 +29,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 
-export default function FulfillCashOut() {
+export default function CancelCashOut() {
     const [open, setOpen] = React.useState(false);
     
     
@@ -40,9 +43,7 @@ export default function FulfillCashOut() {
 
     return (
         <div>
-            <Button variant="outlined" onClick={handleClickOpen}>
-                Approve Modal
-            </Button> 
+            <IndeterminateCheckBoxIcon color='error' onClick={handleClickOpen}/>
 
             <BootstrapDialog
                 open={open}
