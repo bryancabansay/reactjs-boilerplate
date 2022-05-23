@@ -7,6 +7,9 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Divider, Grid, styled } from '@mui/material';
 
+//ICONS
+import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
+
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
         padding: theme.spacing(2),
@@ -41,9 +44,7 @@ export default function DenyCashIn() {
     return (
         <div>
             
-            <Button variant="outlined" onClick={handleClickOpen}>
-                Deny Modal
-            </Button> 
+            <IndeterminateCheckBoxIcon color='error' onClick={handleClickOpen}/>
 
             <BootstrapDialog
                 open={open}

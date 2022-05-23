@@ -1,11 +1,12 @@
 import { Table, TableHead, TableRow, TableCell, TableBody, Box, Grid, Typography, Divider, TextField, Paper, TableContainer, tableCellClasses, styled, FormControl, Select, IconButton, Icon } from '@mui/material';
 import * as React from 'react';
+import ApproveCashIn from '../../modals/ApproveCashIn';
+import DenyCashIn from '../../modals/DenyCashIn';
 
 //ICONS
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
+
 
 //Custom Style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -77,10 +78,10 @@ const getStatus = (status: string) => {
         return (
             <React.Fragment>
                 <IconButton>
-                    <CheckBoxIcon color='success' />
+                    <ApproveCashIn />
                 </IconButton>
                 <IconButton>
-                    <IndeterminateCheckBoxIcon color='error' />
+                    <DenyCashIn />
                 </IconButton>
             </React.Fragment>
         )
