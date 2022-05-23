@@ -41,7 +41,7 @@ export default function ViewSuperAdmin() {
                             </Button>
                         </Grid>
                         <Grid item xs={12} sm={1.5}>
-                            <DeactivateMemberAccount component={'button'} />
+                            <DeactivateMemberAccount source='SuperAdmin' component={'button'} />
                         </Grid>
                         <Grid item xs={12} sm={1}>
                             <Button 

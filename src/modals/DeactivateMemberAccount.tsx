@@ -30,7 +30,8 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 
 
 interface IDeactivateMemberAccount {
-    component: string
+    component: string,
+    source: string
 }
 
 

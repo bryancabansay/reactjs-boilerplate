@@ -7,6 +7,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
 import EditIcon from '@mui/icons-material/Edit';
+import DeactivateMemberAccount from '../../../modals/DeactivateMemberAccount';
 
 export default function ViewComplianceOfficer() {
     const navigate = useNavigate();
@@ -40,9 +41,7 @@ export default function ViewComplianceOfficer() {
                             </Button>
                         </Grid>
                         <Grid item xs={12} sm={1.5}>
-                            <Button variant="contained" startIcon={<DoDisturbOnIcon />} fullWidth sx={{ mt: 3, bgcolor: '#A72A17', borderRadius: 20 }}>
-                                Deactivate
-                            </Button>
+                            <DeactivateMemberAccount source='ComplianceOfficer' component={'button'} />
                         </Grid>
                         <Grid item xs={12} sm={1}>
                             <Button 

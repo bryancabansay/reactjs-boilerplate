@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 //Icons
 import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import DeactivateMemberAccount from '../../../modals/DeactivateMemberAccount';
 
 //Custom Style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -186,7 +187,7 @@ export default function ComplianceOfficers() {
                                                         <EditIcon />
                                                     </IconButton>
                                                     <IconButton color='error'>
-                                                        <DoDisturbOnIcon />
+                                                        <DeactivateMemberAccount source='ComplianceOfficer' component={'icon'} />
                                                     </IconButton>
                                                 </React.Fragment>
                                             </TableCell>

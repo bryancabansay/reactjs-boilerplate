@@ -188,7 +188,7 @@ export default function SuperAdmins() {
                                                         <EditIcon />
                                                     </IconButton>
                                                     <IconButton color='error'>
-                                                        <DeactivateMemberAccount component={'icon'} />
+                                                        <DeactivateMemberAccount source='SuperAdmin' component={'icon'} />
                                                     </IconButton>
                                                 </React.Fragment>
                                             </TableCell>
