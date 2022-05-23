@@ -3,10 +3,9 @@ import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //Icons
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
+import AddCredits from '../../modals/AddCredits';
 
 //Custom Style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -221,13 +220,7 @@ export default function MerchantAdminMerchantDetails() {
                                                 <TableCell align='center'>{row.city}</TableCell>
                                                 <TableCell align='center'>{`PHP ${row.availableCredits}`}</TableCell>
                                                 <TableCell>
-                                                    <Button
-                                                        variant="contained"
-                                                        startIcon={<AddIcon />}
-                                                        color='success'
-                                                        sx={{ width: 300, borderRadius: 20 }}>
-                                                        Add Credits
-                                                    </Button>
+                                                    <AddCredits/>
                                                 </TableCell>
                                             </TableRow>
                                         ))}

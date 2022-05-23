@@ -89,7 +89,7 @@ const Merchants:FC<any> = () => {
                     <Grid item xs={12} sx={{ mb: 2 }}>
                         <Divider variant="fullWidth" />
                     </Grid>
-                    <Grid item xs={4} style={{ display: "flex", gap: "1rem" }}>
+                    <Grid item xs={4} style={{ display: "flex", gap: "1rem", alignItems: 'center' }}>
                         <Typography>
                             Total Merchants:
                         </Typography>
