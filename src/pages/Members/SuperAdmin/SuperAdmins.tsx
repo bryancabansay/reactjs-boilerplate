@@ -3,10 +3,12 @@ import * as React from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import { Link, useNavigate } from 'react-router-dom';
+import DeactivateMemberAccount from '../../../modals/DeactivateMemberAccount';
 
 //Icons
-import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+
+
 
 //Custom Style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -186,7 +188,7 @@ export default function SuperAdmins() {
                                                         <EditIcon />
                                                     </IconButton>
                                                     <IconButton color='error'>
-                                                        <DoDisturbOnIcon />
+                                                        <DeactivateMemberAccount component={'icon'} />
                                                     </IconButton>
                                                 </React.Fragment>
                                             </TableCell>

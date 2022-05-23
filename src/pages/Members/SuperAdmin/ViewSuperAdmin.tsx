@@ -2,10 +2,11 @@ import { Box, Grid, Typography, Divider, TextField, Button, Icon } from '@mui/ma
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import DeactivateMemberAccount from '../../../modals/DeactivateMemberAccount';
+
 //Icons
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
 import EditIcon from '@mui/icons-material/Edit';
 
 export default function ViewSuperAdmin() {
@@ -40,9 +41,7 @@ export default function ViewSuperAdmin() {
                             </Button>
                         </Grid>
                         <Grid item xs={12} sm={1.5}>
-                            <Button variant="contained" startIcon={<DoDisturbOnIcon />} fullWidth sx={{ mt: 3, bgcolor: '#A72A17', borderRadius: 20 }}>
-                                Deactivate
-                            </Button>
+                            <DeactivateMemberAccount component={'button'} />
                         </Grid>
                         <Grid item xs={12} sm={1}>
                             <Button 

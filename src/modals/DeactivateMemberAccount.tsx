@@ -7,6 +7,9 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Divider, Grid, styled } from '@mui/material';
 
+//ICONS
+import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
+
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
         padding: theme.spacing(2),
@@ -26,24 +29,32 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 
-export default function DeactivateMemberAccount() {
+interface IDeactivateMemberAccount {
+    component: string
+}
+
+
+const DeactivateMemberAccount = (props: IDeactivateMemberAccount) => {
     const [open, setOpen] = React.useState(false);
-    
-    
+
     const handleClickOpen = () => {
         setOpen(true);
     };
-    
+
     const handleClose = () => {
         setOpen(false);
     };
 
     return (
+
         <div>
-            
-            <Button variant="outlined" onClick={handleClickOpen}>
-                Deactivate Member Account
-            </Button> 
+
+            {props.component == 'button' ?
+                <Button variant="contained" onClick={handleClickOpen} startIcon={<DoDisturbOnIcon />} fullWidth sx={{ mt: 3, bgcolor: '#A72A17', borderRadius: 20 }}>
+                    Deactivate
+                </Button> : 
+                <DoDisturbOnIcon onClick={handleClickOpen} />
+            }
 
             <BootstrapDialog
                 open={open}
@@ -92,3 +103,5 @@ export default function DeactivateMemberAccount() {
         </div >
     );
 }
+
+export default DeactivateMemberAccount;
