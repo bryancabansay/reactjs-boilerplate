@@ -8,8 +8,8 @@ import MerchantStaffMenu from './MerchantStaffMenu';
 
 //var role = 'SuperAdmin';
 //var role = 'ComplianceOfficer';
-//var role = 'MerchantAdmin';
-var role = 'MerchantStaff';
+var role = 'MerchantAdmin';
+//var role = 'MerchantStaff';
 
 const Menu = () => {
     if (role === 'SuperAdmin') { 

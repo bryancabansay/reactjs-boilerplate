@@ -7,6 +7,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
+import DeactivateMemberAccount from '../../../modals/DeactivateMemberAccount';
 
 export default function ViewMemberDetails() {
     const navigate = useNavigate();
@@ -34,9 +35,7 @@ export default function ViewMemberDetails() {
                             </Typography>
                         </Grid>
                         <Grid item xs={12} sm={1.5}>
-                            <Button variant="contained" startIcon={<DoDisturbOnIcon />} fullWidth sx={{ mt: 3, bgcolor: '#A72A17', borderRadius: 20 }}>
-                                Deactivate
-                            </Button>
+                            <DeactivateMemberAccount source='ComplianceOfficer' component={'button'} />
                         </Grid>
                         <Grid item xs={12} sm={1}>
                             <Button 

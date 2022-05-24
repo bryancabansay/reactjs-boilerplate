@@ -8,6 +8,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import AddMember from './AddMerchantMember';
+import DeactivateMemberAccount from '../../../modals/DeactivateMemberAccount';
 
 //Custom Style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -31,7 +32,7 @@ function createData(
     branchName: string,
     status: string,
 ) {
-    return { idNumber, username, member, role, merchant, branchName, status};
+    return { idNumber, username, member, role, merchant, branchName, status };
 }
 
 const rows = [
@@ -109,11 +110,11 @@ export default function MerchantMembers() {
                     </Grid>
                     <Grid item xs={7} />
                     <Grid item xs={'auto'}>
-                        <Button variant="contained" 
-                        startIcon={<AddIcon />} 
-                        sx={{ borderRadius: 20, width: 200 }} 
-                        color='success' 
-                        onClick={() => navigate('addMerchantMember')}>
+                        <Button variant="contained"
+                            startIcon={<AddIcon />}
+                            sx={{ borderRadius: 20, width: 200 }}
+                            color='success'
+                            onClick={() => navigate('addMerchantMember')}>
                             Add New Member
                         </Button>
                     </Grid>
@@ -140,7 +141,7 @@ export default function MerchantMembers() {
                                 name="sortBy"
                                 displayEmpty
                                 renderValue={(selected) => {
-                                      return <em>Select</em>;
+                                    return <em>Select</em>;
                                 }}
                             >
                             </Select>
@@ -193,7 +194,7 @@ export default function MerchantMembers() {
                                                         <EditIcon />
                                                     </IconButton>
                                                     <IconButton color='error'>
-                                                        <DoDisturbOnIcon />
+                                                        <DeactivateMemberAccount source='ComplianceOfficer' component={'icon'} />
                                                     </IconButton>
                                                 </React.Fragment>
                                             </TableCell>
