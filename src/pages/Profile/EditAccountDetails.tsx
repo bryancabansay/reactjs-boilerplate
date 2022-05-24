@@ -58,23 +58,23 @@ export default function EditAccountDetails() {
                         </Grid>
 
                         <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
-                        <Typography component={InputLabel} required>
+                            <Typography component={InputLabel} required>
                                 First Name
                             </Typography>
                             <TextField variant="outlined" fullWidth />
                         </Grid>
                         <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
-                        <Typography component={InputLabel}>
+                            <Typography component={InputLabel}>
                                 Middle Name
                             </Typography>
                             <TextField variant="outlined" fullWidth />
 
                         </Grid>
                         <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
-                        <Typography component={InputLabel} required>
+                            <Typography component={InputLabel} required>
                                 Last Name
                             </Typography>
-                            <TextField variant="outlined" fullWidth/>
+                            <TextField variant="outlined" fullWidth />
                         </Grid>
                         <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
                             <Typography component={InputLabel} required>
@@ -102,14 +102,101 @@ export default function EditAccountDetails() {
                             </FormControl>
                         </Grid>
                         <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
-                        <Typography component={InputLabel} required>
+                            <Typography component={InputLabel} required>
                                 Contact Number
                             </Typography>
                             <TextField variant="outlined" fullWidth required />
                         </Grid>
                         <Grid item xs={12} sm={3} mr={4} sx={{ mb: 2 }}>
-                        <Typography component={InputLabel} required>
+                            <Typography component={InputLabel} required>
                                 Email Address
+                            </Typography>
+                            <TextField variant="outlined" fullWidth />
+                        </Grid>
+                        <Grid item xs={12} sm={3} mr={2} sx={{ mb: 2 }}>
+                            <Typography component={InputLabel} required>
+                                House no. / Lot no. / Street name
+                            </Typography>
+                            <TextField variant="outlined" fullWidth />
+                        </Grid>
+                        <Grid item xs={12} sm={2} mr={2} sx={{ mb: 2 }}>
+                            <Typography component={InputLabel} required>
+                                Country
+                            </Typography>
+                            <FormControl fullWidth>
+                                <Select
+                                    id="gender"
+                                    value={gender}
+                                    onChange={handleChangeGender}
+                                    displayEmpty
+                                    renderValue={(selected) => {
+                                        if (selected.length === 0) {
+                                            return <em>Select</em>;
+                                        }
+                                        return selected.join(', ');
+                                    }}
+                                >
+                                    {genders.map(({ gender }) => (
+                                        <MenuItem
+                                            value={gender}
+                                        >{gender}</MenuItem>
+                                    ))}
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12} sm={2} mr={2} sx={{ mb: 2 }}>
+                            <Typography component={InputLabel} required>
+                                State / Province
+                            </Typography>
+                            <FormControl fullWidth>
+                                <Select
+                                    id="gender"
+                                    value={gender}
+                                    onChange={handleChangeGender}
+                                    displayEmpty
+                                    renderValue={(selected) => {
+                                        if (selected.length === 0) {
+                                            return <em>Select</em>;
+                                        }
+                                        return selected.join(', ');
+                                    }}
+                                >
+                                    {genders.map(({ gender }) => (
+                                        <MenuItem
+                                            value={gender}
+                                        >{gender}</MenuItem>
+                                    ))}
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12} sm={2} mr={2} sx={{ mb: 2 }}>
+                            <Typography component={InputLabel} required>
+                                City
+                            </Typography>
+                            <FormControl fullWidth>
+                                <Select
+                                    id="gender"
+                                    value={gender}
+                                    onChange={handleChangeGender}
+                                    displayEmpty
+                                    renderValue={(selected) => {
+                                        if (selected.length === 0) {
+                                            return <em>Select</em>;
+                                        }
+                                        return selected.join(', ');
+                                    }}
+                                >
+                                    {genders.map(({ gender }) => (
+                                        <MenuItem
+                                            value={gender}
+                                        >{gender}</MenuItem>
+                                    ))}
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12} sm={1} sx={{ mb: 2 }}>
+                            <Typography component={InputLabel} required>
+                                ZIP Code
                             </Typography>
                             <TextField variant="outlined" fullWidth />
                         </Grid>

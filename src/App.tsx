@@ -56,6 +56,7 @@ import CashOutPaymentMerchantAdmin from "./pages/CashOutPayments/CashOutPaymentM
 import CashOutPaymentMerchantStaff from "./pages/CashOutPayments/CashOutPaymentMerchantStaff";
 import COTransactionHistory from "./pages/Transaction History/COTransactionHistory";
 import MerchantAdminMerchantDetails from "./pages/Merchants/MerchantAdminMerchantDetails";
+import AddComplianceOfficer from "./pages/Members/ComplianceOfficer/AddComplianceOfficer";
 
 
 const App = () => {
@@ -105,6 +106,7 @@ const App = () => {
           </Route>
           <Route path='complianceOfficers' element={<IndexComplianceOfficer/>}>
             <Route index element={<ComplianceOfficers/>}/>
+            <Route path='addComplianceOfficer' element={<AddComplianceOfficer/>}/>
             <Route path='updateComplianceOfficer' element={<UpdateComplianceOfficer/>}/>
             <Route path='viewComplianceOfficer' element={<ViewComplianceOfficer/>}/>
           </Route>

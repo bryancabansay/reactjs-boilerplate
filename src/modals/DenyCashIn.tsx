@@ -54,7 +54,7 @@ export default function DenyCashIn() {
                 }}
             >
                 <DialogTitle id="modal-title">
-                    Approve Cash In Request
+                    Deny Cash In Request
                 </DialogTitle>
                 <Divider variant="middle" />
                 <DialogContent>

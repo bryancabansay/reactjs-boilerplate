@@ -3,7 +3,6 @@ import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //Icons
-import AddIcon from '@mui/icons-material/Add';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import AddCredits from '../../modals/AddCredits';
 

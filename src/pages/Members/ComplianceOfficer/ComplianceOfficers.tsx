@@ -105,7 +105,7 @@ export default function ComplianceOfficers() {
                         startIcon={<AddIcon />} 
                         sx={{ borderRadius: 20, width: 280 }} 
                         color='success' 
-                        onClick={() => navigate('addSuperAdmin')}>
+                        onClick={() => navigate('addComplianceOfficer')}>
                             Add New Compliance Officer
                         </Button>
                     </Grid>
