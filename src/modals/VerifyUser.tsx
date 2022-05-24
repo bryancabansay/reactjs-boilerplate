@@ -8,7 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { Divider, Grid, styled } from '@mui/material';
 
 //ICON
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -31,19 +31,21 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 
 export default function VerifyUser() {
     const [open, setOpen] = React.useState(false);
-    
-    
+
+
     const handleClickOpen = () => {
         setOpen(true);
     };
-    
+
     const handleClose = () => {
         setOpen(false);
     };
 
     return (
         <div>
-            <CheckBoxIcon color='success' onClick={handleClickOpen}/>
+            <Button variant="contained" startIcon={<CheckCircleIcon />} onClick={handleClickOpen} fullWidth color='success' sx={{ mt: 3, borderRadius: 20 }}>
+                Verify
+            </Button>
 
             <BootstrapDialog
                 open={open}

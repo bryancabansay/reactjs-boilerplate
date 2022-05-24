@@ -8,6 +8,8 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import DoNotDisturbOnIcon from '@mui/icons-material/DoNotDisturbOn';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import VerifyUser from '../../../modals/VerifyUser';
+import DeclineUser from '../../../modals/DeclineUser';
 
 export default function UserDetails() {
     const navigate = useNavigate();
@@ -35,14 +37,10 @@ export default function UserDetails() {
                             </Typography>
                         </Grid>
                         <Grid item xs={12} sm={1.2}>
-                            <Button variant="contained" startIcon={<CheckCircleIcon />} fullWidth color='success' sx={{ mt: 3, borderRadius: 20 }}>
-                                Verify
-                            </Button>
+                            <VerifyUser />
                         </Grid>
                         <Grid item xs={12} sm={1.2}>
-                            <Button variant="contained" startIcon={<DoNotDisturbOnIcon />} fullWidth sx={{ mt: 3, bgcolor: '#A72A17', borderRadius: 20 }}>
-                                Decline
-                            </Button>
+                            <DeclineUser />
                         </Grid>
                         <Grid item xs={12} sm={1}>
                             <Button 

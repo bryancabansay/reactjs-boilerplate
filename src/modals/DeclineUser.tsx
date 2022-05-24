@@ -5,9 +5,10 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Divider, Grid, styled } from '@mui/material';
-import { FC } from 'react';
-import Merchants from '../pages/Merchants/Merchants';
+import { Divider, Grid, styled, TextField } from '@mui/material';
+
+//ICONS
+import DoNotDisturbOnIcon from '@mui/icons-material/DoNotDisturbOn';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -27,25 +28,25 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 
 }));
 
-interface DeleteMerchantProps {
-    action: boolean;
-}
 
-
-const DeleteMerchant:FC<DeleteMerchantProps> = (props) => {
+export default function DeclineUser() {
     const [open, setOpen] = React.useState(false);
-    
-    if (props.action == true) {
-        setOpen(true);        
-        console.log("Action passed in DELETE MODAL Merchant");
-    }
-    
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
     const handleClose = () => {
         setOpen(false);
     };
 
     return (
         <div>
+
+            <Button variant="contained" onClick={handleClickOpen} startIcon={<DoNotDisturbOnIcon />} fullWidth sx={{ mt: 3, bgcolor: '#A72A17', borderRadius: 20 }}>
+                Decline
+            </Button>
+
             <BootstrapDialog
                 open={open}
                 onClose={handleClose}
@@ -54,13 +55,19 @@ const DeleteMerchant:FC<DeleteMerchantProps> = (props) => {
                 }}
             >
                 <DialogTitle id="modal-title">
-                    Delete Merchant
+                    Decline Verification
                 </DialogTitle>
                 <Divider variant="middle" />
-                <DialogContent>
+                <DialogContent sx={{textAlign: 'center'}}>
                     <DialogContentText id="modal-description" >
-                        Do you wish to delete this merchant?
+                        Please state your reason below.
                     </DialogContentText>
+                    <TextField
+                        fullWidth
+                        multiline
+                        rows={3}
+                        variant="outlined"
+                    />
                 </DialogContent>
                 <DialogActions>
                     <Grid container spacing={1}>
@@ -74,7 +81,7 @@ const DeleteMerchant:FC<DeleteMerchantProps> = (props) => {
                                 onClick={handleClose}
                                 sx={{ borderRadius: 20 }}
                             >
-                                Delete
+                                Verify
                             </Button>
                         </Grid>
                         <Grid item xs={12}>
@@ -93,5 +100,3 @@ const DeleteMerchant:FC<DeleteMerchantProps> = (props) => {
         </div >
     );
 }
-
-export default DeleteMerchant;

@@ -1,4 +1,4 @@
-import { Table, TableHead, TableRow, TableCell, TableBody, Box, Grid, Typography, Divider, FormLabel, TextField, Button, Collapse, List, ListItemButton, ListItemIcon, ListItemText, Accordion, AccordionDetails, AccordionSummary, Stack, AccordionActions, Paper, TableContainer, tableCellClasses, styled, FormControl, MenuItem, Select, IconButton } from '@mui/material';
+import { Table, TableHead, TableRow, TableCell, TableBody, Box, Grid, Typography, Divider, TextField, Button, Paper, TableContainer, tableCellClasses, styled, IconButton } from '@mui/material';
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +8,6 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import { FC, useState } from 'react';
-import DeleteMerchant from '../../modals/DeleteMerchant';
 
 //Custom Style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({

@@ -1,10 +1,10 @@
-import { Box, Grid, Typography, Divider, TextField, Button, Icon, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import { Box, Grid, Typography, Divider, TextField, Button, Icon, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, FormControlLabel } from '@mui/material';
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
 //Icons
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Checkbox from '@mui/material/Checkbox';
 
 //Combobox Data
 import { branches, genders, roles, merchants } from '../../../data/ComboBoxData';
@@ -82,11 +82,11 @@ export default function AddMember() {
                             </Typography>
                         </Grid>
                         <Grid item xs={12} sm={1}>
-                            <Button 
-                            variant="contained" 
-                            startIcon={<ArrowBackIcon />} 
-                            sx={{ mt: 3, width: 120, bgcolor: '#A72A17', borderRadius: 20 }}
-                            onClick={() => navigate(-1)}>
+                            <Button
+                                variant="contained"
+                                startIcon={<ArrowBackIcon />}
+                                sx={{ mt: 3, width: 120, bgcolor: '#A72A17', borderRadius: 20 }}
+                                onClick={() => navigate(-1)}>
                                 Back
                             </Button>
                         </Grid>
@@ -184,7 +184,7 @@ export default function AddMember() {
                             <Typography component={InputLabel}>
                                 Middle Name
                             </Typography>
-                            <TextField  variant="outlined" fullWidth />
+                            <TextField variant="outlined" fullWidth />
                         </Grid>
                         <Grid item xs={12} sm={3.5} mr={5} sx={{ mb: 2 }}>
                             <Typography component={InputLabel} required>
@@ -271,13 +271,13 @@ export default function AddMember() {
                                 >
                                 </Select>
                             </FormControl>
-                        </Grid>  
+                        </Grid>
                         <Grid item xs={12} sm={1} sx={{ mb: 2 }}>
                             <Typography component={InputLabel} required>
                                 Zip Code
                             </Typography>
                             <TextField variant="outlined" fullWidth required />
-                        </Grid>                        
+                        </Grid>
 
 
                         <Grid item xs={12} />
@@ -303,10 +303,15 @@ export default function AddMember() {
                             <TextField variant="outlined" fullWidth required />
                         </Grid>
 
-                        <Grid item xs={12}/>
-                        <Grid item xs={12}/>
+                        <Grid item xs={12} />
                         <Grid item xs={12}>
-                            <Button variant="contained" size='large' sx={{ mt: 10, width: 350, bgcolor: '#A72A17', borderRadius: 20 }}>
+                            <FormControlLabel
+                                control={<Checkbox value="allowExtraEmails" color="primary" />}
+                                label="I agree to the terms and conditions."
+                            />
+                        </Grid>                        
+                        <Grid item xs={12}>
+                            <Button variant="contained" size='large' sx={{width: 350, bgcolor: '#A72A17', borderRadius: 20 }}>
                                 Submit
                             </Button>
                         </Grid>
