@@ -157,7 +157,6 @@ export default function CashOut() {
                                         <StyledTableCell align='center'>Type</StyledTableCell>
                                         <StyledTableCell align='center'>Member</StyledTableCell>
                                         <StyledTableCell align='center'>Amount</StyledTableCell>
-                                        <StyledTableCell align='center'>Actions</StyledTableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -172,14 +171,7 @@ export default function CashOut() {
                                             <TableCell align='center'>{row.referenceNumber}</TableCell>
                                             <TableCell align='center'>{row.type}</TableCell>
                                             <TableCell align='center'>{row.member}</TableCell>
-                                            <TableCell align='center'>{`PHP ${row.amount}`}</TableCell>
-                                            <TableCell align='center'>
-                                                <React.Fragment>
-                                                    <IconButton>
-                                                        <VisibilityIcon />
-                                                    </IconButton>
-                                                </React.Fragment>
-                                            </TableCell>
+                                            <TableCell align='center'>{`PHP ${row.amount}`}</TableCell>                                           
                                         </TableRow>
                                     ))}
                                 </TableBody>

@@ -9,7 +9,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 export default function AddMerchant() {
     const navigate = useNavigate();
 
-    {/*Combo box GENDER*/ }
+    {/*Combo box Industry Type*/ }
     const [industryType, setindustryType] = React.useState<string[]>([]);
     const handleChangeGender = (event: SelectChangeEvent<typeof industryType>) => {
         const {
